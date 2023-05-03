@@ -1,0 +1,105 @@
+#Compiles all vhdl files in the folder
+vcom -93 -work work {C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab6/seven_seg_pkg.vhd}
+vcom -93 -work work {C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab6/serial_uart_rtl.vhd}
+vcom -93 -work work {C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab6/bcd_decode_rom_rtl.vhd}
+vcom -93 -work work {C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab6/top_level.vhd}
+
+restart -f
+
+# Set the clock frequency
+force clock_50 0 0, 1 10 ns -r 20 ns
+force sw0 0
+
+force key_n 0
+force uart_rxd 1
+run 100 ns
+
+force key_n 1
+run 100 ns
+
+# One bit is 8681 ns
+# start bit
+force uart_rxd 0
+run 8681 ns
+
+# LSB
+force uart_rxd 1
+run 8681 ns
+
+force uart_rxd 0
+run 8681 ns
+
+force uart_rxd 0
+run 8681 ns
+
+force uart_rxd 0
+run 8681 ns
+
+force uart_rxd 1
+run 8681 ns
+
+force uart_rxd 1
+run 8681 ns
+
+force uart_rxd 1
+run 8681 ns
+
+# MSB
+force uart_rxd 1
+run 8681 ns
+
+# STOP bit
+force uart_rxd 1
+run 8681 ns
+
+run 1 ms
+
+force sw0 1
+run 1 ms
+
+force sw0 0
+run 1 ms
+
+force key_n 0
+force uart_rxd 1
+run 100 ns
+
+force key_n 1
+run 100 ns
+
+# One bit is 8681 ns
+# start bit
+force uart_rxd 0
+run 8681 ns
+
+# LSB
+force uart_rxd 1
+run 8681 ns
+
+force uart_rxd 1
+run 8681 ns
+
+force uart_rxd 0
+run 8681 ns
+
+force uart_rxd 0
+run 8681 ns
+
+force uart_rxd 0
+run 8681 ns
+
+force uart_rxd 0
+run 8681 ns
+
+force uart_rxd 0
+run 8681 ns
+
+# MSB
+force uart_rxd 0
+run 8681 ns
+
+# STOP bit
+force uart_rxd 1
+run 8681 ns
+
+run 1 ms
