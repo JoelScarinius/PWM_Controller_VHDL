@@ -1,8 +1,4 @@
 #Compiles all vhdl files in the folder
-vcom -93 -work work {C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab6/seven_seg_pkg.vhd}
-vcom -93 -work work {C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab6/serial_uart_rtl.vhd}
-vcom -93 -work work {C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab6/bcd_decode_rom_rtl.vhd}
-vcom -93 -work work {C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab6/top_level.vhd}
 
 restart -f
 
