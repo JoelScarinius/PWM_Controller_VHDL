@@ -2,14 +2,14 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity ent is
+entity key_ctrl is
     port (
-        clk      : in std_logic;
-        reset_n  : in std_logic;
+        clk   : in std_logic;
+        reset : in std_logic;   -- active high reset
     );
-end ent;
+end key_ctrl;
 
-architecture rtl of ent is
+architecture rtl of key_ctrl is
 
     constant 10ms : integer := 500000; -- 10ms / 20ns = 500000
 
@@ -59,9 +59,9 @@ begin
     -- No pulses on key_up or key_down shall be generated if both key_n(2) and key_n(3) is pushed
     -- down simultaneously.
 
-    p_key_off : process(clk, reset_n)
+    p_key_off : process(clk, reset)
     begin
-        if reset_n = '0' then
+        if reset = '1' then
             key_off_n <= '0';
         elsif rising_edge(clk) then
             cnt_to_10ms <= cnt_to_10ms + 1; -- Counts clock cycles until 500000 cycles are reached which equeals 10ms 
@@ -76,9 +76,9 @@ begin
         end if;
     end process p_key_off;
 
-    p_key_on : process(clk, reset_n)
+    p_key_on : process(clk, reset)
     begin
-        if reset_n = '0' then
+        if reset = '1' then
             key_on_n <= '0';
         elsif rising_edge(clk) then
             if key_off_n /= '0'then
@@ -95,9 +95,9 @@ begin
         end if;
     end process p_key_on;
 
-    p_key_down : process(clk, reset_n)
+    p_key_down : process(clk, reset)
     begin
-        if reset_n = '0' then
+        if reset = '1' then
             key_down_n <= '0';
         elsif rising_edge(clk) then
             if key_off_n /= '0' or (key_n(2) /= '0' and key_n(3) /= '0') then
@@ -114,9 +114,9 @@ begin
         end if;
     end process p_key_down;
 
-    p_key_up : process(clk, reset_n)
+    p_key_up : process(clk, reset)
     begin
-        if reset_n = '0' then
+        if reset = '1' then
             key_up_n <= '0';
         elsif rising_edge(clk) then
             if key_off_n /= '0' or (key_n(2) /= '0' and key_n(3) /= '0') then
@@ -133,4 +133,4 @@ begin
         end if;
     end process p_key_up;
 
-end architecture;   
+end architecture rtl;   

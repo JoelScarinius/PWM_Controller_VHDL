@@ -16,15 +16,14 @@ use ieee.numeric_std.all;
 -- Reset shall initialize a serial transmission sending 0% duty cycle and display a 0 on the seven
 -- segment display.
 
-entity ent is
+entity dc_disp_ctrl is
     port (
-        clk : in std_logic;
-        rst : in std_logic;
-        sig
+        clk   : in std_logic;
+        reset : in std_logic;   -- active high reset
     );
-end ent;
+end dc_disp_ctrl;
 
-architecture rtl of ent is
+architecture rtl of dc_disp_ctrl is
 
     -- (E)
     signal transmit_valid : std_logic;
@@ -32,4 +31,4 @@ architecture rtl of ent is
 
 begin
 
-end architecture;
+end architecture rtl;

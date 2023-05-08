@@ -13,17 +13,17 @@
 ----=================================================================
 library ieee;
    use ieee.std_logic_1164.all;
-  
+
 entity reset_ctrl is
 generic(
-   g_reset_hold_clk  : in natural range 10 to 1023);
+   g_reset_hold_clk : in natural range 10 to 1023);
 port (
-   clk         : in std_logic;
-   reset_in    : in std_logic;
-   reset_in_n  : in std_logic;
-   
-   reset_out   : out std_logic;
-   reset_out_n : out std_logic);
+   clk              : in std_logic;
+   reset_in         : in std_logic;
+   reset_in_n       : in std_logic;
+
+   reset_out        : out std_logic;
+   reset_out_n      : out std_logic);
 end entity reset_ctrl;
 
 architecture rtl of reset_ctrl is

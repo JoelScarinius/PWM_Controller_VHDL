@@ -31,10 +31,10 @@ architecture rtl of top_level is
     signal received_data_valid : std_logic;
 
     -- (C)
-    signal serial_on_n   : std_logic;
-    signal serial_off_n  : std_logic;
-    signal serial_up_n   : std_logic;
-    signal serial_down_n : std_logic;
+    signal serial_on   : std_logic;
+    signal serial_off  : std_logic;
+    signal serial_up   : std_logic;
+    signal serial_down : std_logic;
 
     -- (D)
     signal current_dc : std_logic_vector(7 downto 0);
@@ -111,7 +111,19 @@ begin
             transmit_data         => transmit_data
         );
 
-        -- i_serial_ctrl : entity work.serial_ctrl
+        i_serial_ctrl : entity work.serial_ctrl
+        port map (
+            clk                 => clock_50,
+            reset_n             => reset_n_2r,
+
+            received_data       => received_data,
+            received_data_valid => received_data_valid,
+
+            serial_on         => serial_on,
+            serial_off        => serial_off,
+            serial_up         => serial_up,
+            serial_down       => serial_down,
+        );
 
         i_pwm_ctrl : entity work.pwm_ctrl
         port map (
@@ -123,16 +135,13 @@ begin
             key_down_n  => key_down_n_2r,
             key_up_n    => key_up_n_2r,
 
-            serial_on_n   => serial_on_n,
-            serial_off_n  => serial_off_n,
-            serial_up_n   => serial_up_n,
-            serial_down_n => serial_down_n,
+            serial_on   => serial_on,
+            serial_off  => serial_off,
+            serial_up   => serial_up,
+            serial_down => serial_down,
 
             current_dc       => current_dc,
             current_dc_update => current_dc_update,
-
-            transmit_valid => transmit_valid,
-            transmit_data  => transmit_data
         );
 
         -- i_dc_disp_ctrl : entity work.dc_disp_ctrl    
