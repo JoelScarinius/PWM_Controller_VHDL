@@ -66,12 +66,27 @@ architecture rtl of top_level is
 
 begin
 
+    key_off_n  <= key_n(0);
+    key_on_n   <= key_n(1);
+    key_down_n <= key_n(2);
+    key_up_n   <= key_n(3);
     -- reset_n <= key_n;
     ledr <= received_error;
     -- ledg <= --pwn control;
     -- hex0_n    <= --dc_disp control;
     -- hex1_n    <= --dc_disp control;
     -- hex2_n    <= --dc_disp control;
+
+    i_key_ctrl : entity work.key_ctrl
+        port map (
+            clk         => clock_50,
+            reset_n     => reset_n_2r,
+
+            key_off_n   => key_off_n,
+            key_on_n    => key_on_n,
+            key_down_n  => key_down_n
+            key_up_n    => key_up_n,
+        );
 
     i_serial_uart : entity work.serial_uart
         generic map (
@@ -82,7 +97,7 @@ begin
         )
         port map (
             clk                   => clock_50,
-            reset                 => reset_n_2r,
+            reset_n               => reset_n_2r,
             rx                    => fpga_in_rx,
             tx                    => fpga_out_tx,
 
@@ -98,7 +113,27 @@ begin
 
         -- i_serial_ctrl : entity work.serial_ctrl
 
-        -- i_pwm_ctrl : entity work.pwm_ctrl
+        i_pwm_ctrl : entity work.pwm_ctrl
+        port map (
+            clk         => clock_50,
+            reset_n     => reset_n_2r,
+
+            key_off_n   => key_off_n_2r,
+            key_on_n    => key_on_n_2r,
+            key_down_n  => key_down_n_2r,
+            key_up_n    => key_up_n_2r,
+
+            serial_on_n   => serial_on_n,
+            serial_off_n  => serial_off_n,
+            serial_up_n   => serial_up_n,
+            serial_down_n => serial_down_n,
+
+            current_dc       => current_dc,
+            current_dc_update => current_dc_update,
+
+            transmit_valid => transmit_valid,
+            transmit_data  => transmit_data
+        );
 
         -- i_dc_disp_ctrl : entity work.dc_disp_ctrl    
     i_altera_pll_cyclone2 : entity work.i_altera_pll_cyclone2
