@@ -14,6 +14,14 @@ entity serial_ctrl is
     port (
         clk   : in std_logic;
         reset : in std_logic;   -- active high reset
+
+        received_data_valid : in std_logic;
+        received_data       : in std_logic_vector(7 downto 0);
+
+        serial_off  : out std_logic;
+        serial_on   : out std_logic;
+        serial_down : out std_logic;
+        serial_up   : out std_logic
     );
 end serial_ctrl;
 
@@ -26,37 +34,48 @@ architecture rtl of serial_ctrl is
         -- "00110001", -- 1 = 1
         -- "00110000"  -- 0 = 0
 
-    signal serial_off  : std_logic;
-    signal serial_on   : std_logic;
-    signal serial_down : std_logic;
-    signal serial_up   : std_logic;
+    signal serial_off_out  : std_logic;
+    signal serial_on_out   : std_logic;
+    signal serial_down_out : std_logic;
+    signal serial_up_out   : std_logic;
+
+    signal received_data_valid_in : std_logic;
+    signal received_data_in    : std_logic_vector(7 downto 0);
 
     begin
+
+    serial_off             <= serial_off_out;
+    serial_on              <= serial_on_out;
+    serial_down            <= serial_down_out;
+    serial_up              <= serial_up_out;
+    received_data_valid_in <= received_data_valid;
+    received_data_in       <= received_data;
+
     p_serial_ctrl : process (clk, reset)
         variable ascii_char_as_decimal : natural range 0 to 255;
     begin
         if reset = '1' then
-            serial_off  <= '0';
-            serial_on   <= '0';
-            serial_down <= '0';
-            serial_up   <= '0';
+            serial_off_out  <= '0';
+            serial_on_out   <= '0';
+            serial_down_out <= '0';
+            serial_up_out   <= '0';
         elsif rising_edge(clk) then
-            if received_data_valid = '1' then
-                if serial_up = '1' or serial_down = '1' then
-                    serial_off <= '0';
-                    serial_on  <= '0';
+            if received_data_valid_in = '1' then
+                if serial_up_out = '1' or serial_down_out = '1' then
+                    serial_off_out <= '0';
+                    serial_on_out  <= '0';
                 end if;
-                ascii_char_as_decimal := to_integer(unsigned(recieved_data));
+                ascii_char_as_decimal := to_integer(unsigned(received_data_in));
 
                 case ascii_char_as_decimal is
                     when 0 =>
-                        serial_off <= '1';
+                        serial_off_out <= '1';
                     when 1 =>
-                        serial_on <= '1';
-                    when 68 or 100 =>
-                        serial_down <= '1';
-                    when 85 or 117 =>
-                        serial_up <= '1';
+                        serial_on_out <= '1';
+                    when 68 | 100 =>
+                        serial_down_out <= '1';
+                    when 85 | 117 =>
+                        serial_up_out <= '1';
                     when others =>
                         -- no action
                 end case;
