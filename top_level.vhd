@@ -71,10 +71,17 @@ architecture rtl of PWM_Controller is
     signal clk_50     : std_logic;
     signal pll_locked : std_logic;
 
+    signal hex_0_n_out : std_logic_vector(6 downto 0);
+    signal hex_1_n_out : std_logic_vector(6 downto 0);
+    signal hex_2_n_out : std_logic_vector(6 downto 0);
+
 begin
 
     ledr(9 downto 1)     <= (others => '0');
     ledg(7 downto 1)     <= (others => '0');
+    hex0_n               <= hex_0_n_out;
+    hex1_n               <= hex_1_n_out;
+    hex2_n               <= hex_2_n_out;
     ledg(0)              <= led;
     ledr(0)              <= received_error;
     key_off_n            <= key_n(0);
@@ -118,23 +125,81 @@ begin
         end process p_internal_reset;
     end generate;
 
-    
-    -- ledg <= --pwn control;
-    -- hex0_n    <= --dc_disp control;
-    -- hex1_n    <= --dc_disp control;
-    -- hex2_n    <= --dc_disp control;
-
     i_key_ctrl : entity work.key_ctrl
     port map (
-        clk      => clock_50,
-        reset    => reset_2r,
+        clk        => clock_50,
+        reset      => reset_2r,
 
-        key_n(0) => key_n(0),
-        key_n(1) => key_n(1),
-        key_n(2) => key_n(2),
-        key_n(3) => key_n(3)
+        key_off_n  => key_off_n,
+        key_on_n   => key_on_n,
+        key_down_n => key_down_n,
+        key_up_n   => key_up_n,
+
+        key_n(0)   => key_n(0),
+        key_n(1)   => key_n(1),
+        key_n(2)   => key_n(2),
+        key_n(3)   => key_n(3)
     );
 
+    i_pwm_ctrl : entity work.pwm_ctrl
+    port map (
+        clk               => clock_50,
+        reset             => reset_2r,
+
+        key_off_n         => key_off_n,
+        key_on_n          => key_on_n,
+        key_down_n        => key_down_n,
+        key_up_n          => key_up_n,
+
+        serial_off        => serial_off,
+        serial_on         => serial_on,
+        serial_down       => serial_down,
+        serial_up         => serial_up,
+
+        current_dc        => current_dc,
+        current_dc_update => current_dc_update,
+        
+        ledg              => led
+    );
+
+    i_dc_disp_ctrl : entity work.dc_disp_ctrl
+    port map (
+        clk                 => clock_50,
+        reset               => reset_2r,
+
+        current_dc          => current_dc,
+        current_dc_update   => current_dc_update,
+
+        transmit_ready      => transmit_ready,
+        transmit_data       => transmit_data,
+        transmit_data_valid => transmit_data_valid,
+
+        bcd_0               => bcd_0,                  
+        bcd_1               => bcd_1,                 
+        bcd_2               => bcd_2,        
+        valid_out           => valid_out,
+
+        hex0_n              => hex_0_n_out,
+        hex1_n              => hex_1_n_out,
+        hex2_n              => hex_2_n_out
+    );
+
+    i_bcd_decode_rom : entity work.bcd_decode_rom
+    port map (
+        -- clock and reset
+        clk          => clock_50,
+        reset        => reset_2r,
+        -- input data interface
+        input_vector => input_vector,
+        valid_in     => valid_in,
+        ready        => open,
+        -- output result      
+        bcd_0        => bcd_0,                  
+        bcd_1        => bcd_1,                 
+        bcd_2        => bcd_2,        
+        valid_out    => valid_out        
+    );
+    
     i_serial_uart : entity work.serial_uart
     generic map (
         g_reset_active_state  => '1',
@@ -170,61 +235,6 @@ begin
         serial_on           => serial_on,
         serial_down         => serial_down,
         serial_up           => serial_up
-    );
-
-    i_pwm_ctrl : entity work.pwm_ctrl
-    port map (
-        clk               => clock_50,
-        reset             => reset_2r,
-
-        key_n(0)          => key_n(0),
-        key_n(1)          => key_n(1),
-        key_n(2)          => key_n(2),
-        key_n(3)          => key_n(3),
-
-        serial_off        => serial_off,
-        serial_on         => serial_on,
-        serial_down       => serial_down,
-        serial_up         => serial_up,
-
-        current_dc        => current_dc,
-        current_dc_update => current_dc_update,
-        
-        led               => led
-
-    );
-
-    i_bcd_decode_rom : entity work.bcd_decode_rom
-    port map (
-        -- clock and reset
-        clk          => clock_50,
-        reset        => reset_2r,
-        -- input data interface
-        input_vector => input_vector,
-        valid_in     => valid_in,
-        ready        => open,
-        -- output result      
-        bcd_0        => bcd_0,                  
-        bcd_1        => bcd_1,                 
-        bcd_2        => bcd_2,        
-        valid_out    => valid_out        
-    );
-
-    i_dc_disp_ctrl : entity work.dc_disp_ctrl
-    port map (
-        clk               => clock_50,
-        reset             => reset_2r,
-
-        current_dc        => current_dc,
-        current_dc_update => current_dc_update,
-
-        transmit_ready    => transmit_ready,
-
-        bcd_0             => bcd_0,                  
-        bcd_1             => bcd_1,                 
-        bcd_2             => bcd_2,        
-        valid_out         => valid_out
-
     );
 
     -- i_altera_pll : entity work.altera_pll

@@ -12,16 +12,16 @@ use ieee.numeric_std.all;
 
 entity serial_ctrl is
     port (
-        clk   : in std_logic;
-        reset : in std_logic;   -- active high reset
+        clk                 : in std_logic;
+        reset               : in std_logic;   -- active high reset
 
         received_data_valid : in std_logic;
         received_data       : in std_logic_vector(7 downto 0);
 
-        serial_off  : out std_logic;
-        serial_on   : out std_logic;
-        serial_down : out std_logic;
-        serial_up   : out std_logic
+        serial_off          : out std_logic;
+        serial_on           : out std_logic;
+        serial_down         : out std_logic;
+        serial_up           : out std_logic
     );
 end serial_ctrl;
 
@@ -34,13 +34,13 @@ architecture rtl of serial_ctrl is
         -- "00110001", -- 1 = 1
         -- "00110000"  -- 0 = 0
 
-    signal serial_off_out  : std_logic;
-    signal serial_on_out   : std_logic;
-    signal serial_down_out : std_logic;
-    signal serial_up_out   : std_logic;
+    signal serial_off_out         : std_logic;
+    signal serial_on_out          : std_logic;
+    signal serial_down_out        : std_logic;
+    signal serial_up_out          : std_logic;
 
     signal received_data_valid_in : std_logic;
-    signal received_data_in    : std_logic_vector(7 downto 0);
+    signal received_data_in       : std_logic_vector(7 downto 0);
 
     begin
 
@@ -69,13 +69,13 @@ architecture rtl of serial_ctrl is
 
                 case ascii_char_as_decimal is
                     when 0 =>
-                        serial_off_out <= '1';
+                        serial_off_out  <= '1';
                     when 1 =>
-                        serial_on_out <= '1';
+                        serial_on_out   <= '1';
                     when 68 | 100 =>
                         serial_down_out <= '1';
                     when 85 | 117 =>
-                        serial_up_out <= '1';
+                        serial_up_out   <= '1';
                     when others =>
                         -- no action
                 end case;

@@ -6,17 +6,21 @@ entity pwm_ctrl is
     port (
         clk               : in std_logic;
         reset             : in  std_logic;   -- active high reset
-        key_n             : in std_logic_vector(3 downto 0);
 
         serial_off        : in std_logic;
         serial_on         : in std_logic;
         serial_down       : in std_logic;
         serial_up         : in std_logic;
 
+        key_off_n         : in std_logic;
+        key_on_n          : in std_logic;
+        key_down_n        : in std_logic;
+        key_up_n          : in std_logic;
+
         current_dc        : out std_logic_vector(7 downto 0);
         current_dc_update : out std_logic;
 
-        led               : out std_logic
+        ledg              : out std_logic
     );
 end pwm_ctrl;
 
@@ -26,56 +30,55 @@ architecture rtl of pwm_ctrl is
 
     constant one_ms          : integer := 50000; -- one_ms / 20ns = 50,000 clock cycles equals 1000hz
     constant hundred_procent : unsigned(7 downto 0) := "01100100"; -- 100%
-    constant ten_procent     : unsigned(7 downto 0) := "00001010";  -- 10%
-    constant one_procent     : unsigned(6 downto 0) := "0000001";   -- 1%
-    constant zero_procent    : unsigned(7 downto 0) := "00000000";   -- 0%
+    constant ten_procent     : unsigned(7 downto 0) := "00001010"; -- 10%
+    constant one_procent     : unsigned(6 downto 0) := "0000001"; -- 1%
+    constant zero_procent    : unsigned(7 downto 0) := "00000000"; -- 0%
+    constant dc_cnt_max      : integer := 50000; -- 100%
 
-    signal key_off_n         : std_logic;
-    signal key_on_n          : std_logic; 
-    signal key_down_n        : std_logic;
-    signal key_up_n          : std_logic;
+    signal new_dc            : unsigned(7 downto 0); -- 0-100%
+    signal update_dc         : std_logic; 
+    signal dc_cnt            : integer range 0 to dc_cnt_max; 
+    signal update_dc_now     : std_logic;
 
-    -- signal serial_off        : std_logic;
-    -- signal serial_on         : std_logic;
-    -- signal serial_down       : std_logic; 
-    -- signal serial_up         : std_logic;
+    signal pwm_state         : t_pwm_states;
+    signal one_ms_cnt        : integer range 0 to one_ms;
 
-    signal new_dc                : unsigned(7 downto 0);
-    signal update_dc             : std_logic;
-    signal current_dc_in_decimal : integer range 0 to 100;
-
-    signal pwm_state             : t_pwm_states;
-    signal one_ms_counter        : integer range 0 to one_ms;
+    signal led               : std_logic;
 
 begin
-    -- !! Vet inte helt hur jag ska lösa så key knapparna har prioritet på ett snyggt sätt.
-    -- !! vet inte hur jag ska göra detta...
-    -- led <= current_dc_in_decimal;
-
-    key_off_n   <= key_n(0);
-    key_on_n    <= key_n(1);
-    key_down_n  <= key_n(2);
-    key_up_n    <= key_n(3);
+    ledg <= led; --ms counter mindre än dc cnt så led = 1 annars 0
 
     current_dc <= std_logic_vector(new_dc);
-    current_dc_update <= update_dc;
+    current_dc_update <= update_dc_now;
 
     p_pwm_state_machine : process(clk, reset)
     begin
-        -- current_dc_in_decimal <= to_integer(unsigned(current_dc));
 
         if reset = '1' then
             pwm_state <= s_on;
-            one_ms_counter <= 0;
-            -- 100% duty cycle
+            one_ms_cnt <= 0; -- 1ms counter
             new_dc <= hundred_procent;
             -- The output PWM duty cycle shall be off (0% after reset).
             update_dc <= '0';
+            update_dc_now <= '0';
+            dc_cnt <= 0;
 
         elsif rising_edge(clk) then
-            one_ms_counter <= one_ms_counter + 1;
-            if one_ms_counter = one_ms then
-                update_dc <= '1';
+
+            if one_ms_cnt < dc_cnt then -- Linjär ökning på 1ms medan dc förändras olinjärt.
+                led <= '1';
+            else
+                led <= '0';
+            end if;
+
+            one_ms_cnt <= one_ms_cnt + 1;
+            if one_ms_cnt = one_ms then -- !!har det skett någon förändring?? 
+                one_ms_cnt <= 0;
+                update_dc_now <= '0';
+                if update_dc = '1' then
+                    update_dc_now <= '1';
+                    update_dc <= '0';
+                end if;
             end if;
 
             case pwm_state is
@@ -86,13 +89,16 @@ begin
                     elsif key_up_n = '0' or serial_up = '1' then
                         pwm_state <= s_up;
                         new_dc <= ten_procent;
+                        update_dc <= '1';
                     end if;
 
                 when s_on =>
                     if new_dc = zero_procent then
                         new_dc <= ten_procent;
+                        update_dc <= '1';
                     else
                         new_dc <= new_dc;
+                        update_dc <= '1';
                     end if;
 
                     if key_off_n = '0' or serial_off = '1' then
@@ -110,6 +116,8 @@ begin
                     -- duty cycle shall be set to 10% if current pwm_state is off pwm_state and up command is received.
                     if new_dc < hundred_procent then
                         new_dc <=('0' & one_procent) + new_dc;
+                        update_dc <= '1';
+                        dc_cnt <= dc_cnt + 500;
                     end if;
 
                     if key_off_n = '0' or serial_off = '1' then
@@ -127,6 +135,8 @@ begin
                     --  This input shall be ignored if PWM output is in off pwm_state (at 0%).
                     if new_dc > ten_procent then
                         new_dc <=('0' & one_procent) - new_dc;
+                        update_dc <= '1';
+                        dc_cnt <= dc_cnt - 500;
                     end if;
 
                     if key_off_n = '0' or serial_off = '1' then
