@@ -116,3 +116,9 @@ vcom -reportprogress 300 -work work C:/Users/Joel-/Desktop/Civ_Data/Digital_Elec
 # ** Error: C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_top.vhd(561): (vcom-1484) Unknown formal identifier "transmit_valid".
 # 
 # ** Error: C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_top.vhd(813): VHDL Compiler exiting
+vsim work.testbench_top
+# vsim work.testbench_top 
+# Loading std.standard
+# ** Error: (vsim-3173) Entity 'C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/simulation/modelsim/rtl_work.testbench_top' has no architecture.
+# 
+# Error loading design
