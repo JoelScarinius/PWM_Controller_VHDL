@@ -60,7 +60,7 @@ begin
             new_dc <= hundred_procent;
             -- The output PWM duty cycle shall be off (0% after reset).
             update_dc <= '0';
-            update_dc_now <= '0';
+            update_dc_now <= '1';
             dc_cnt <= 0;
 
         elsif rising_edge(clk) then
@@ -72,7 +72,7 @@ begin
             end if;
 
             one_ms_cnt <= one_ms_cnt + 1;
-            if one_ms_cnt = one_ms then -- !!har det skett någon förändring?? 
+            if one_ms_cnt < one_ms then -- !!har det skett någon förändring?? 
                 one_ms_cnt <= 0;
                 update_dc_now <= '0';
                 if update_dc = '1' then
@@ -117,7 +117,9 @@ begin
                     if new_dc < hundred_procent then
                         new_dc <=('0' & one_procent) + new_dc;
                         update_dc <= '1';
-                        dc_cnt <= dc_cnt + 500;
+                        if dc_cnt /= dc_cnt_max then
+                            dc_cnt <= dc_cnt + 500;
+                        end if;
                     end if;
 
                     if key_off_n = '0' or serial_off = '1' then

@@ -25,12 +25,12 @@ entity serial_uart is
       tx                      : out std_logic;
 
       received_data           : out std_logic_vector(7 downto 0); -- Received data
-      received_data_valid     : out std_logic;  -- Set high one clock cycle when byte is received.
+      received_valid          : out std_logic;  -- Set high one clock cycle when byte is received.
       received_error          : out std_logic;  -- Stop bit was not high
       received_parity_error   : out std_logic;  -- Parity error detected
 
       transmit_ready          : out std_logic;  -- Set high when ready for data
-      transmit_data_valid     : in  std_logic;  -- transmit_data is valid
+      transmit_valid     : in  std_logic;  -- transmit_data is valid
       transmit_data           : in  std_logic_vector(7 downto 0));   -- Byte to transmit
 end entity serial_uart;
 
@@ -77,10 +77,6 @@ architecture rtl of serial_uart is
    signal tx_byte_saved          : std_logic_vector(7 downto 0);
    signal tx_parity_bit          : std_logic;
 
-   -- Vet inte om de ska vara här
-   -- (B)
-   --  signal received_data       : std_logic_vector(7 downto 0);
-   --  signal received_data_valid : std_logic;
 begin
 
    -- p_double_sync process
@@ -99,13 +95,13 @@ begin
    -- p_rx_data process
    -- receives data and outputs a received byte
    -- on the received_data output together with a one cycle pulse
-   -- on the received_data_valid output
+   -- on the received_valid output
    p_rx_data : process(clk)
    begin
       if rising_edge(clk) then
 
          -- Default assignments
-         received_data_valid     <= '0';
+         received_valid     <= '0';
          rx_bit_cnt_en           <= '0';
 
          case rx_state is
@@ -167,7 +163,7 @@ begin
                if rx_bit_cnt_wrap = '1' then
                   -- Set error high if rx signal is low on stop bit
                   received_error <= not rx_2r;
-                  received_data_valid <= rx_2r;
+                  received_valid <= rx_2r;
                   rx_state       <= s_idle;
                else
                   rx_bit_cnt_en  <= '1';
@@ -199,7 +195,7 @@ begin
          case tx_state is
             when s_idle =>
                tx_parity_bit  <= '0';
-               if transmit_data_valid = '1' then
+               if transmit_valid = '1' then
                   tx_byte_saved  <= transmit_data;
                   transmit_ready <= '0';
                   tx_state       <= s_start_bit;

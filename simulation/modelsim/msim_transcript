@@ -108,17 +108,144 @@ vcom -reportprogress 300 -work work C:/Users/Joel-/Desktop/Civ_Data/Digital_Elec
 # -- Compiling entity testbench_top
 # -- Compiling architecture bhv of testbench_top
 # -- Loading entity pwm_module
-# ** Error: C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_top.vhd(536): (vcom-1484) Unknown formal identifier "hex3_n".
-# 
 # -- Loading entity serial_uart
-# ** Error: C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_top.vhd(556): (vcom-1484) Unknown formal identifier "received_valid".
-# 
-# ** Error: C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_top.vhd(561): (vcom-1484) Unknown formal identifier "transmit_valid".
-# 
-# ** Error: C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_top.vhd(813): VHDL Compiler exiting
 vsim work.testbench_top
 # vsim work.testbench_top 
 # Loading std.standard
-# ** Error: (vsim-3173) Entity 'C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/simulation/modelsim/rtl_work.testbench_top' has no architecture.
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.testbench_pkg(body)
+# Loading work.testbench_top(bhv)
+# Loading work.pwm_module(rtl)
+# Loading work.key_ctrl(rtl)
+# Loading work.pwm_ctrl(rtl)
+# Loading work.dc_disp_ctrl(rtl)
+# Loading work.bcd_decode_rom(rtl)
+# Loading work.serial_uart(rtl)
+# Loading work.serial_ctrl(rtl)
+add wave -position end  sim:/testbench_top/clock_50
+add wave -position end  sim:/testbench_top/reset_n
+add wave -position end  sim:/testbench_top/kill_clock
+add wave -position end  sim:/testbench_top/serial_received_data
+add wave -position end  sim:/testbench_top/serial_received_valid
+add wave -position end  sim:/testbench_top/serial_received_error
+add wave -position end  sim:/testbench_top/serial_received_parity_error
+add wave -position end  sim:/testbench_top/serial_transmit_ready
+add wave -position end  sim:/testbench_top/serial_transmit_valid
+add wave -position end  sim:/testbench_top/serial_transmit_data
+add wave -position end  sim:/testbench_top/key_n
+add wave -position end  sim:/testbench_top/fpga_in_rx
+add wave -position end  sim:/testbench_top/fpga_out_tx
+add wave -position end  sim:/testbench_top/ledr
+add wave -position end  sim:/testbench_top/ledg
+add wave -position end  sim:/testbench_top/hex0_n
+add wave -position end  sim:/testbench_top/hex1_n
+add wave -position end  sim:/testbench_top/hex2_n
+add wave -position end  sim:/testbench_top/hex3_n
+add wave -position end  sim:/testbench_top/dut_pwm
+add wave -position end  sim:/testbench_top/dut_pwm_r
+add wave -position end  sim:/testbench_top/detected_dc
+add wave -position end  sim:/testbench_top/detected_freq
+add wave -position end  sim:/testbench_top/hex_dc_valid
+add wave -position end  sim:/testbench_top/hex_dc_detected
+add wave -position end  sim:/testbench_top/uart_recv_state
+add wave -position end  sim:/testbench_top/dc_save
+add wave -position end  sim:/testbench_top/serial_detected_dc
+add wave -position end  sim:/testbench_top/serial_dc_valid
+add wave -position end  sim:/testbench_top/serial_dc_update
+add wave -position end  sim:/testbench_top/serial_dc_error
+add wave -position end  sim:/testbench_top/current_test_case_no
+add wave -position end  sim:/testbench_top/key_on_n
+add wave -position end  sim:/testbench_top/key_off_n
+add wave -position end  sim:/testbench_top/key_up_n
+add wave -position end  sim:/testbench_top/key_down_n
+add wave -position end  sim:/testbench_top/saved_detected_dc
+run -all
+# Simulation starts
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 100 ns  Iteration: 1  Instance: /testbench_top/i_pwm_module/i_pwm_ctrl
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 135 ns  Iteration: 1  Instance: /testbench_top/i_pwm_module/i_pwm_ctrl
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 161 ns  Iteration: 1  Instance: /testbench_top/i_pwm_module/i_pwm_ctrl
+# Test case #0 - Check startup values - expect 0 %
+# ** Fatal: (vsim-3421) Value 50001 for one_ms_cnt is out of range 0 to 50000.
+#    Time: 1000125 ns  Iteration: 1  Process: /testbench_top/i_pwm_module/i_pwm_ctrl/p_pwm_state_machine File: C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ctrl.vhd
+# Fatal error in Process p_pwm_state_machine at C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ctrl.vhd line 74
 # 
-# Error loading design
+# HDL call sequence:
+# Stopped at C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ctrl.vhd 74 Process p_pwm_state_machine
+# 
+vcom -reportprogress 300 -work work C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/key_ctrl.vhd
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity key_ctrl
+# -- Compiling architecture rtl of key_ctrl
+vcom -reportprogress 300 -work work C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ctrl.vhd
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity pwm_ctrl
+# -- Compiling architecture rtl of pwm_ctrl
+restart -f
+# Loading work.key_ctrl(rtl)
+# Loading work.pwm_ctrl(rtl)
+run -all
+# Simulation starts
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 100 ns  Iteration: 1  Instance: /testbench_top/i_pwm_module/i_pwm_ctrl
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 135 ns  Iteration: 1  Instance: /testbench_top/i_pwm_module/i_pwm_ctrl
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 161 ns  Iteration: 1  Instance: /testbench_top/i_pwm_module/i_pwm_ctrl
+# Test case #0 - Check startup values - expect 0 %
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - OK!
+#       7 segment output duty cycle invalid data.
+#    Test case #0 - FAIL.
+# Test case #1 - Key control - ON - expect 100 %
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - Outside tolerance!
+#       7 segment output duty cycle invalid data.
+#    Test case #1 - FAIL.
+# Test case #2 - Key control - OFF - expect 0%
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - OK!
+#       7 segment output duty cycle invalid data.
+#    Test case #2 - FAIL.
+# Test case #3 - Key control - UP - should set Duty Cycle to 10%
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - Outside tolerance!
+#       7 segment output duty cycle invalid data.
+#    Test case #3 - FAIL.
+# Test case #4 - Check 1kHz PWM frequency (+/- 1 Hz)
+#       Detected PWM frequency : 0 Hz
+#    Test case #4 - FAIL.
+# Test case #5 - Key hold control - UP 50 ms to ~15 % Duty cycle
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - Outside tolerance!
+#       7 segment output duty cycle invalid data.
+#    Test case #5 - FAIL.
+# Test case #6 - Key control - DOWN 5 ms to decrease Duty cycle with 1 %
+# ** Fatal: (vsim-3421) Value 50500 for dc_cnt is out of range 0 to 50000.
+#    Time: 78005285 ns  Iteration: 1  Process: /testbench_top/i_pwm_module/i_pwm_ctrl/p_pwm_state_machine File: C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ctrl.vhd
+# Fatal error in Process p_pwm_state_machine at C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ctrl.vhd line 120
+# 
+# HDL call sequence:
+# Stopped at C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ctrl.vhd 120 Process p_pwm_state_machine
+# 
+vcom -reportprogress 300 -work work C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ctrl.vhd
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity pwm_ctrl
+# -- Compiling architecture rtl of pwm_ctrl

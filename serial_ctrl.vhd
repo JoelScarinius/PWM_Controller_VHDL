@@ -15,7 +15,7 @@ entity serial_ctrl is
         clk                 : in std_logic;
         reset               : in std_logic;   -- active high reset
 
-        received_data_valid : in std_logic;
+        received_valid      : in std_logic;
         received_data       : in std_logic_vector(7 downto 0);
 
         serial_off          : out std_logic;
@@ -27,19 +27,12 @@ end serial_ctrl;
 
 architecture rtl of serial_ctrl is
 
-        -- "01110101", -- u = u
-        -- "01100100", -- d = d
-        -- "01010101", -- U = U
-        -- "01000100", -- D = D
-        -- "00110001", -- 1 = 1
-        -- "00110000"  -- 0 = 0
-
     signal serial_off_out         : std_logic;
     signal serial_on_out          : std_logic;
     signal serial_down_out        : std_logic;
     signal serial_up_out          : std_logic;
 
-    signal received_data_valid_in : std_logic;
+    signal received_valid_in      : std_logic;
     signal received_data_in       : std_logic_vector(7 downto 0);
 
     begin
@@ -48,7 +41,7 @@ architecture rtl of serial_ctrl is
     serial_on              <= serial_on_out;
     serial_down            <= serial_down_out;
     serial_up              <= serial_up_out;
-    received_data_valid_in <= received_data_valid;
+    received_valid_in      <= received_valid;
     received_data_in       <= received_data;
 
     p_serial_ctrl : process (clk, reset)
@@ -60,7 +53,7 @@ architecture rtl of serial_ctrl is
             serial_down_out <= '0';
             serial_up_out   <= '0';
         elsif rising_edge(clk) then
-            if received_data_valid_in = '1' then
+            if received_valid_in = '1' then
                 if serial_up_out = '1' or serial_down_out = '1' then
                     serial_off_out <= '0';
                     serial_on_out  <= '0';

@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for pwm_module
-Wed May 10 13:15:50 2023
+Wed May 10 14:31:24 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -98,7 +98,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------+--------+--------------------------+
 ; SDC File Path       ; Status ; Read at                  ;
 +---------------------+--------+--------------------------+
-; sdc_constraints.sdc ; OK     ; Wed May 10 13:15:50 2023 ;
+; sdc_constraints.sdc ; OK     ; Wed May 10 14:31:23 2023 ;
 +---------------------+--------+--------------------------+
 
 
@@ -111,13 +111,13 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------+------+--------+-----------+-------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
 
 
-+--------------------------------------------------+
-; Slow Model Fmax Summary                          ;
-+-----------+-----------------+-------------+------+
-; Fmax      ; Restricted Fmax ; Clock Name  ; Note ;
-+-----------+-----------------+-------------+------+
-; 72.95 MHz ; 72.95 MHz       ; tc_clock_50 ;      ;
-+-----------+-----------------+-------------+------+
++-------------------------------------------------+
+; Slow Model Fmax Summary                         ;
++----------+-----------------+-------------+------+
+; Fmax     ; Restricted Fmax ; Clock Name  ; Note ;
++----------+-----------------+-------------+------+
+; 73.0 MHz ; 73.0 MHz        ; tc_clock_50 ;      ;
++----------+-----------------+-------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -126,7 +126,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------+-------+---------------+
 ; Clock       ; Slack ; End Point TNS ;
 +-------------+-------+---------------+
-; tc_clock_50 ; 6.292 ; 0.000         ;
+; tc_clock_50 ; 6.302 ; 0.000         ;
 +-------------+-------+---------------+
 
 
@@ -165,106 +165,106 @@ No paths to report.
 +--------+------------------------------------------+------------------------------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node                                ; To Node                            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+------------------------------------------+------------------------------------+--------------+-------------+--------------+------------+------------+
-; 6.292  ; pwm_ctrl:i_pwm_ctrl|led                  ; ledg[0]                            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -2.812     ; 2.896      ;
-; 6.297  ; serial_uart:i_serial_uart|received_error ; ledr[0]                            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -2.817     ; 2.886      ;
-; 9.199  ; fpga_in_rx                               ; serial_uart:i_serial_uart|rx_r     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 2.855      ; 5.694      ;
-; 9.377  ; key_n[1]                                 ; key_ctrl:i_key_ctrl|key_on_n_r     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 2.858      ; 5.519      ;
-; 9.462  ; key_n[0]                                 ; key_ctrl:i_key_ctrl|key_off_n_r    ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 2.846      ; 5.422      ;
-; 14.862 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.998      ;
-; 14.969 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.891      ;
-; 15.075 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[2]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.785      ;
-; 15.156 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[3]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.704      ;
-; 15.196 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.664      ;
-; 15.323 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.537      ;
-; 15.347 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[5]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.513      ;
-; 15.376 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[9]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 4.483      ;
-; 15.403 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.457      ;
-; 15.423 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[8]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 4.436      ;
-; 15.468 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.392      ;
-; 15.516 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[4]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.344      ;
-; 15.542 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[10]       ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.318      ;
-; 15.552 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[7]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.308      ;
-; 15.571 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.469      ;
-; 15.571 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.469      ;
-; 15.571 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.469      ;
-; 15.571 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.469      ;
-; 15.571 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.469      ;
-; 15.571 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.469      ;
-; 15.571 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.469      ;
-; 15.571 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.469      ;
-; 15.571 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.469      ;
-; 15.571 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.469      ;
-; 15.571 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.469      ;
-; 15.571 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.469      ;
-; 15.571 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.469      ;
-; 15.571 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.469      ;
-; 15.666 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[6]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.194      ;
-; 15.707 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.153      ;
-; 15.717 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.143      ;
-; 15.786 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.074      ;
-; 15.848 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.192      ;
-; 15.848 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.192      ;
-; 15.848 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.192      ;
-; 15.848 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.192      ;
-; 15.848 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.192      ;
-; 15.848 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.192      ;
-; 15.848 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.192      ;
-; 15.848 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.192      ;
-; 15.848 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.192      ;
-; 15.848 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.192      ;
-; 15.848 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.192      ;
-; 15.848 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.192      ;
-; 15.848 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.192      ;
-; 15.848 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.192      ;
-; 15.858 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 4.002      ;
-; 15.871 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 3.989      ;
-; 15.880 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[0]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.158      ;
-; 15.880 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.158      ;
-; 15.880 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.158      ;
-; 15.880 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.158      ;
-; 15.880 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.158      ;
-; 15.880 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.158      ;
-; 15.894 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[14]       ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 3.965      ;
-; 15.897 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 3.963      ;
-; 15.902 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 4.139      ;
-; 15.902 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 4.139      ;
-; 15.902 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 4.139      ;
-; 15.902 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 4.139      ;
-; 15.902 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 4.139      ;
-; 15.902 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 4.139      ;
-; 15.902 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 4.139      ;
-; 15.902 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 4.139      ;
-; 15.902 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 4.139      ;
-; 15.902 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 4.139      ;
-; 15.902 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 4.139      ;
-; 15.902 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 4.139      ;
-; 15.902 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 4.139      ;
-; 15.902 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 4.139      ;
-; 15.912 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[11]       ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 3.948      ;
-; 15.936 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[0]        ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[14] ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.102      ;
-; 15.938 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[4]        ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[4]  ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.100      ;
-; 15.938 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[4]        ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[6]  ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.100      ;
-; 15.972 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.068      ;
-; 15.972 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.068      ;
-; 15.972 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.068      ;
-; 15.972 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.068      ;
-; 15.972 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.068      ;
-; 15.972 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.068      ;
-; 15.972 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.068      ;
-; 15.972 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.068      ;
-; 15.972 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.068      ;
-; 15.972 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.068      ;
-; 15.972 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.068      ;
-; 15.972 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.068      ;
-; 15.972 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.068      ;
-; 15.972 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 4.068      ;
-; 15.997 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[12]       ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 3.863      ;
-; 16.031 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[0]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.007      ;
-; 16.031 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.007      ;
-; 16.031 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.007      ;
-; 16.031 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.007      ;
-; 16.031 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.007      ;
-; 16.031 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.007      ;
+; 6.302  ; pwm_ctrl:i_pwm_ctrl|led                  ; ledg[0]                            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -2.812     ; 2.886      ;
+; 6.332  ; serial_uart:i_serial_uart|received_error ; ledr[0]                            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -2.812     ; 2.856      ;
+; 9.071  ; fpga_in_rx                               ; serial_uart:i_serial_uart|rx_r     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 2.863      ; 5.830      ;
+; 9.192  ; key_n[0]                                 ; key_ctrl:i_key_ctrl|key_off_n_r    ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 2.861      ; 5.707      ;
+; 9.202  ; key_n[1]                                 ; key_ctrl:i_key_ctrl|key_on_n_r     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 2.861      ; 5.697      ;
+; 15.192 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 4.667      ;
+; 15.231 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 4.628      ;
+; 15.263 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 4.596      ;
+; 15.307 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 4.552      ;
+; 15.406 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 4.453      ;
+; 15.429 ; pwm_ctrl:i_pwm_ctrl|new_dc[1]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 4.610      ;
+; 15.458 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 4.401      ;
+; 15.507 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[2]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.037     ; 4.365      ;
+; 15.559 ; pwm_ctrl:i_pwm_ctrl|new_dc[6]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.479      ;
+; 15.588 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[3]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.037     ; 4.284      ;
+; 15.650 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[7]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.037     ; 4.222      ;
+; 15.671 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 4.368      ;
+; 15.697 ; pwm_ctrl:i_pwm_ctrl|new_dc[1]            ; pwm_ctrl:i_pwm_ctrl|new_dc[0]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.341      ;
+; 15.697 ; pwm_ctrl:i_pwm_ctrl|new_dc[1]            ; pwm_ctrl:i_pwm_ctrl|new_dc[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.341      ;
+; 15.697 ; pwm_ctrl:i_pwm_ctrl|new_dc[1]            ; pwm_ctrl:i_pwm_ctrl|new_dc[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.341      ;
+; 15.697 ; pwm_ctrl:i_pwm_ctrl|new_dc[1]            ; pwm_ctrl:i_pwm_ctrl|new_dc[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.341      ;
+; 15.697 ; pwm_ctrl:i_pwm_ctrl|new_dc[1]            ; pwm_ctrl:i_pwm_ctrl|new_dc[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.341      ;
+; 15.773 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 4.086      ;
+; 15.786 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[5]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.037     ; 4.086      ;
+; 15.813 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[8]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.037     ; 4.059      ;
+; 15.827 ; pwm_ctrl:i_pwm_ctrl|new_dc[6]            ; pwm_ctrl:i_pwm_ctrl|new_dc[0]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.001     ; 4.210      ;
+; 15.827 ; pwm_ctrl:i_pwm_ctrl|new_dc[6]            ; pwm_ctrl:i_pwm_ctrl|new_dc[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.001     ; 4.210      ;
+; 15.827 ; pwm_ctrl:i_pwm_ctrl|new_dc[6]            ; pwm_ctrl:i_pwm_ctrl|new_dc[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.001     ; 4.210      ;
+; 15.827 ; pwm_ctrl:i_pwm_ctrl|new_dc[6]            ; pwm_ctrl:i_pwm_ctrl|new_dc[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.001     ; 4.210      ;
+; 15.827 ; pwm_ctrl:i_pwm_ctrl|new_dc[6]            ; pwm_ctrl:i_pwm_ctrl|new_dc[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.001     ; 4.210      ;
+; 15.850 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 4.009      ;
+; 15.892 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[9]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.037     ; 3.980      ;
+; 15.894 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 3.965      ;
+; 15.917 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 4.122      ;
+; 15.927 ; pwm_ctrl:i_pwm_ctrl|new_dc[1]            ; pwm_ctrl:i_pwm_ctrl|new_dc[1]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.111      ;
+; 15.927 ; pwm_ctrl:i_pwm_ctrl|new_dc[1]            ; pwm_ctrl:i_pwm_ctrl|new_dc[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.111      ;
+; 15.939 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[0]        ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[14] ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.099      ;
+; 15.939 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[0]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.099      ;
+; 15.939 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.099      ;
+; 15.939 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.099      ;
+; 15.939 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.099      ;
+; 15.939 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 4.099      ;
+; 15.948 ; pwm_ctrl:i_pwm_ctrl|new_dc[0]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 4.091      ;
+; 15.956 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[4]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.036     ; 3.917      ;
+; 16.001 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 3.858      ;
+; 16.006 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[10]       ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.037     ; 3.866      ;
+; 16.057 ; pwm_ctrl:i_pwm_ctrl|new_dc[6]            ; pwm_ctrl:i_pwm_ctrl|new_dc[1]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.001     ; 3.980      ;
+; 16.057 ; pwm_ctrl:i_pwm_ctrl|new_dc[6]            ; pwm_ctrl:i_pwm_ctrl|new_dc[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.001     ; 3.980      ;
+; 16.063 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[11]       ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.037     ; 3.809      ;
+; 16.083 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 3.776      ;
+; 16.086 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.953      ;
+; 16.086 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.953      ;
+; 16.086 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.953      ;
+; 16.086 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.953      ;
+; 16.086 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.953      ;
+; 16.086 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.953      ;
+; 16.086 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.953      ;
+; 16.086 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.953      ;
+; 16.086 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.953      ;
+; 16.086 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.953      ;
+; 16.086 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.953      ;
+; 16.086 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.953      ;
+; 16.086 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.953      ;
+; 16.086 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.953      ;
+; 16.111 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.928      ;
+; 16.116 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[6]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.036     ; 3.757      ;
+; 16.120 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[0]        ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[15] ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 3.918      ;
+; 16.142 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[12]       ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.037     ; 3.730      ;
+; 16.161 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 3.698      ;
+; 16.169 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[1]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 3.869      ;
+; 16.169 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 3.869      ;
+; 16.185 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|new_dc[0]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 3.853      ;
+; 16.185 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|new_dc[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 3.853      ;
+; 16.185 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|new_dc[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 3.853      ;
+; 16.185 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|new_dc[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 3.853      ;
+; 16.185 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|new_dc[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 3.853      ;
+; 16.202 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[4]        ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[6]  ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 3.836      ;
+; 16.203 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[4]        ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[4]  ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 3.835      ;
+; 16.212 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[4]        ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[14] ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.827      ;
+; 16.216 ; pwm_ctrl:i_pwm_ctrl|new_dc[0]            ; pwm_ctrl:i_pwm_ctrl|new_dc[0]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 3.822      ;
+; 16.216 ; pwm_ctrl:i_pwm_ctrl|new_dc[0]            ; pwm_ctrl:i_pwm_ctrl|new_dc[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 3.822      ;
+; 16.216 ; pwm_ctrl:i_pwm_ctrl|new_dc[0]            ; pwm_ctrl:i_pwm_ctrl|new_dc[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 3.822      ;
+; 16.216 ; pwm_ctrl:i_pwm_ctrl|new_dc[0]            ; pwm_ctrl:i_pwm_ctrl|new_dc[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 3.822      ;
+; 16.216 ; pwm_ctrl:i_pwm_ctrl|new_dc[0]            ; pwm_ctrl:i_pwm_ctrl|new_dc[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 3.822      ;
+; 16.242 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[1]        ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[14] ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 3.796      ;
+; 16.243 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 3.616      ;
+; 16.257 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.782      ;
+; 16.280 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.759      ;
+; 16.280 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.759      ;
+; 16.280 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.759      ;
+; 16.280 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.759      ;
+; 16.280 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.759      ;
+; 16.280 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.759      ;
+; 16.280 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.759      ;
+; 16.280 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.759      ;
+; 16.280 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.759      ;
+; 16.280 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.759      ;
+; 16.280 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.759      ;
+; 16.280 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.759      ;
+; 16.280 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 3.759      ;
 +--------+------------------------------------------+------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -273,11 +273,11 @@ No paths to report.
 +-------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node                                             ; To Node                                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
-; 0.445 ; serial_uart:i_serial_uart|rx_state.s_idle             ; serial_uart:i_serial_uart|rx_state.s_idle             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.731      ;
-; 0.445 ; serial_uart:i_serial_uart|rx_bit_no[1]                ; serial_uart:i_serial_uart|rx_bit_no[1]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.731      ;
-; 0.445 ; serial_uart:i_serial_uart|rx_bit_no[2]                ; serial_uart:i_serial_uart|rx_bit_no[2]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.731      ;
-; 0.445 ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.731      ;
 ; 0.445 ; serial_uart:i_serial_uart|rx_bit_no[0]                ; serial_uart:i_serial_uart|rx_bit_no[0]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; serial_uart:i_serial_uart|rx_bit_no[2]                ; serial_uart:i_serial_uart|rx_bit_no[2]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; serial_uart:i_serial_uart|rx_bit_no[1]                ; serial_uart:i_serial_uart|rx_bit_no[1]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; serial_uart:i_serial_uart|rx_state.s_idle             ; serial_uart:i_serial_uart|rx_state.s_idle             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445 ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.731      ;
 ; 0.445 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.731      ;
 ; 0.445 ; serial_uart:i_serial_uart|rx_byte_int[6]              ; serial_uart:i_serial_uart|rx_byte_int[6]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.731      ;
 ; 0.445 ; serial_uart:i_serial_uart|rx_byte_int[5]              ; serial_uart:i_serial_uart|rx_byte_int[5]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.731      ;
@@ -292,87 +292,87 @@ No paths to report.
 ; 0.445 ; key_ctrl:i_key_ctrl|key_on                            ; key_ctrl:i_key_ctrl|key_on                            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.731      ;
 ; 0.445 ; serial_uart:i_serial_uart|received_error~_Duplicate_1 ; serial_uart:i_serial_uart|received_error~_Duplicate_1 ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.731      ;
 ; 0.611 ; serial_uart:i_serial_uart|rx_r                        ; serial_uart:i_serial_uart|rx_2r                       ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.897      ;
-; 0.621 ; serial_uart:i_serial_uart|rx_2r                       ; serial_uart:i_serial_uart|received_data_valid         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.907      ;
-; 0.621 ; serial_uart:i_serial_uart|rx_byte_int[4]              ; serial_uart:i_serial_uart|received_data[4]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.907      ;
-; 0.621 ; key_ctrl:i_key_ctrl|key_on_n_r                        ; key_ctrl:i_key_ctrl|key_on_n_2r                       ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.907      ;
-; 0.622 ; serial_uart:i_serial_uart|rx_byte_int[4]              ; serial_uart:i_serial_uart|rx_byte_int[3]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.908      ;
-; 0.625 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_off                   ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.911      ;
-; 0.625 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]                        ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]                        ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.911      ;
-; 0.626 ; key_ctrl:i_key_ctrl|key_on_n_2r                       ; key_ctrl:i_key_ctrl|key_on                            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.912      ;
-; 0.629 ; serial_uart:i_serial_uart|rx_byte_int[1]              ; serial_uart:i_serial_uart|received_data[1]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.915      ;
-; 0.629 ; serial_uart:i_serial_uart|rx_byte_int[5]              ; serial_uart:i_serial_uart|rx_byte_int[4]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.915      ;
-; 0.629 ; serial_uart:i_serial_uart|rx_byte_int[1]              ; serial_uart:i_serial_uart|rx_byte_int[0]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.915      ;
-; 0.629 ; key_ctrl:i_key_ctrl|key_in_states.s_pulse_high        ; key_ctrl:i_key_ctrl|key_off                           ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.915      ;
-; 0.632 ; serial_uart:i_serial_uart|rx_byte_int[5]              ; serial_uart:i_serial_uart|received_data[5]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.918      ;
-; 0.647 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; pwm_ctrl:i_pwm_ctrl|new_dc[1]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.933      ;
-; 0.649 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; pwm_ctrl:i_pwm_ctrl|new_dc[3]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.935      ;
-; 0.651 ; serial_uart:i_serial_uart|rx_bit_cnt[8]               ; serial_uart:i_serial_uart|rx_bit_cnt[8]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.937      ;
-; 0.667 ; serial_uart:i_serial_uart|rx_state.s_idle             ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.953      ;
-; 0.701 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|received_error~_Duplicate_1 ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.987      ;
-; 0.711 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_bit_no[0]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.997      ;
-; 0.713 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_state.s_idle             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.999      ;
-; 0.715 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_bit_no[1]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.001      ;
-; 0.715 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_bit_no[2]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.001      ;
-; 0.768 ; serial_uart:i_serial_uart|rx_byte_int[0]              ; serial_uart:i_serial_uart|received_data[0]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.054      ;
-; 0.772 ; serial_uart:i_serial_uart|rx_byte_int[6]              ; serial_uart:i_serial_uart|received_data[6]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.058      ;
-; 0.780 ; serial_uart:i_serial_uart|rx_byte_int[3]              ; serial_uart:i_serial_uart|received_data[3]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.066      ;
-; 0.781 ; serial_uart:i_serial_uart|rx_byte_int[2]              ; serial_uart:i_serial_uart|received_data[2]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.067      ;
-; 0.798 ; key_ctrl:i_key_ctrl|key_off                           ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.084      ;
-; 0.814 ; serial_uart:i_serial_uart|rx_bit_cnt[6]               ; serial_uart:i_serial_uart|rx_bit_cnt_half             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.100      ;
-; 0.865 ; serial_uart:i_serial_uart|rx_2r                       ; serial_uart:i_serial_uart|rx_byte_int[6]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.004      ; 1.155      ;
-; 0.869 ; serial_uart:i_serial_uart|rx_2r                       ; serial_uart:i_serial_uart|received_data[7]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.004      ; 1.159      ;
+; 0.619 ; key_ctrl:i_key_ctrl|key_on_n_2r                       ; key_ctrl:i_key_ctrl|key_on                            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.905      ;
+; 0.625 ; serial_uart:i_serial_uart|rx_byte_int[4]              ; serial_uart:i_serial_uart|received_data[4]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.911      ;
+; 0.628 ; serial_uart:i_serial_uart|rx_byte_int[5]              ; serial_uart:i_serial_uart|received_data[5]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.914      ;
+; 0.629 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]                        ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]                        ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.915      ;
+; 0.632 ; serial_uart:i_serial_uart|rx_byte_int[2]              ; serial_uart:i_serial_uart|rx_byte_int[1]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.918      ;
+; 0.634 ; key_ctrl:i_key_ctrl|key_off_n_r                       ; key_ctrl:i_key_ctrl|key_off_n_2r                      ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.920      ;
+; 0.635 ; serial_uart:i_serial_uart|rx_bit_cnt[8]               ; serial_uart:i_serial_uart|rx_bit_cnt[8]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.921      ;
+; 0.635 ; serial_uart:i_serial_uart|rx_byte_int[2]              ; serial_uart:i_serial_uart|received_data[2]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.921      ;
+; 0.635 ; key_ctrl:i_key_ctrl|key_on_n_r                        ; key_ctrl:i_key_ctrl|key_on_n_2r                       ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.921      ;
+; 0.637 ; serial_uart:i_serial_uart|rx_byte_int[1]              ; serial_uart:i_serial_uart|received_data[1]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.923      ;
+; 0.641 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; pwm_ctrl:i_pwm_ctrl|new_dc[3]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.927      ;
+; 0.654 ; serial_uart:i_serial_uart|rx_bit_cnt[6]               ; serial_uart:i_serial_uart|rx_bit_cnt_half             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.940      ;
+; 0.679 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_bit_no[1]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.965      ;
+; 0.681 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_state.s_idle             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.967      ;
+; 0.681 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|received_error~_Duplicate_1 ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.967      ;
+; 0.688 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_bit_no[0]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.974      ;
+; 0.688 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_bit_no[2]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.974      ;
+; 0.770 ; serial_uart:i_serial_uart|rx_byte_int[0]              ; serial_uart:i_serial_uart|received_data[0]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.056      ;
+; 0.772 ; serial_uart:i_serial_uart|rx_byte_int[3]              ; serial_uart:i_serial_uart|received_data[3]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.058      ;
+; 0.775 ; serial_uart:i_serial_uart|rx_byte_int[6]              ; serial_uart:i_serial_uart|received_data[6]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.061      ;
+; 0.781 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_off                   ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.067      ;
+; 0.782 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_off                   ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.068      ;
+; 0.867 ; serial_uart:i_serial_uart|rx_bit_cnt_half             ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.153      ;
+; 0.869 ; serial_uart:i_serial_uart|rx_bit_cnt_half             ; serial_uart:i_serial_uart|rx_bit_cnt_en               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.155      ;
+; 0.928 ; key_ctrl:i_key_ctrl|key_in_states.s_pulse_high        ; key_ctrl:i_key_ctrl|key_off                           ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.214      ;
+; 0.930 ; key_ctrl:i_key_ctrl|key_in_states.s_pulse_high        ; key_ctrl:i_key_ctrl|key_on                            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.216      ;
 ; 0.947 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]                         ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.233      ;
+; 0.949 ; key_ctrl:i_key_ctrl|key_off                           ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_off                   ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.235      ;
+; 0.969 ; serial_uart:i_serial_uart|rx_2r                       ; serial_uart:i_serial_uart|received_valid              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.255      ;
+; 0.969 ; serial_uart:i_serial_uart|rx_byte_int[4]              ; serial_uart:i_serial_uart|rx_byte_int[3]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.255      ;
 ; 0.971 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[1]                     ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[1]                     ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.257      ;
-; 0.972 ; key_ctrl:i_key_ctrl|key_on                            ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.258      ;
-; 0.972 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]                        ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]                        ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.258      ;
-; 0.974 ; serial_uart:i_serial_uart|rx_bit_cnt[8]               ; serial_uart:i_serial_uart|rx_bit_cnt_half             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.260      ;
+; 0.972 ; serial_uart:i_serial_uart|rx_bit_cnt[2]               ; serial_uart:i_serial_uart|rx_bit_cnt[2]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.258      ;
+; 0.972 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[7]                     ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[7]                     ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.258      ;
+; 0.972 ; key_ctrl:i_key_ctrl|key_off_n_2r                      ; key_ctrl:i_key_ctrl|key_on                            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.258      ;
+; 0.974 ; serial_uart:i_serial_uart|rx_byte_int[3]              ; serial_uart:i_serial_uart|rx_byte_int[2]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.260      ;
+; 0.974 ; key_ctrl:i_key_ctrl|key_off_n_2r                      ; key_ctrl:i_key_ctrl|key_off                           ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.260      ;
 ; 0.975 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]                         ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.261      ;
-; 0.975 ; key_ctrl:i_key_ctrl|key_off_n_2r                      ; key_ctrl:i_key_ctrl|key_on                            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.261      ;
 ; 0.976 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]                         ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.262      ;
 ; 0.976 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]                        ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]                        ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.262      ;
-; 0.977 ; serial_uart:i_serial_uart|rx_bit_cnt[1]               ; serial_uart:i_serial_uart|rx_bit_cnt[1]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.263      ;
 ; 0.977 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]                         ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.263      ;
 ; 0.977 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]                        ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]                        ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.263      ;
+; 0.977 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]                        ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]                        ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.263      ;
 ; 0.977 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[13]                    ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[13]                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.263      ;
-; 0.980 ; serial_uart:i_serial_uart|rx_byte_int[2]              ; serial_uart:i_serial_uart|rx_byte_int[1]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.266      ;
-; 0.980 ; key_ctrl:i_key_ctrl|key_off_n_2r                      ; key_ctrl:i_key_ctrl|key_off                           ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.266      ;
-; 0.981 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[7]                     ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[7]                     ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.267      ;
+; 0.977 ; serial_uart:i_serial_uart|rx_byte_int[5]              ; serial_uart:i_serial_uart|rx_byte_int[4]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.263      ;
 ; 0.981 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[11]                    ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[11]                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.267      ;
 ; 0.981 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[2]                     ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[2]                     ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.267      ;
-; 0.982 ; serial_uart:i_serial_uart|rx_byte_int[3]              ; serial_uart:i_serial_uart|rx_byte_int[2]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.268      ;
-; 0.983 ; serial_uart:i_serial_uart|rx_bit_cnt[5]               ; serial_uart:i_serial_uart|rx_bit_cnt[5]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.269      ;
-; 0.987 ; serial_uart:i_serial_uart|rx_bit_cnt[3]               ; serial_uart:i_serial_uart|rx_bit_cnt[3]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.273      ;
+; 0.983 ; serial_uart:i_serial_uart|rx_byte_int[1]              ; serial_uart:i_serial_uart|rx_byte_int[0]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.269      ;
 ; 0.987 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]                         ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.273      ;
-; 0.997 ; serial_uart:i_serial_uart|rx_bit_cnt[7]               ; serial_uart:i_serial_uart|rx_bit_cnt[7]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.283      ;
-; 0.997 ; key_ctrl:i_key_ctrl|key_off                           ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_off                   ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.283      ;
-; 1.006 ; serial_uart:i_serial_uart|received_data[0]            ; serial_ctrl:i_serial_ctrl|serial_on_out               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; -0.004     ; 1.288      ;
-; 1.011 ; serial_uart:i_serial_uart|received_data[0]            ; serial_ctrl:i_serial_ctrl|serial_off_out              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; -0.004     ; 1.293      ;
+; 0.987 ; serial_uart:i_serial_uart|rx_bit_cnt[8]               ; serial_uart:i_serial_uart|rx_bit_cnt_half             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.273      ;
+; 0.988 ; key_ctrl:i_key_ctrl|key_off                           ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.274      ;
+; 0.990 ; serial_uart:i_serial_uart|rx_bit_cnt[4]               ; serial_uart:i_serial_uart|rx_bit_cnt[4]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.276      ;
+; 0.991 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; pwm_ctrl:i_pwm_ctrl|new_dc[1]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.277      ;
+; 0.991 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; pwm_ctrl:i_pwm_ctrl|new_dc[3]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.277      ;
+; 0.994 ; serial_uart:i_serial_uart|rx_bit_cnt[6]               ; serial_uart:i_serial_uart|rx_bit_cnt[6]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.280      ;
+; 1.008 ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; serial_uart:i_serial_uart|rx_bit_no[0]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.294      ;
+; 1.008 ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; serial_uart:i_serial_uart|rx_bit_no[2]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.294      ;
 ; 1.012 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[3]                     ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[3]                     ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.298      ;
 ; 1.012 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[12]                    ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[12]                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.298      ;
+; 1.012 ; serial_uart:i_serial_uart|rx_byte_int[6]              ; serial_uart:i_serial_uart|rx_byte_int[5]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.298      ;
+; 1.013 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; pwm_ctrl:i_pwm_ctrl|new_dc[1]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.299      ;
 ; 1.015 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]                         ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.301      ;
 ; 1.016 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]                        ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]                        ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.302      ;
 ; 1.016 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]                        ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]                        ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.302      ;
-; 1.016 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_off                   ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.302      ;
-; 1.017 ; serial_uart:i_serial_uart|rx_byte_int[6]              ; serial_uart:i_serial_uart|rx_byte_int[5]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.303      ;
-; 1.018 ; serial_uart:i_serial_uart|rx_bit_cnt[0]               ; serial_uart:i_serial_uart|rx_bit_cnt[0]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.304      ;
+; 1.018 ; serial_uart:i_serial_uart|rx_2r                       ; serial_uart:i_serial_uart|rx_bit_cnt_en               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.001      ; 1.305      ;
+; 1.019 ; serial_uart:i_serial_uart|rx_bit_cnt[1]               ; serial_uart:i_serial_uart|rx_bit_cnt[1]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.305      ;
 ; 1.019 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]                         ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.305      ;
 ; 1.019 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]                         ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.305      ;
 ; 1.020 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[10]                    ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[10]                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.306      ;
 ; 1.021 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[5]                     ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[5]                     ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.307      ;
-; 1.032 ; serial_uart:i_serial_uart|rx_bit_cnt[2]               ; serial_uart:i_serial_uart|rx_bit_cnt[2]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.318      ;
-; 1.037 ; serial_uart:i_serial_uart|rx_bit_cnt[4]               ; serial_uart:i_serial_uart|rx_bit_cnt[4]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.323      ;
-; 1.040 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; pwm_ctrl:i_pwm_ctrl|new_dc[1]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.326      ;
-; 1.044 ; serial_uart:i_serial_uart|rx_bit_cnt[6]               ; serial_uart:i_serial_uart|rx_bit_cnt[6]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.330      ;
-; 1.044 ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; serial_uart:i_serial_uart|rx_bit_no[0]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.330      ;
-; 1.047 ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; serial_uart:i_serial_uart|rx_bit_no[2]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.333      ;
-; 1.051 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; pwm_ctrl:i_pwm_ctrl|new_dc[6]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.001      ; 1.338      ;
-; 1.057 ; serial_uart:i_serial_uart|rx_state.s_idle             ; serial_uart:i_serial_uart|rx_bit_cnt_en               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.343      ;
-; 1.058 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; pwm_ctrl:i_pwm_ctrl|new_dc[0]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.001      ; 1.345      ;
-; 1.060 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; pwm_ctrl:i_pwm_ctrl|new_dc[4]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.001      ; 1.347      ;
-; 1.073 ; serial_uart:i_serial_uart|received_data_valid         ; serial_ctrl:i_serial_ctrl|serial_off_out              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.359      ;
-; 1.073 ; serial_uart:i_serial_uart|received_data_valid         ; serial_ctrl:i_serial_ctrl|serial_on_out               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.359      ;
-; 1.148 ; serial_uart:i_serial_uart|rx_bit_no[0]                ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.434      ;
-; 1.149 ; serial_uart:i_serial_uart|rx_bit_cnt_half             ; serial_uart:i_serial_uart|rx_bit_cnt_en               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.003      ; 1.438      ;
+; 1.022 ; serial_uart:i_serial_uart|rx_bit_cnt[0]               ; serial_uart:i_serial_uart|rx_bit_cnt[0]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.308      ;
+; 1.027 ; key_ctrl:i_key_ctrl|key_on                            ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.313      ;
+; 1.032 ; serial_uart:i_serial_uart|rx_bit_cnt[3]               ; serial_uart:i_serial_uart|rx_bit_cnt[3]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.318      ;
+; 1.033 ; serial_uart:i_serial_uart|rx_bit_cnt[5]               ; serial_uart:i_serial_uart|rx_bit_cnt[5]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.319      ;
+; 1.034 ; serial_uart:i_serial_uart|rx_state.s_idle             ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.320      ;
+; 1.038 ; serial_uart:i_serial_uart|rx_bit_cnt[7]               ; serial_uart:i_serial_uart|rx_bit_cnt[7]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.324      ;
+; 1.038 ; serial_uart:i_serial_uart|rx_state.s_idle             ; serial_uart:i_serial_uart|rx_bit_cnt_en               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.324      ;
+; 1.073 ; serial_uart:i_serial_uart|received_valid              ; serial_ctrl:i_serial_ctrl|serial_off_out              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.359      ;
+; 1.073 ; serial_uart:i_serial_uart|received_valid              ; serial_ctrl:i_serial_ctrl|serial_on_out               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.359      ;
+; 1.135 ; serial_uart:i_serial_uart|rx_bit_cnt[6]               ; serial_uart:i_serial_uart|rx_bit_cnt_wrap             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.421      ;
+; 1.196 ; serial_ctrl:i_serial_ctrl|serial_on_out               ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; -0.002     ; 1.480      ;
+; 1.210 ; serial_uart:i_serial_uart|rx_bit_cnt_en               ; serial_uart:i_serial_uart|rx_bit_cnt_wrap             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 1.496      ;
 +-------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -489,10 +489,10 @@ No paths to report.
 +------------+-------------+-------+-------+------------+-----------------+
 ; Data Port  ; Clock Port  ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +------------+-------------+-------+-------+------------+-----------------+
-; fpga_in_rx ; tc_clock_50 ; 2.801 ; 2.801 ; Rise       ; tc_clock_50     ;
-; key_n[*]   ; tc_clock_50 ; 2.623 ; 2.623 ; Rise       ; tc_clock_50     ;
-;  key_n[0]  ; tc_clock_50 ; 2.538 ; 2.538 ; Rise       ; tc_clock_50     ;
-;  key_n[1]  ; tc_clock_50 ; 2.623 ; 2.623 ; Rise       ; tc_clock_50     ;
+; fpga_in_rx ; tc_clock_50 ; 2.929 ; 2.929 ; Rise       ; tc_clock_50     ;
+; key_n[*]   ; tc_clock_50 ; 2.808 ; 2.808 ; Rise       ; tc_clock_50     ;
+;  key_n[0]  ; tc_clock_50 ; 2.808 ; 2.808 ; Rise       ; tc_clock_50     ;
+;  key_n[1]  ; tc_clock_50 ; 2.798 ; 2.798 ; Rise       ; tc_clock_50     ;
 +------------+-------------+-------+-------+------------+-----------------+
 
 
@@ -501,10 +501,10 @@ No paths to report.
 +------------+-------------+--------+--------+------------+-----------------+
 ; Data Port  ; Clock Port  ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +------------+-------------+--------+--------+------------+-----------------+
-; fpga_in_rx ; tc_clock_50 ; -2.553 ; -2.553 ; Rise       ; tc_clock_50     ;
-; key_n[*]   ; tc_clock_50 ; -2.290 ; -2.290 ; Rise       ; tc_clock_50     ;
-;  key_n[0]  ; tc_clock_50 ; -2.290 ; -2.290 ; Rise       ; tc_clock_50     ;
-;  key_n[1]  ; tc_clock_50 ; -2.375 ; -2.375 ; Rise       ; tc_clock_50     ;
+; fpga_in_rx ; tc_clock_50 ; -2.681 ; -2.681 ; Rise       ; tc_clock_50     ;
+; key_n[*]   ; tc_clock_50 ; -2.550 ; -2.550 ; Rise       ; tc_clock_50     ;
+;  key_n[0]  ; tc_clock_50 ; -2.560 ; -2.560 ; Rise       ; tc_clock_50     ;
+;  key_n[1]  ; tc_clock_50 ; -2.550 ; -2.550 ; Rise       ; tc_clock_50     ;
 +------------+-------------+--------+--------+------------+-----------------+
 
 
@@ -513,10 +513,10 @@ No paths to report.
 +-----------+-------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port  ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+-------------+-------+-------+------------+-----------------+
-; ledg[*]   ; tc_clock_50 ; 5.708 ; 5.708 ; Rise       ; tc_clock_50     ;
-;  ledg[0]  ; tc_clock_50 ; 5.708 ; 5.708 ; Rise       ; tc_clock_50     ;
-; ledr[*]   ; tc_clock_50 ; 5.703 ; 5.703 ; Rise       ; tc_clock_50     ;
-;  ledr[0]  ; tc_clock_50 ; 5.703 ; 5.703 ; Rise       ; tc_clock_50     ;
+; ledg[*]   ; tc_clock_50 ; 5.698 ; 5.698 ; Rise       ; tc_clock_50     ;
+;  ledg[0]  ; tc_clock_50 ; 5.698 ; 5.698 ; Rise       ; tc_clock_50     ;
+; ledr[*]   ; tc_clock_50 ; 5.668 ; 5.668 ; Rise       ; tc_clock_50     ;
+;  ledr[0]  ; tc_clock_50 ; 5.668 ; 5.668 ; Rise       ; tc_clock_50     ;
 +-----------+-------------+-------+-------+------------+-----------------+
 
 
@@ -525,10 +525,10 @@ No paths to report.
 +-----------+-------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port  ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+-------------+-------+-------+------------+-----------------+
-; ledg[*]   ; tc_clock_50 ; 5.708 ; 5.708 ; Rise       ; tc_clock_50     ;
-;  ledg[0]  ; tc_clock_50 ; 5.708 ; 5.708 ; Rise       ; tc_clock_50     ;
-; ledr[*]   ; tc_clock_50 ; 5.703 ; 5.703 ; Rise       ; tc_clock_50     ;
-;  ledr[0]  ; tc_clock_50 ; 5.703 ; 5.703 ; Rise       ; tc_clock_50     ;
+; ledg[*]   ; tc_clock_50 ; 5.698 ; 5.698 ; Rise       ; tc_clock_50     ;
+;  ledg[0]  ; tc_clock_50 ; 5.698 ; 5.698 ; Rise       ; tc_clock_50     ;
+; ledr[*]   ; tc_clock_50 ; 5.668 ; 5.668 ; Rise       ; tc_clock_50     ;
+;  ledr[0]  ; tc_clock_50 ; 5.668 ; 5.668 ; Rise       ; tc_clock_50     ;
 +-----------+-------------+-------+-------+------------+-----------------+
 
 
@@ -537,7 +537,7 @@ No paths to report.
 +-------------+-------+---------------+
 ; Clock       ; Slack ; End Point TNS ;
 +-------------+-------+---------------+
-; tc_clock_50 ; 8.796 ; 0.000         ;
+; tc_clock_50 ; 8.806 ; 0.000         ;
 +-------------+-------+---------------+
 
 
@@ -576,106 +576,106 @@ No paths to report.
 +--------+------------------------------------------+------------------------------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node                                ; To Node                            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+------------------------------------------+------------------------------------+--------------+-------------+--------------+------------+------------+
-; 8.796  ; pwm_ctrl:i_pwm_ctrl|led                  ; ledg[0]                            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -1.737     ; 1.467      ;
-; 8.801  ; serial_uart:i_serial_uart|received_error ; ledr[0]                            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -1.742     ; 1.457      ;
-; 10.820 ; fpga_in_rx                               ; serial_uart:i_serial_uart|rx_r     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 1.792      ; 3.004      ;
-; 10.942 ; key_n[1]                                 ; key_ctrl:i_key_ctrl|key_on_n_r     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 1.794      ; 2.884      ;
-; 11.023 ; key_n[0]                                 ; key_ctrl:i_key_ctrl|key_off_n_r    ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 1.784      ; 2.793      ;
-; 17.829 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.060     ; 2.073      ;
-; 17.877 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.060     ; 2.025      ;
-; 17.908 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[2]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.993      ;
-; 17.941 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[3]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.960      ;
-; 17.955 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.060     ; 1.947      ;
-; 18.015 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.060     ; 1.887      ;
-; 18.020 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[5]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.881      ;
-; 18.050 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.060     ; 1.852      ;
-; 18.062 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[9]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.839      ;
-; 18.077 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[4]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.060     ; 1.825      ;
-; 18.087 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[8]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.814      ;
-; 18.087 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.060     ; 1.815      ;
-; 18.103 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[7]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.798      ;
-; 18.142 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[6]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.060     ; 1.760      ;
-; 18.152 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[10]       ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.749      ;
-; 18.185 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.060     ; 1.717      ;
-; 18.225 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.060     ; 1.677      ;
-; 18.233 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.060     ; 1.669      ;
-; 18.247 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.787      ;
-; 18.247 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.787      ;
-; 18.247 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.787      ;
-; 18.247 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.787      ;
-; 18.247 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.787      ;
-; 18.247 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.787      ;
-; 18.247 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.787      ;
-; 18.247 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.787      ;
-; 18.247 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.787      ;
-; 18.247 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.787      ;
-; 18.247 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.787      ;
-; 18.247 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.787      ;
-; 18.247 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.787      ;
-; 18.247 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.787      ;
-; 18.263 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.060     ; 1.639      ;
-; 18.285 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.060     ; 1.617      ;
-; 18.287 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[11]       ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.614      ;
-; 18.291 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.060     ; 1.611      ;
-; 18.297 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[14]       ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.604      ;
-; 18.321 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[12]       ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.580      ;
-; 18.350 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[0]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.682      ;
-; 18.350 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.682      ;
-; 18.350 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.682      ;
-; 18.350 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.682      ;
-; 18.350 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.682      ;
-; 18.350 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.682      ;
-; 18.350 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[13]       ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.551      ;
-; 18.355 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.679      ;
-; 18.355 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.679      ;
-; 18.355 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.679      ;
-; 18.355 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.679      ;
-; 18.355 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.679      ;
-; 18.355 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.679      ;
-; 18.355 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.679      ;
-; 18.355 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.679      ;
-; 18.355 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.679      ;
-; 18.355 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.679      ;
-; 18.355 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.679      ;
-; 18.355 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.679      ;
-; 18.355 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.679      ;
-; 18.355 ; pwm_ctrl:i_pwm_ctrl|new_dc[4]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.679      ;
-; 18.367 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.060     ; 1.535      ;
-; 18.381 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[0]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.651      ;
-; 18.381 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.651      ;
-; 18.381 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.651      ;
-; 18.381 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.651      ;
-; 18.381 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.651      ;
-; 18.381 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.651      ;
-; 18.400 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 1.635      ;
-; 18.400 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 1.635      ;
-; 18.400 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 1.635      ;
-; 18.400 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 1.635      ;
-; 18.400 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 1.635      ;
-; 18.400 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 1.635      ;
-; 18.400 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 1.635      ;
-; 18.400 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 1.635      ;
-; 18.400 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 1.635      ;
-; 18.400 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 1.635      ;
-; 18.400 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 1.635      ;
-; 18.400 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 1.635      ;
-; 18.400 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 1.635      ;
-; 18.400 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.003      ; 1.635      ;
-; 18.412 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[1]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.001     ; 1.619      ;
-; 18.412 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.001     ; 1.619      ;
-; 18.419 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[0]        ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[14] ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.613      ;
-; 18.424 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.610      ;
-; 18.424 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.610      ;
-; 18.424 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.610      ;
-; 18.424 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.610      ;
-; 18.424 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.610      ;
-; 18.424 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.610      ;
-; 18.424 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.610      ;
-; 18.424 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.610      ;
-; 18.424 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.610      ;
-; 18.424 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.610      ;
-; 18.424 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.610      ;
-; 18.424 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.002      ; 1.610      ;
+; 8.806  ; pwm_ctrl:i_pwm_ctrl|led                  ; ledg[0]                            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -1.737     ; 1.457      ;
+; 8.836  ; serial_uart:i_serial_uart|received_error ; ledr[0]                            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -1.737     ; 1.427      ;
+; 10.745 ; fpga_in_rx                               ; serial_uart:i_serial_uart|rx_r     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 1.799      ; 3.086      ;
+; 10.808 ; key_n[0]                                 ; key_ctrl:i_key_ctrl|key_off_n_r    ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 1.797      ; 3.021      ;
+; 10.824 ; key_n[1]                                 ; key_ctrl:i_key_ctrl|key_on_n_r     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 1.797      ; 3.005      ;
+; 17.966 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.935      ;
+; 17.989 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.912      ;
+; 17.998 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.903      ;
+; 18.023 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.878      ;
+; 18.067 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.834      ;
+; 18.086 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.815      ;
+; 18.107 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[2]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 1.806      ;
+; 18.141 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[3]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 1.772      ;
+; 18.167 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[7]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 1.746      ;
+; 18.170 ; pwm_ctrl:i_pwm_ctrl|new_dc[1]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.863      ;
+; 18.218 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.683      ;
+; 18.223 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[5]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 1.690      ;
+; 18.240 ; pwm_ctrl:i_pwm_ctrl|new_dc[6]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.792      ;
+; 18.256 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.776      ;
+; 18.270 ; pwm_ctrl:i_pwm_ctrl|new_dc[1]            ; pwm_ctrl:i_pwm_ctrl|new_dc[0]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.763      ;
+; 18.270 ; pwm_ctrl:i_pwm_ctrl|new_dc[1]            ; pwm_ctrl:i_pwm_ctrl|new_dc[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.763      ;
+; 18.270 ; pwm_ctrl:i_pwm_ctrl|new_dc[1]            ; pwm_ctrl:i_pwm_ctrl|new_dc[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.763      ;
+; 18.270 ; pwm_ctrl:i_pwm_ctrl|new_dc[1]            ; pwm_ctrl:i_pwm_ctrl|new_dc[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.763      ;
+; 18.270 ; pwm_ctrl:i_pwm_ctrl|new_dc[1]            ; pwm_ctrl:i_pwm_ctrl|new_dc[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.763      ;
+; 18.275 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]            ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.626      ;
+; 18.278 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[8]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 1.634      ;
+; 18.279 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[4]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 1.634      ;
+; 18.298 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.603      ;
+; 18.308 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[9]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 1.604      ;
+; 18.335 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.698      ;
+; 18.340 ; pwm_ctrl:i_pwm_ctrl|new_dc[6]            ; pwm_ctrl:i_pwm_ctrl|new_dc[0]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.692      ;
+; 18.340 ; pwm_ctrl:i_pwm_ctrl|new_dc[6]            ; pwm_ctrl:i_pwm_ctrl|new_dc[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.692      ;
+; 18.340 ; pwm_ctrl:i_pwm_ctrl|new_dc[6]            ; pwm_ctrl:i_pwm_ctrl|new_dc[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.692      ;
+; 18.340 ; pwm_ctrl:i_pwm_ctrl|new_dc[6]            ; pwm_ctrl:i_pwm_ctrl|new_dc[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.692      ;
+; 18.340 ; pwm_ctrl:i_pwm_ctrl|new_dc[6]            ; pwm_ctrl:i_pwm_ctrl|new_dc[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.692      ;
+; 18.341 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.560      ;
+; 18.349 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[6]        ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 1.564      ;
+; 18.350 ; pwm_ctrl:i_pwm_ctrl|new_dc[1]            ; pwm_ctrl:i_pwm_ctrl|new_dc[1]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.682      ;
+; 18.350 ; pwm_ctrl:i_pwm_ctrl|new_dc[1]            ; pwm_ctrl:i_pwm_ctrl|new_dc[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.682      ;
+; 18.356 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[0]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.676      ;
+; 18.356 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.676      ;
+; 18.356 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.676      ;
+; 18.356 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.676      ;
+; 18.356 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.676      ;
+; 18.360 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[10]       ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 1.553      ;
+; 18.376 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.525      ;
+; 18.381 ; pwm_ctrl:i_pwm_ctrl|new_dc[0]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.651      ;
+; 18.388 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[11]       ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 1.525      ;
+; 18.396 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.636      ;
+; 18.403 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.630      ;
+; 18.403 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.630      ;
+; 18.403 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.630      ;
+; 18.403 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.630      ;
+; 18.403 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.630      ;
+; 18.403 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.630      ;
+; 18.403 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.630      ;
+; 18.403 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.630      ;
+; 18.403 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.630      ;
+; 18.403 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.630      ;
+; 18.403 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.630      ;
+; 18.403 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.630      ;
+; 18.403 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.630      ;
+; 18.403 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.630      ;
+; 18.409 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.492      ;
+; 18.420 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[0]        ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[14] ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.612      ;
+; 18.420 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[12]       ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.049     ; 1.493      ;
+; 18.420 ; pwm_ctrl:i_pwm_ctrl|new_dc[6]            ; pwm_ctrl:i_pwm_ctrl|new_dc[1]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.001     ; 1.611      ;
+; 18.420 ; pwm_ctrl:i_pwm_ctrl|new_dc[6]            ; pwm_ctrl:i_pwm_ctrl|new_dc[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.001     ; 1.611      ;
+; 18.435 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|new_dc[0]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.598      ;
+; 18.435 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|new_dc[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.598      ;
+; 18.435 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|new_dc[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.598      ;
+; 18.435 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|new_dc[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.598      ;
+; 18.435 ; pwm_ctrl:i_pwm_ctrl|new_dc[3]            ; pwm_ctrl:i_pwm_ctrl|new_dc[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.001      ; 1.598      ;
+; 18.436 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[1]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.001     ; 1.595      ;
+; 18.436 ; pwm_ctrl:i_pwm_ctrl|new_dc[5]            ; pwm_ctrl:i_pwm_ctrl|new_dc[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.001     ; 1.595      ;
+; 18.444 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[0]        ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[15] ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.588      ;
+; 18.445 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]           ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.061     ; 1.456      ;
+; 18.464 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.568      ;
+; 18.464 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.568      ;
+; 18.464 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.568      ;
+; 18.464 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.568      ;
+; 18.464 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.568      ;
+; 18.464 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.568      ;
+; 18.464 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.568      ;
+; 18.464 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.568      ;
+; 18.464 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.568      ;
+; 18.464 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.568      ;
+; 18.464 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.568      ;
+; 18.464 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.568      ;
+; 18.464 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.568      ;
+; 18.464 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]     ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.568      ;
+; 18.478 ; pwm_ctrl:i_pwm_ctrl|new_dc[7]            ; pwm_ctrl:i_pwm_ctrl|new_dc[6]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.554      ;
+; 18.481 ; pwm_ctrl:i_pwm_ctrl|new_dc[0]            ; pwm_ctrl:i_pwm_ctrl|new_dc[0]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.551      ;
+; 18.481 ; pwm_ctrl:i_pwm_ctrl|new_dc[0]            ; pwm_ctrl:i_pwm_ctrl|new_dc[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.551      ;
+; 18.481 ; pwm_ctrl:i_pwm_ctrl|new_dc[0]            ; pwm_ctrl:i_pwm_ctrl|new_dc[5]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.551      ;
+; 18.481 ; pwm_ctrl:i_pwm_ctrl|new_dc[0]            ; pwm_ctrl:i_pwm_ctrl|new_dc[4]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.551      ;
+; 18.481 ; pwm_ctrl:i_pwm_ctrl|new_dc[0]            ; pwm_ctrl:i_pwm_ctrl|new_dc[7]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.551      ;
+; 18.485 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[14]       ; pwm_ctrl:i_pwm_ctrl|led            ; tc_clock_50  ; tc_clock_50 ; 20.000       ; -0.050     ; 1.427      ;
+; 18.496 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[0]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.536      ;
+; 18.496 ; pwm_ctrl:i_pwm_ctrl|new_dc[2]            ; pwm_ctrl:i_pwm_ctrl|new_dc[2]      ; tc_clock_50  ; tc_clock_50 ; 20.000       ; 0.000      ; 1.536      ;
 +--------+------------------------------------------+------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -684,11 +684,11 @@ No paths to report.
 +-------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node                                             ; To Node                                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
-; 0.215 ; serial_uart:i_serial_uart|rx_state.s_idle             ; serial_uart:i_serial_uart|rx_state.s_idle             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.367      ;
-; 0.215 ; serial_uart:i_serial_uart|rx_bit_no[1]                ; serial_uart:i_serial_uart|rx_bit_no[1]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.367      ;
-; 0.215 ; serial_uart:i_serial_uart|rx_bit_no[2]                ; serial_uart:i_serial_uart|rx_bit_no[2]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.367      ;
-; 0.215 ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.367      ;
 ; 0.215 ; serial_uart:i_serial_uart|rx_bit_no[0]                ; serial_uart:i_serial_uart|rx_bit_no[0]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; serial_uart:i_serial_uart|rx_bit_no[2]                ; serial_uart:i_serial_uart|rx_bit_no[2]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; serial_uart:i_serial_uart|rx_bit_no[1]                ; serial_uart:i_serial_uart|rx_bit_no[1]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; serial_uart:i_serial_uart|rx_state.s_idle             ; serial_uart:i_serial_uart|rx_state.s_idle             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.367      ;
 ; 0.215 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.367      ;
 ; 0.215 ; serial_uart:i_serial_uart|rx_byte_int[6]              ; serial_uart:i_serial_uart|rx_byte_int[6]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.367      ;
 ; 0.215 ; serial_uart:i_serial_uart|rx_byte_int[5]              ; serial_uart:i_serial_uart|rx_byte_int[5]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.367      ;
@@ -703,87 +703,87 @@ No paths to report.
 ; 0.215 ; key_ctrl:i_key_ctrl|key_on                            ; key_ctrl:i_key_ctrl|key_on                            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.367      ;
 ; 0.215 ; serial_uart:i_serial_uart|received_error~_Duplicate_1 ; serial_uart:i_serial_uart|received_error~_Duplicate_1 ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.367      ;
 ; 0.235 ; serial_uart:i_serial_uart|rx_r                        ; serial_uart:i_serial_uart|rx_2r                       ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.387      ;
-; 0.239 ; serial_uart:i_serial_uart|rx_2r                       ; serial_uart:i_serial_uart|received_data_valid         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.391      ;
-; 0.241 ; serial_uart:i_serial_uart|rx_byte_int[4]              ; serial_uart:i_serial_uart|received_data[4]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.393      ;
-; 0.241 ; key_ctrl:i_key_ctrl|key_on_n_r                        ; key_ctrl:i_key_ctrl|key_on_n_2r                       ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.393      ;
-; 0.241 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]                        ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]                        ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.393      ;
-; 0.242 ; serial_uart:i_serial_uart|rx_byte_int[4]              ; serial_uart:i_serial_uart|rx_byte_int[3]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.394      ;
-; 0.243 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_off                   ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.395      ;
-; 0.244 ; key_ctrl:i_key_ctrl|key_in_states.s_pulse_high        ; key_ctrl:i_key_ctrl|key_off                           ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.396      ;
-; 0.245 ; serial_uart:i_serial_uart|rx_byte_int[5]              ; serial_uart:i_serial_uart|rx_byte_int[4]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.397      ;
-; 0.245 ; key_ctrl:i_key_ctrl|key_on_n_2r                       ; key_ctrl:i_key_ctrl|key_on                            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.397      ;
-; 0.247 ; serial_uart:i_serial_uart|rx_byte_int[1]              ; serial_uart:i_serial_uart|received_data[1]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.399      ;
-; 0.247 ; serial_uart:i_serial_uart|rx_byte_int[1]              ; serial_uart:i_serial_uart|rx_byte_int[0]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.399      ;
-; 0.248 ; serial_uart:i_serial_uart|rx_byte_int[5]              ; serial_uart:i_serial_uart|received_data[5]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.400      ;
-; 0.254 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; pwm_ctrl:i_pwm_ctrl|new_dc[1]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.406      ;
-; 0.255 ; serial_uart:i_serial_uart|rx_bit_cnt[8]               ; serial_uart:i_serial_uart|rx_bit_cnt[8]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.407      ;
-; 0.255 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; pwm_ctrl:i_pwm_ctrl|new_dc[3]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.407      ;
-; 0.268 ; serial_uart:i_serial_uart|rx_state.s_idle             ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.420      ;
-; 0.281 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|received_error~_Duplicate_1 ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.433      ;
-; 0.290 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_bit_no[0]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.442      ;
-; 0.292 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_state.s_idle             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.444      ;
-; 0.293 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_bit_no[1]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.445      ;
-; 0.294 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_bit_no[2]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.446      ;
-; 0.308 ; key_ctrl:i_key_ctrl|key_off                           ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.460      ;
-; 0.317 ; serial_uart:i_serial_uart|rx_bit_cnt[6]               ; serial_uart:i_serial_uart|rx_bit_cnt_half             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.469      ;
-; 0.326 ; serial_uart:i_serial_uart|rx_2r                       ; serial_uart:i_serial_uart|rx_byte_int[6]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.003      ; 0.481      ;
-; 0.327 ; serial_uart:i_serial_uart|rx_byte_int[0]              ; serial_uart:i_serial_uart|received_data[0]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.479      ;
-; 0.329 ; serial_uart:i_serial_uart|rx_2r                       ; serial_uart:i_serial_uart|received_data[7]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.003      ; 0.484      ;
-; 0.330 ; serial_uart:i_serial_uart|rx_byte_int[6]              ; serial_uart:i_serial_uart|received_data[6]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.482      ;
-; 0.334 ; serial_uart:i_serial_uart|rx_byte_int[3]              ; serial_uart:i_serial_uart|received_data[3]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.486      ;
-; 0.335 ; serial_uart:i_serial_uart|rx_byte_int[2]              ; serial_uart:i_serial_uart|received_data[2]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.487      ;
+; 0.241 ; key_ctrl:i_key_ctrl|key_on_n_2r                       ; key_ctrl:i_key_ctrl|key_on                            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.393      ;
+; 0.243 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]                        ; pwm_ctrl:i_pwm_ctrl|dc_cnt[15]                        ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.395      ;
+; 0.245 ; serial_uart:i_serial_uart|rx_byte_int[4]              ; serial_uart:i_serial_uart|received_data[4]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.397      ;
+; 0.247 ; serial_uart:i_serial_uart|rx_byte_int[5]              ; serial_uart:i_serial_uart|received_data[5]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.399      ;
+; 0.247 ; serial_uart:i_serial_uart|rx_byte_int[2]              ; serial_uart:i_serial_uart|rx_byte_int[1]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.399      ;
+; 0.248 ; serial_uart:i_serial_uart|rx_bit_cnt[8]               ; serial_uart:i_serial_uart|rx_bit_cnt[8]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.400      ;
+; 0.248 ; key_ctrl:i_key_ctrl|key_off_n_r                       ; key_ctrl:i_key_ctrl|key_off_n_2r                      ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.400      ;
+; 0.249 ; serial_uart:i_serial_uart|rx_byte_int[2]              ; serial_uart:i_serial_uart|received_data[2]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.401      ;
+; 0.249 ; key_ctrl:i_key_ctrl|key_on_n_r                        ; key_ctrl:i_key_ctrl|key_on_n_2r                       ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.401      ;
+; 0.251 ; serial_uart:i_serial_uart|rx_byte_int[1]              ; serial_uart:i_serial_uart|received_data[1]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.403      ;
+; 0.252 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; pwm_ctrl:i_pwm_ctrl|new_dc[3]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.404      ;
+; 0.261 ; serial_uart:i_serial_uart|rx_bit_cnt[6]               ; serial_uart:i_serial_uart|rx_bit_cnt_half             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.413      ;
+; 0.269 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_bit_no[1]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.421      ;
+; 0.271 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_state.s_idle             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.423      ;
+; 0.271 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|received_error~_Duplicate_1 ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.423      ;
+; 0.278 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_bit_no[0]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.430      ;
+; 0.278 ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; serial_uart:i_serial_uart|rx_bit_no[2]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.430      ;
+; 0.297 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_off                   ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.449      ;
+; 0.299 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_off                   ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.451      ;
+; 0.329 ; serial_uart:i_serial_uart|rx_byte_int[3]              ; serial_uart:i_serial_uart|received_data[3]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.481      ;
+; 0.329 ; serial_uart:i_serial_uart|rx_byte_int[0]              ; serial_uart:i_serial_uart|received_data[0]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.481      ;
+; 0.330 ; serial_uart:i_serial_uart|rx_bit_cnt_half             ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.482      ;
+; 0.332 ; serial_uart:i_serial_uart|rx_bit_cnt_half             ; serial_uart:i_serial_uart|rx_bit_cnt_en               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.484      ;
+; 0.332 ; serial_uart:i_serial_uart|rx_byte_int[6]              ; serial_uart:i_serial_uart|received_data[6]            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.484      ;
 ; 0.357 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[1]                     ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[1]                     ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.509      ;
-; 0.358 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]                        ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]                        ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.510      ;
+; 0.358 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[7]                     ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[7]                     ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.510      ;
 ; 0.359 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]                         ; pwm_ctrl:i_pwm_ctrl|dc_cnt[2]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.511      ;
-; 0.360 ; key_ctrl:i_key_ctrl|key_on                            ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.512      ;
 ; 0.360 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]                         ; pwm_ctrl:i_pwm_ctrl|dc_cnt[3]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.512      ;
 ; 0.360 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]                        ; pwm_ctrl:i_pwm_ctrl|dc_cnt[10]                        ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.512      ;
 ; 0.360 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]                        ; pwm_ctrl:i_pwm_ctrl|dc_cnt[12]                        ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.512      ;
 ; 0.360 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[13]                    ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[13]                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.512      ;
+; 0.361 ; serial_uart:i_serial_uart|rx_bit_cnt[2]               ; serial_uart:i_serial_uart|rx_bit_cnt[2]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.513      ;
 ; 0.361 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]                         ; pwm_ctrl:i_pwm_ctrl|dc_cnt[5]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.513      ;
 ; 0.361 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]                         ; pwm_ctrl:i_pwm_ctrl|dc_cnt[8]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.513      ;
-; 0.361 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[7]                     ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[7]                     ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]                        ; pwm_ctrl:i_pwm_ctrl|dc_cnt[14]                        ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.513      ;
 ; 0.361 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[11]                    ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[11]                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.513      ;
 ; 0.361 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[2]                     ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[2]                     ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.513      ;
-; 0.364 ; serial_uart:i_serial_uart|rx_bit_cnt[1]               ; serial_uart:i_serial_uart|rx_bit_cnt[1]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.516      ;
-; 0.366 ; serial_uart:i_serial_uart|rx_bit_cnt[3]               ; serial_uart:i_serial_uart|rx_bit_cnt[3]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.518      ;
-; 0.366 ; serial_uart:i_serial_uart|rx_bit_cnt[5]               ; serial_uart:i_serial_uart|rx_bit_cnt[5]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.518      ;
-; 0.366 ; key_ctrl:i_key_ctrl|key_off_n_2r                      ; key_ctrl:i_key_ctrl|key_on                            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.518      ;
+; 0.362 ; serial_uart:i_serial_uart|rx_2r                       ; serial_uart:i_serial_uart|received_valid              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.514      ;
+; 0.362 ; serial_uart:i_serial_uart|rx_byte_int[4]              ; serial_uart:i_serial_uart|rx_byte_int[3]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.514      ;
+; 0.364 ; key_ctrl:i_key_ctrl|key_off_n_2r                      ; key_ctrl:i_key_ctrl|key_on                            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.516      ;
+; 0.366 ; serial_uart:i_serial_uart|rx_byte_int[3]              ; serial_uart:i_serial_uart|rx_byte_int[2]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.518      ;
+; 0.366 ; key_ctrl:i_key_ctrl|key_off_n_2r                      ; key_ctrl:i_key_ctrl|key_off                           ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.518      ;
+; 0.369 ; serial_uart:i_serial_uart|rx_bit_cnt[4]               ; serial_uart:i_serial_uart|rx_bit_cnt[4]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.521      ;
 ; 0.369 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[3]                     ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[3]                     ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.521      ;
 ; 0.369 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[12]                    ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[12]                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.521      ;
-; 0.369 ; serial_uart:i_serial_uart|rx_byte_int[2]              ; serial_uart:i_serial_uart|rx_byte_int[1]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.521      ;
-; 0.370 ; serial_uart:i_serial_uart|rx_byte_int[3]              ; serial_uart:i_serial_uart|rx_byte_int[2]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.522      ;
+; 0.369 ; serial_uart:i_serial_uart|rx_byte_int[5]              ; serial_uart:i_serial_uart|rx_byte_int[4]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.521      ;
+; 0.370 ; key_ctrl:i_key_ctrl|key_off                           ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_off                   ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.522      ;
 ; 0.371 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]                         ; pwm_ctrl:i_pwm_ctrl|dc_cnt[4]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.523      ;
 ; 0.371 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]                         ; pwm_ctrl:i_pwm_ctrl|dc_cnt[9]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.523      ;
 ; 0.371 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]                        ; pwm_ctrl:i_pwm_ctrl|dc_cnt[11]                        ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; serial_uart:i_serial_uart|rx_byte_int[6]              ; serial_uart:i_serial_uart|rx_byte_int[5]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.523      ;
+; 0.371 ; serial_uart:i_serial_uart|rx_byte_int[1]              ; serial_uart:i_serial_uart|rx_byte_int[0]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.523      ;
+; 0.372 ; serial_uart:i_serial_uart|rx_bit_cnt[6]               ; serial_uart:i_serial_uart|rx_bit_cnt[6]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; pwm_ctrl:i_pwm_ctrl|new_dc[1]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.524      ;
 ; 0.372 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]                         ; pwm_ctrl:i_pwm_ctrl|dc_cnt[6]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.524      ;
 ; 0.372 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]                         ; pwm_ctrl:i_pwm_ctrl|dc_cnt[7]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.524      ;
 ; 0.372 ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]                        ; pwm_ctrl:i_pwm_ctrl|dc_cnt[13]                        ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.524      ;
 ; 0.372 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[5]                     ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[5]                     ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.524      ;
 ; 0.372 ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[10]                    ; pwm_ctrl:i_pwm_ctrl|one_ms_cnt[10]                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.524      ;
-; 0.372 ; key_ctrl:i_key_ctrl|key_off_n_2r                      ; key_ctrl:i_key_ctrl|key_off                           ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.524      ;
-; 0.373 ; serial_uart:i_serial_uart|rx_bit_cnt[7]               ; serial_uart:i_serial_uart|rx_bit_cnt[7]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.525      ;
-; 0.374 ; serial_uart:i_serial_uart|rx_bit_cnt[0]               ; serial_uart:i_serial_uart|rx_bit_cnt[0]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.526      ;
-; 0.374 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_off                   ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.526      ;
-; 0.375 ; serial_uart:i_serial_uart|rx_byte_int[6]              ; serial_uart:i_serial_uart|rx_byte_int[5]              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.527      ;
-; 0.381 ; serial_uart:i_serial_uart|received_data[0]            ; serial_ctrl:i_serial_ctrl|serial_off_out              ; tc_clock_50  ; tc_clock_50 ; 0.000        ; -0.003     ; 0.530      ;
-; 0.381 ; serial_uart:i_serial_uart|rx_bit_cnt[8]               ; serial_uart:i_serial_uart|rx_bit_cnt_half             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.533      ;
-; 0.383 ; serial_uart:i_serial_uart|rx_bit_cnt[2]               ; serial_uart:i_serial_uart|rx_bit_cnt[2]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.535      ;
-; 0.385 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; pwm_ctrl:i_pwm_ctrl|new_dc[1]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.537      ;
-; 0.386 ; serial_uart:i_serial_uart|rx_bit_cnt[4]               ; serial_uart:i_serial_uart|rx_bit_cnt[4]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.538      ;
-; 0.387 ; key_ctrl:i_key_ctrl|key_off                           ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_off                   ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.539      ;
-; 0.389 ; serial_uart:i_serial_uart|rx_bit_cnt[6]               ; serial_uart:i_serial_uart|rx_bit_cnt[6]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.541      ;
-; 0.401 ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; serial_uart:i_serial_uart|rx_bit_no[0]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.553      ;
-; 0.404 ; serial_uart:i_serial_uart|rx_state.s_idle             ; serial_uart:i_serial_uart|rx_bit_cnt_en               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.556      ;
-; 0.404 ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; serial_uart:i_serial_uart|rx_bit_no[2]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.556      ;
-; 0.406 ; serial_uart:i_serial_uart|received_data[0]            ; serial_ctrl:i_serial_ctrl|serial_on_out               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; -0.003     ; 0.555      ;
-; 0.426 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; pwm_ctrl:i_pwm_ctrl|new_dc[6]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.001      ; 0.579      ;
-; 0.433 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; pwm_ctrl:i_pwm_ctrl|new_dc[0]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.001      ; 0.586      ;
-; 0.434 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; pwm_ctrl:i_pwm_ctrl|new_dc[4]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.001      ; 0.587      ;
-; 0.435 ; serial_uart:i_serial_uart|rx_bit_no[0]                ; serial_uart:i_serial_uart|rx_state.s_stop_bit         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.587      ;
-; 0.437 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; pwm_ctrl:i_pwm_ctrl|new_dc[3]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.589      ;
-; 0.437 ; serial_uart:i_serial_uart|rx_bit_cnt_half             ; serial_uart:i_serial_uart|rx_bit_cnt_en               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.004      ; 0.593      ;
-; 0.442 ; serial_uart:i_serial_uart|rx_bit_cnt_en               ; serial_uart:i_serial_uart|rx_bit_cnt_wrap             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; -0.004     ; 0.590      ;
+; 0.372 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; pwm_ctrl:i_pwm_ctrl|new_dc[3]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.524      ;
+; 0.373 ; key_ctrl:i_key_ctrl|key_in_states.s_pulse_high        ; key_ctrl:i_key_ctrl|key_off                           ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.525      ;
+; 0.373 ; serial_uart:i_serial_uart|rx_bit_cnt[8]               ; serial_uart:i_serial_uart|rx_bit_cnt_half             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.525      ;
+; 0.374 ; key_ctrl:i_key_ctrl|key_off                           ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.526      ;
+; 0.376 ; serial_uart:i_serial_uart|rx_bit_cnt[0]               ; serial_uart:i_serial_uart|rx_bit_cnt[0]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.528      ;
+; 0.376 ; serial_uart:i_serial_uart|rx_bit_cnt[1]               ; serial_uart:i_serial_uart|rx_bit_cnt[1]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.528      ;
+; 0.376 ; key_ctrl:i_key_ctrl|key_in_states.s_pulse_high        ; key_ctrl:i_key_ctrl|key_on                            ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.528      ;
+; 0.379 ; key_ctrl:i_key_ctrl|key_on                            ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.531      ;
+; 0.380 ; serial_uart:i_serial_uart|rx_2r                       ; serial_uart:i_serial_uart|rx_bit_cnt_en               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.001      ; 0.533      ;
+; 0.380 ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_up                    ; pwm_ctrl:i_pwm_ctrl|new_dc[1]                         ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.532      ;
+; 0.383 ; serial_uart:i_serial_uart|rx_bit_cnt[3]               ; serial_uart:i_serial_uart|rx_bit_cnt[3]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.535      ;
+; 0.383 ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; serial_uart:i_serial_uart|rx_bit_no[0]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.535      ;
+; 0.383 ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; serial_uart:i_serial_uart|rx_bit_no[2]                ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.535      ;
+; 0.383 ; serial_uart:i_serial_uart|rx_state.s_idle             ; serial_uart:i_serial_uart|rx_state.s_rx_data          ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.535      ;
+; 0.384 ; serial_uart:i_serial_uart|rx_bit_cnt[5]               ; serial_uart:i_serial_uart|rx_bit_cnt[5]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.536      ;
+; 0.384 ; serial_uart:i_serial_uart|rx_bit_cnt[7]               ; serial_uart:i_serial_uart|rx_bit_cnt[7]               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.536      ;
+; 0.393 ; serial_uart:i_serial_uart|rx_state.s_idle             ; serial_uart:i_serial_uart|rx_bit_cnt_en               ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.545      ;
+; 0.431 ; serial_uart:i_serial_uart|rx_bit_cnt[6]               ; serial_uart:i_serial_uart|rx_bit_cnt_wrap             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.583      ;
+; 0.452 ; serial_uart:i_serial_uart|rx_bit_cnt_en               ; serial_uart:i_serial_uart|rx_bit_cnt_wrap             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.604      ;
+; 0.454 ; serial_ctrl:i_serial_ctrl|serial_on_out               ; pwm_ctrl:i_pwm_ctrl|pwm_state.s_on                    ; tc_clock_50  ; tc_clock_50 ; 0.000        ; -0.002     ; 0.604      ;
+; 0.458 ; serial_uart:i_serial_uart|rx_2r                       ; serial_uart:i_serial_uart|received_error~_Duplicate_1 ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.001      ; 0.611      ;
+; 0.459 ; serial_uart:i_serial_uart|rx_bit_cnt_half             ; serial_uart:i_serial_uart|rx_state.s_idle             ; tc_clock_50  ; tc_clock_50 ; 0.000        ; 0.000      ; 0.611      ;
 +-------+-------------------------------------------------------+-------------------------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -900,10 +900,10 @@ No paths to report.
 +------------+-------------+-------+-------+------------+-----------------+
 ; Data Port  ; Clock Port  ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +------------+-------------+-------+-------+------------+-----------------+
-; fpga_in_rx ; tc_clock_50 ; 1.180 ; 1.180 ; Rise       ; tc_clock_50     ;
-; key_n[*]   ; tc_clock_50 ; 1.058 ; 1.058 ; Rise       ; tc_clock_50     ;
-;  key_n[0]  ; tc_clock_50 ; 0.977 ; 0.977 ; Rise       ; tc_clock_50     ;
-;  key_n[1]  ; tc_clock_50 ; 1.058 ; 1.058 ; Rise       ; tc_clock_50     ;
+; fpga_in_rx ; tc_clock_50 ; 1.255 ; 1.255 ; Rise       ; tc_clock_50     ;
+; key_n[*]   ; tc_clock_50 ; 1.192 ; 1.192 ; Rise       ; tc_clock_50     ;
+;  key_n[0]  ; tc_clock_50 ; 1.192 ; 1.192 ; Rise       ; tc_clock_50     ;
+;  key_n[1]  ; tc_clock_50 ; 1.176 ; 1.176 ; Rise       ; tc_clock_50     ;
 +------------+-------------+-------+-------+------------+-----------------+
 
 
@@ -912,10 +912,10 @@ No paths to report.
 +------------+-------------+--------+--------+------------+-----------------+
 ; Data Port  ; Clock Port  ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +------------+-------------+--------+--------+------------+-----------------+
-; fpga_in_rx ; tc_clock_50 ; -1.060 ; -1.060 ; Rise       ; tc_clock_50     ;
-; key_n[*]   ; tc_clock_50 ; -0.857 ; -0.857 ; Rise       ; tc_clock_50     ;
-;  key_n[0]  ; tc_clock_50 ; -0.857 ; -0.857 ; Rise       ; tc_clock_50     ;
-;  key_n[1]  ; tc_clock_50 ; -0.938 ; -0.938 ; Rise       ; tc_clock_50     ;
+; fpga_in_rx ; tc_clock_50 ; -1.135 ; -1.135 ; Rise       ; tc_clock_50     ;
+; key_n[*]   ; tc_clock_50 ; -1.056 ; -1.056 ; Rise       ; tc_clock_50     ;
+;  key_n[0]  ; tc_clock_50 ; -1.072 ; -1.072 ; Rise       ; tc_clock_50     ;
+;  key_n[1]  ; tc_clock_50 ; -1.056 ; -1.056 ; Rise       ; tc_clock_50     ;
 +------------+-------------+--------+--------+------------+-----------------+
 
 
@@ -924,10 +924,10 @@ No paths to report.
 +-----------+-------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port  ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+-------------+-------+-------+------------+-----------------+
-; ledg[*]   ; tc_clock_50 ; 3.204 ; 3.204 ; Rise       ; tc_clock_50     ;
-;  ledg[0]  ; tc_clock_50 ; 3.204 ; 3.204 ; Rise       ; tc_clock_50     ;
-; ledr[*]   ; tc_clock_50 ; 3.199 ; 3.199 ; Rise       ; tc_clock_50     ;
-;  ledr[0]  ; tc_clock_50 ; 3.199 ; 3.199 ; Rise       ; tc_clock_50     ;
+; ledg[*]   ; tc_clock_50 ; 3.194 ; 3.194 ; Rise       ; tc_clock_50     ;
+;  ledg[0]  ; tc_clock_50 ; 3.194 ; 3.194 ; Rise       ; tc_clock_50     ;
+; ledr[*]   ; tc_clock_50 ; 3.164 ; 3.164 ; Rise       ; tc_clock_50     ;
+;  ledr[0]  ; tc_clock_50 ; 3.164 ; 3.164 ; Rise       ; tc_clock_50     ;
 +-----------+-------------+-------+-------+------------+-----------------+
 
 
@@ -936,10 +936,10 @@ No paths to report.
 +-----------+-------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port  ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+-------------+-------+-------+------------+-----------------+
-; ledg[*]   ; tc_clock_50 ; 3.204 ; 3.204 ; Rise       ; tc_clock_50     ;
-;  ledg[0]  ; tc_clock_50 ; 3.204 ; 3.204 ; Rise       ; tc_clock_50     ;
-; ledr[*]   ; tc_clock_50 ; 3.199 ; 3.199 ; Rise       ; tc_clock_50     ;
-;  ledr[0]  ; tc_clock_50 ; 3.199 ; 3.199 ; Rise       ; tc_clock_50     ;
+; ledg[*]   ; tc_clock_50 ; 3.194 ; 3.194 ; Rise       ; tc_clock_50     ;
+;  ledg[0]  ; tc_clock_50 ; 3.194 ; 3.194 ; Rise       ; tc_clock_50     ;
+; ledr[*]   ; tc_clock_50 ; 3.164 ; 3.164 ; Rise       ; tc_clock_50     ;
+;  ledr[0]  ; tc_clock_50 ; 3.164 ; 3.164 ; Rise       ; tc_clock_50     ;
 +-----------+-------------+-------+-------+------------+-----------------+
 
 
@@ -948,8 +948,8 @@ No paths to report.
 +------------------+-------+-------+----------+---------+---------------------+
 ; Clock            ; Setup ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------+-------+-------+----------+---------+---------------------+
-; Worst-case Slack ; 6.292 ; 0.215 ; N/A      ; N/A     ; 8.889               ;
-;  tc_clock_50     ; 6.292 ; 0.215 ; N/A      ; N/A     ; 8.889               ;
+; Worst-case Slack ; 6.302 ; 0.215 ; N/A      ; N/A     ; 8.889               ;
+;  tc_clock_50     ; 6.302 ; 0.215 ; N/A      ; N/A     ; 8.889               ;
 ; Design-wide TNS  ; 0.0   ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
 ;  tc_clock_50     ; 0.000 ; 0.000 ; N/A      ; N/A     ; 0.000               ;
 +------------------+-------+-------+----------+---------+---------------------+
@@ -960,10 +960,10 @@ No paths to report.
 +------------+-------------+-------+-------+------------+-----------------+
 ; Data Port  ; Clock Port  ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +------------+-------------+-------+-------+------------+-----------------+
-; fpga_in_rx ; tc_clock_50 ; 2.801 ; 2.801 ; Rise       ; tc_clock_50     ;
-; key_n[*]   ; tc_clock_50 ; 2.623 ; 2.623 ; Rise       ; tc_clock_50     ;
-;  key_n[0]  ; tc_clock_50 ; 2.538 ; 2.538 ; Rise       ; tc_clock_50     ;
-;  key_n[1]  ; tc_clock_50 ; 2.623 ; 2.623 ; Rise       ; tc_clock_50     ;
+; fpga_in_rx ; tc_clock_50 ; 2.929 ; 2.929 ; Rise       ; tc_clock_50     ;
+; key_n[*]   ; tc_clock_50 ; 2.808 ; 2.808 ; Rise       ; tc_clock_50     ;
+;  key_n[0]  ; tc_clock_50 ; 2.808 ; 2.808 ; Rise       ; tc_clock_50     ;
+;  key_n[1]  ; tc_clock_50 ; 2.798 ; 2.798 ; Rise       ; tc_clock_50     ;
 +------------+-------------+-------+-------+------------+-----------------+
 
 
@@ -972,10 +972,10 @@ No paths to report.
 +------------+-------------+--------+--------+------------+-----------------+
 ; Data Port  ; Clock Port  ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +------------+-------------+--------+--------+------------+-----------------+
-; fpga_in_rx ; tc_clock_50 ; -1.060 ; -1.060 ; Rise       ; tc_clock_50     ;
-; key_n[*]   ; tc_clock_50 ; -0.857 ; -0.857 ; Rise       ; tc_clock_50     ;
-;  key_n[0]  ; tc_clock_50 ; -0.857 ; -0.857 ; Rise       ; tc_clock_50     ;
-;  key_n[1]  ; tc_clock_50 ; -0.938 ; -0.938 ; Rise       ; tc_clock_50     ;
+; fpga_in_rx ; tc_clock_50 ; -1.135 ; -1.135 ; Rise       ; tc_clock_50     ;
+; key_n[*]   ; tc_clock_50 ; -1.056 ; -1.056 ; Rise       ; tc_clock_50     ;
+;  key_n[0]  ; tc_clock_50 ; -1.072 ; -1.072 ; Rise       ; tc_clock_50     ;
+;  key_n[1]  ; tc_clock_50 ; -1.056 ; -1.056 ; Rise       ; tc_clock_50     ;
 +------------+-------------+--------+--------+------------+-----------------+
 
 
@@ -984,10 +984,10 @@ No paths to report.
 +-----------+-------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port  ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+-------------+-------+-------+------------+-----------------+
-; ledg[*]   ; tc_clock_50 ; 5.708 ; 5.708 ; Rise       ; tc_clock_50     ;
-;  ledg[0]  ; tc_clock_50 ; 5.708 ; 5.708 ; Rise       ; tc_clock_50     ;
-; ledr[*]   ; tc_clock_50 ; 5.703 ; 5.703 ; Rise       ; tc_clock_50     ;
-;  ledr[0]  ; tc_clock_50 ; 5.703 ; 5.703 ; Rise       ; tc_clock_50     ;
+; ledg[*]   ; tc_clock_50 ; 5.698 ; 5.698 ; Rise       ; tc_clock_50     ;
+;  ledg[0]  ; tc_clock_50 ; 5.698 ; 5.698 ; Rise       ; tc_clock_50     ;
+; ledr[*]   ; tc_clock_50 ; 5.668 ; 5.668 ; Rise       ; tc_clock_50     ;
+;  ledr[0]  ; tc_clock_50 ; 5.668 ; 5.668 ; Rise       ; tc_clock_50     ;
 +-----------+-------------+-------+-------+------------+-----------------+
 
 
@@ -996,10 +996,10 @@ No paths to report.
 +-----------+-------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port  ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+-------------+-------+-------+------------+-----------------+
-; ledg[*]   ; tc_clock_50 ; 3.204 ; 3.204 ; Rise       ; tc_clock_50     ;
-;  ledg[0]  ; tc_clock_50 ; 3.204 ; 3.204 ; Rise       ; tc_clock_50     ;
-; ledr[*]   ; tc_clock_50 ; 3.199 ; 3.199 ; Rise       ; tc_clock_50     ;
-;  ledr[0]  ; tc_clock_50 ; 3.199 ; 3.199 ; Rise       ; tc_clock_50     ;
+; ledg[*]   ; tc_clock_50 ; 3.194 ; 3.194 ; Rise       ; tc_clock_50     ;
+;  ledg[0]  ; tc_clock_50 ; 3.194 ; 3.194 ; Rise       ; tc_clock_50     ;
+; ledr[*]   ; tc_clock_50 ; 3.164 ; 3.164 ; Rise       ; tc_clock_50     ;
+;  ledr[0]  ; tc_clock_50 ; 3.164 ; 3.164 ; Rise       ; tc_clock_50     ;
 +-----------+-------------+-------+-------+------------+-----------------+
 
 
@@ -1055,7 +1055,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed May 10 13:15:49 2023
+    Info: Processing started: Wed May 10 14:31:22 2023
 Info: Command: quartus_sta pwm_module -c pwm_module
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -1114,6 +1114,20 @@ Warning (332070): Port "hex2_n[5]" relative to the rising edge of clock "tc_cloc
 Warning (332070): Port "hex2_n[5]" relative to the rising edge of clock "tc_clock_50" does not specify a min-rise output delay
 Warning (332070): Port "hex2_n[6]" relative to the rising edge of clock "tc_clock_50" does not specify a min-fall output delay
 Warning (332070): Port "hex2_n[6]" relative to the rising edge of clock "tc_clock_50" does not specify a min-rise output delay
+Warning (332070): Port "hex3_n[0]" relative to the rising edge of clock "tc_clock_50" does not specify a min-fall output delay
+Warning (332070): Port "hex3_n[0]" relative to the rising edge of clock "tc_clock_50" does not specify a min-rise output delay
+Warning (332070): Port "hex3_n[1]" relative to the rising edge of clock "tc_clock_50" does not specify a min-fall output delay
+Warning (332070): Port "hex3_n[1]" relative to the rising edge of clock "tc_clock_50" does not specify a min-rise output delay
+Warning (332070): Port "hex3_n[2]" relative to the rising edge of clock "tc_clock_50" does not specify a min-fall output delay
+Warning (332070): Port "hex3_n[2]" relative to the rising edge of clock "tc_clock_50" does not specify a min-rise output delay
+Warning (332070): Port "hex3_n[3]" relative to the rising edge of clock "tc_clock_50" does not specify a min-fall output delay
+Warning (332070): Port "hex3_n[3]" relative to the rising edge of clock "tc_clock_50" does not specify a min-rise output delay
+Warning (332070): Port "hex3_n[4]" relative to the rising edge of clock "tc_clock_50" does not specify a min-fall output delay
+Warning (332070): Port "hex3_n[4]" relative to the rising edge of clock "tc_clock_50" does not specify a min-rise output delay
+Warning (332070): Port "hex3_n[5]" relative to the rising edge of clock "tc_clock_50" does not specify a min-fall output delay
+Warning (332070): Port "hex3_n[5]" relative to the rising edge of clock "tc_clock_50" does not specify a min-rise output delay
+Warning (332070): Port "hex3_n[6]" relative to the rising edge of clock "tc_clock_50" does not specify a min-fall output delay
+Warning (332070): Port "hex3_n[6]" relative to the rising edge of clock "tc_clock_50" does not specify a min-rise output delay
 Warning (332070): Port "ledg[0]" relative to the rising edge of clock "tc_clock_50" does not specify a min-fall output delay
 Warning (332070): Port "ledg[0]" relative to the rising edge of clock "tc_clock_50" does not specify a min-rise output delay
 Warning (332070): Port "ledg[1]" relative to the rising edge of clock "tc_clock_50" does not specify a min-fall output delay
@@ -1154,10 +1168,10 @@ Warning (332070): Port "~LVDS91p/nCEO~" relative to the rising edge of clock "tc
 Warning (332070): Port "~LVDS91p/nCEO~" relative to the rising edge of clock "tc_clock_50" does not specify a min-rise output delay
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow Model
-Info (332146): Worst-case setup slack is 6.292
+Info (332146): Worst-case setup slack is 6.302
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):     6.292         0.000 tc_clock_50 
+    Info (332119):     6.302         0.000 tc_clock_50 
 Info (332146): Worst-case hold slack is 0.445
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
@@ -1170,10 +1184,10 @@ Info (332146): Worst-case minimum pulse width slack is 8.889
     Info (332119):     8.889         0.000 tc_clock_50 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info: Analyzing Fast Model
-Info (332146): Worst-case setup slack is 8.796
+Info (332146): Worst-case setup slack is 8.806
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):     8.796         0.000 tc_clock_50 
+    Info (332119):     8.806         0.000 tc_clock_50 
 Info (332146): Worst-case hold slack is 0.215
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
@@ -1187,10 +1201,10 @@ Info (332146): Worst-case minimum pulse width slack is 9.000
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info (332101): Design is fully constrained for setup requirements
 Info (332101): Design is fully constrained for hold requirements
-Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 91 warnings
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 105 warnings
     Info: Peak virtual memory: 4537 megabytes
-    Info: Processing ended: Wed May 10 13:15:50 2023
-    Info: Elapsed time: 00:00:01
+    Info: Processing ended: Wed May 10 14:31:24 2023
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:00
 
 

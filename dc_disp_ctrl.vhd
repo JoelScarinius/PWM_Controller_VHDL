@@ -35,7 +35,7 @@ entity dc_disp_ctrl is
         input_vector        : out std_logic_vector(7 downto 0);
         
         transmit_data       : out std_logic_vector(7 downto 0);
-        transmit_data_valid : out std_logic;
+        transmit_valid      : out std_logic;
 
         hex0_n              : out std_logic_vector(6 downto 0);
         hex1_n              : out std_logic_vector(6 downto 0);
@@ -48,6 +48,7 @@ architecture rtl of dc_disp_ctrl is
     constant procent : std_logic_vector(7 downto 0) := "00100101"; -- %
     constant cr      : std_logic_vector(7 downto 0) := "00001101"; -- CR
     constant space   : std_logic_vector(7 downto 0) := "00100000"; -- space
+    constant off     : std_logic_vector(6 downto 0) := "1111111"; -- off
 
     type t_send_data_state is ( s_idle,
                         s_send_hundreds,
@@ -70,9 +71,6 @@ architecture rtl of dc_disp_ctrl is
     signal seven_seg_vector0  : std_logic_vector(6 downto 0);
     signal seven_seg_vector1  : std_logic_vector(6 downto 0);
     signal seven_seg_vector2  : std_logic_vector(6 downto 0);
-    -- signal seven_seg_vector0  : std_logic_vector(14 downto 0);
-    -- signal seven_seg_vector1  : std_logic_vector(14 downto 0);
-    -- signal seven_seg_vector2  : std_logic_vector(14 downto 0);
 
     signal send_data_state    : t_send_data_state := s_idle;
 
@@ -83,39 +81,27 @@ architecture rtl of dc_disp_ctrl is
         case bcd012 is
             when "0000" => 
                 return_vector := "1000000"; -- 0
-                -- transmittable_byte := "00110000"; -- 0
             when "0001" => 
                 return_vector := "1111001"; -- 1
-                -- transmittable_byte := "00110001"; -- 1
             when "0010" =>  
                 return_vector := "0100100"; -- 2
-                -- transmittable_byte := "00110010"; -- 2
             when "0011" => 
                 return_vector := "0110000"; -- 3
-                -- transmittable_byte := "00110011"; -- 3
             when "0100" => 
                 return_vector := "0011001"; -- 4
-                -- transmittable_byte := "00110100"; -- 4
             when "0101" => 
                 return_vector := "0010010"; -- 5
-                -- transmittable_byte := "00110101"; -- 5
             when "0110" => 
                 return_vector := "0000010"; -- 6
-                -- transmittable_byte := "00110110"; -- 6
             when "0111" => 
                 return_vector := "1111000"; -- 7
-                -- transmittable_byte := "00110111"; -- 7
             when "1000" => 
                 return_vector := "0000000"; -- 8
-                -- transmittable_byte := "00111000"; -- 8
             when "1001" => 
                 return_vector := "0011000"; -- 9
-                -- transmittable_byte := "00111001"; -- 9
             when others =>  
                 return_vector := "1111111"; -- off
-                -- transmittable_byte := "00110000"; -- 0
         end case;
-            -- return_vector := transmittable_byte & seven_seg_vector;
         return return_vector;
     end function;
 
@@ -160,28 +146,17 @@ begin
     hex1_n              <= seven_seg_vector1(6 downto 0);
     hex2_n              <= seven_seg_vector2(6 downto 0);
     transmit_data       <= byte_vector(7 downto 0);
-    transmit_data_valid <= transmit_valid_out;
+    transmit_valid      <= transmit_valid_out;
     input_vector        <= current_dc;
-    -- hex0_n <= received_vector0(6 downto 0);
-    -- hex1_n <= received_vector1(6 downto 0);
-    -- hex2_n <= received_vector2(6 downto 0);
-    -- transmit_data <= received_vector0(14 downto 7);
-    -- transmit_data <= received_vector1(14 downto 7);
-    -- transmit_data <= received_vector2(14 downto 7);   
-    -- transmit_data <= "00100101";
-    -- transmit_data <= "00001101";
-    -- ska skicka space som är decimal 32 = "00100000"
-    -- hex släck med serial skickar vi space
-
     
     process(clk, reset)
     begin
         if reset = '1' then
-            transmit_valid_out <= '0';
             send_data_state    <= s_idle;
-            seven_seg_vector0  <= "1111111";
-            seven_seg_vector1  <= "1111111";
-            seven_seg_vector2  <= "1111111";
+            transmit_valid_out <= '0';
+            seven_seg_vector0  <= off;
+            seven_seg_vector1  <= off;
+            seven_seg_vector2  <= off;
         elsif rising_edge(clk) then
 
             case send_data_state is
@@ -197,7 +172,7 @@ begin
                     if to_integer(unsigned(current_dc)) < 100 and transmit_ready = '1' then
                         transmit_valid_out <= '1';
                         byte_vector        <= space ; -- space decimal 32
-                        seven_seg_vector2  <= "1111111";
+                        seven_seg_vector2  <= off;
                     else
                         transmit_valid_out <= '1';
                         byte_vector        <= fn_bcd_to_byte(bcd_2_in(3 downto 0));
@@ -212,7 +187,7 @@ begin
                     if to_integer(unsigned(current_dc)) < 10 and transmit_ready = '1' then
                         transmit_valid_out <= '1';
                         byte_vector        <= space ; -- space decimal 32
-                        seven_seg_vector2  <= "1111111";
+                        seven_seg_vector2  <= off;
                     else
                         transmit_valid_out <= '1';
                         byte_vector        <= fn_bcd_to_byte(bcd_1_in(3 downto 0));

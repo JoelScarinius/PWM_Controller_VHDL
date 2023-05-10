@@ -90,7 +90,7 @@ begin
                 when s_held_high =>
                     if key_off_n_2r  = '1' or key_on_n_2r = '1' or key_down_n_2r = '1' or key_up_n_2r = '1' then
                         ten_ms_cnt <= ten_ms_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms 
-                        if ten_ms_cnt = ten_ms then
+                        if ten_ms_cnt < ten_ms then
                             ten_ms_cnt   <= 0;
                             key_in_states<= s_pulse_low;
                         end if;

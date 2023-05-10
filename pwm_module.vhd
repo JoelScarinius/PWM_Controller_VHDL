@@ -14,6 +14,7 @@ entity pwm_module is
         hex0_n      : out std_logic_vector(6 downto 0);
         hex1_n      : out std_logic_vector(6 downto 0);
         hex2_n      : out std_logic_vector(6 downto 0);
+        hex3_n      : out std_logic_vector(6 downto 0);
         ledr        : out std_logic_vector(9 downto 0);
         ledg        : out std_logic_vector(7 downto 0)
     );
@@ -29,7 +30,7 @@ architecture rtl of pwm_module is
 
     -- (B)
     signal received_data       : std_logic_vector(7 downto 0);
-    signal received_data_valid : std_logic;
+    signal received_valid : std_logic;
 
     -- (C)
     signal serial_on   : std_logic;
@@ -52,7 +53,6 @@ architecture rtl of pwm_module is
     signal led                 : std_logic;
     signal received_error      : std_logic;
     signal transmit_ready      : std_logic;
-    signal transmit_data_valid : std_logic;
     
     -- double synchronize
     -- signal reset_r  : std_logic;
@@ -82,12 +82,9 @@ begin
     hex0_n               <= hex_0_n_out;
     hex1_n               <= hex_1_n_out;
     hex2_n               <= hex_2_n_out;
+    hex3_n               <= (others => '1');
     ledg(0)              <= led;
     ledr(0)              <= received_error;
-    -- key_off_n            <= key_n(0);
-    -- key_on_n             <= key_n(1);
-    -- key_down_n           <= key_n(2);
-    -- key_up_n             <= key_n(3);
 
     b_gen_pll : if (not g_simulation) generate
     -- Instance of PLL
@@ -172,7 +169,7 @@ begin
 
         transmit_ready      => transmit_ready,
         transmit_data       => transmit_data,
-        transmit_data_valid => transmit_data_valid,
+        transmit_valid      => transmit_valid,
 
         bcd_0               => bcd_0,                  
         bcd_1               => bcd_1,                 
@@ -214,58 +211,27 @@ begin
         tx                    => fpga_out_tx,
 
         received_data         => received_data,
-        received_data_valid   => received_data_valid,
+        received_valid        => received_valid,
         received_error        => received_error,
         received_parity_error => open,
 
         transmit_ready        => transmit_ready,
-        transmit_data_valid   => transmit_data_valid,
+        transmit_valid        => transmit_valid,
         transmit_data         => transmit_data
     );
 
     i_serial_ctrl : entity work.serial_ctrl
     port map (
-        clk                 => clock_50,
-        reset               => reset_2r,
+        clk            => clock_50,
+        reset          => reset_2r,
 
-        received_data       => received_data,
-        received_data_valid => received_data_valid,
+        received_data  => received_data,
+        received_valid => received_valid,
 
-        serial_off          => serial_off,
-        serial_on           => serial_on,
-        serial_down         => serial_down,
-        serial_up           => serial_up
+        serial_off     => serial_off,
+        serial_on      => serial_on,
+        serial_down    => serial_down,
+        serial_up      => serial_up
     );
-
-    -- i_altera_pll : entity work.altera_pll
-    -- port map (
-    --     areset		=> '0',        -- Reset towards PLL is inactive
-    --     inclk0		=> clock_50,   -- 50 MHz input clock
-    --     c0		    => open,       -- 25 MHz output clock unused
-    --     c1		    => clk_50,     -- 50 MHz output clock
-    --     c2		    => open,       -- 100 MHz output clock unused
-    --     locked		=> pll_locked  -- PLL Locked output signal
-    -- );
-
-    -- i_reset_ctrl_rtl : entity work.reset_ctrl_rtl
-    -- generic map (
-    --         g_reset_hold_clk  => 127
-    --     )
-    --     port map (
-    --         clk         => clk_50,
-    --         reset_in    => '0',
-    --         reset_in_n  => pll_locked, -- reset active if PLL is not locked
-
-    --         reset_out   => reset,
-    --         reset_out_n => open
-    --     );
-
-    -- p_double_sync : process(clock_50)
-    -- begin
-    --     if rising_edge(clock_50) then
-    --         reset_r   <= reset;
-    --         reset_2r  <= reset_r;
-    --     end if;
-    -- end process p_double_sync;
 
 end architecture;
