@@ -1,5 +1,5 @@
 EDA Netlist Writer report for PWM_Controller
-Tue May 09 13:20:35 2023
+Wed May 10 11:20:34 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Tue May 09 13:20:35 2023 ;
+; EDA Netlist Writer Status ; Successful - Wed May 10 11:20:34 2023 ;
 ; Revision Name             ; PWM_Controller                        ;
 ; Top-level Entity Name     ; PWM_Controller                        ;
 ; Family                    ; Cyclone II                            ;
@@ -84,13 +84,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue May 09 13:20:34 2023
+    Info: Processing started: Wed May 10 11:20:34 2023
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off PWM_Controller -c PWM_Controller
 Info (204026): Generated files "PWM_Controller.vho", "PWM_Controller_fast.vho", "PWM_Controller_vhd.sdo" and "PWM_Controller_vhd_fast.sdo" in directory "C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4521 megabytes
-    Info: Processing ended: Tue May 09 13:20:35 2023
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 4517 megabytes
+    Info: Processing ended: Wed May 10 11:20:34 2023
+    Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:00
 
 

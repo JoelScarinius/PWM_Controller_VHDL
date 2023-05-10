@@ -84,10 +84,10 @@ begin
     hex2_n               <= hex_2_n_out;
     ledg(0)              <= led;
     ledr(0)              <= received_error;
-    key_off_n            <= key_n(0);
-    key_on_n             <= key_n(1);
-    key_down_n           <= key_n(2);
-    key_up_n             <= key_n(3);
+    -- key_off_n            <= key_n(0);
+    -- key_on_n             <= key_n(1);
+    -- key_down_n           <= key_n(2);
+    -- key_up_n             <= key_n(3);
 
     b_gen_pll : if (not g_simulation) generate
     -- Instance of PLL

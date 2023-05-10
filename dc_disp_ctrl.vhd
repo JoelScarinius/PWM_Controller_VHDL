@@ -216,7 +216,7 @@ begin
                     else
                         transmit_valid_out <= '1';
                         byte_vector        <= fn_bcd_to_byte(bcd_1_in(3 downto 0));
-                        seven_seg_vector1  <= fn_bcd_to_byte(bcd_1_in(3 downto 0));
+                        seven_seg_vector1  <= fn_bcd_to_seven_seg(bcd_1_in(3 downto 0));
                     end if;
                     send_data_state        <= s_send_ones;
                 end if;
@@ -227,7 +227,7 @@ begin
                     if transmit_ready = '1' then
                         transmit_valid_out <= '1';
                         byte_vector        <= fn_bcd_to_byte(bcd_0_in(3 downto 0));
-                        seven_seg_vector0  <= fn_bcd_to_byte(bcd_0_in(3 downto 0));
+                        seven_seg_vector0  <= fn_bcd_to_seven_seg(bcd_0_in(3 downto 0));
                     end if;
                     send_data_state        <= s_send_procent;
                 end if;

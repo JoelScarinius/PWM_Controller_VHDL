@@ -25,7 +25,7 @@ end key_ctrl;
 
 architecture rtl of key_ctrl is
 
-    type t_key_state is (s_off, s_on, s_down, s_up);
+    type t_key_in_state is (s_pulse_high, s_pulse_low, s_held_high);
 
     constant ten_ms : integer := 500000; -- 10ms / 20ns = 500000
 
@@ -45,9 +45,14 @@ architecture rtl of key_ctrl is
     signal in_key_down_n_r  : std_logic;
     signal in_key_down_n_2r : std_logic;
 
+    signal key_off          : std_logic;
+    signal key_on           : std_logic;
+    signal key_down         : std_logic;
+    signal key_up           : std_logic;
+
     signal ten_ms_cnt       : integer range 0 to ten_ms;
 
-    signal key_states       : t_key_state := s_off;
+    signal key_in_states    : t_key_in_state := s_pulse_high;
 
 begin
 
@@ -55,14 +60,6 @@ begin
     key_on_n   <= key_on;
     key_down_n <= key_down;
     key_up_n   <= key_up;
-    
-    -- key_off_n  <= in_key_off_n_2r;
-    -- key_on_n   <= in_key_on_n_2r;
-    -- key_down_n <= in_key_down_n_2r;
-    -- key_up_n   <= in_key_up_n_2r;
-
-    -- !! DU MÅSTE GÖRA EN STATE MACHINE istället. !!
-    
 
     p_double_sync : process(clk)
     begin
@@ -90,186 +87,61 @@ begin
     begin
 
         if reset = '1' then
-            key_off <= '0';
-            key_states <= s_off;
+            key_off  <= '0';
+            key_on   <= '0';
+            key_down <= '0';
+            key_up   <= '0';
         elsif rising_edge(clk) then
-            ten_ms_cnt <= ten_ms_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms 
-            if ten_ms_cnt = ten_ms then
-                ten_ms_cnt <= 0;
-                -- in_key_on_n_2r <= '0';
-                key_on <= '0';
-            elsif in_key_off_n_2r = '1' then
-                -- in_key_off_n_2r <= '1';
-                key_off <= '1';
-            else
-                -- in_key_off_n_2r <= '0';
-                key_off <= '0';
-            end if;
-        end if;
+            
+            case key_in_states is
 
-        case key_states is
-
-            when s_off =>
-
-            if reset = '1' then
-                -- in_key_off_n_2r <= '0';
-                key_off <= '0';
-                key_states <= s_off;
-            elsif rising_edge(clk) then
-                ten_ms_cnt <= ten_ms_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms 
-                if ten_ms_cnt = ten_ms then
-                    ten_ms_cnt <= 0;
-                    in_key_on_n_2r <= '0';
-                elsif in_key_off_n_2r = '1' then
-                    -- in_key_off_n_2r <= '1';
-                    key_off <= '1';
-                else
-                    -- in_key_off_n_2r <= '0';
-                    key_off <= '0';
-                end if;
-            end if;
-
-        -- p_key_off : process(clk, reset)
-        -- begin
-        --     if reset = '1' then
-        --         in_key_off_n_2r <= '0';
-        --     elsif rising_edge(clk) then
-        --         ten_ms_cnt <= ten_ms_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms 
-        --         if ten_ms_cnt = ten_ms then
-        --             ten_ms_cnt <= 0;
-        --             in_key_on_n_2r <= '0';
-        --         elsif in_key_off_n_2r = '1' then
-        --             -- in_key_off_n_2r <= '1';
-        --             key_off <= '1';
-        --         else
-        --             -- in_key_off_n_2r <= '0';
-        --             key_off <= '0';
-        --         end if;
-        --     end if;
-        -- end process p_key_off;
-
-            when s_on =>
-                if reset = '1' then
-                    in_key_on_n_2r <= '0';
-                elsif rising_edge(clk) then
-                    if in_key_off_n_2r /= '0'then
-                        ten_ms_cnt <= ten_ms_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms
+                when s_held_high =>
+                    if in_key_off_n_2r  = '1' or in_key_on_n_2r = '1' or in_key_down_n_2r = '1' or in_key_up_n_2r = '1' then
+                        ten_ms_cnt <= ten_ms_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms 
                         if ten_ms_cnt = ten_ms then
-                            ten_ms_cnt <= 0;
-                            in_key_on_n_2r <= '0';
-                        elsif in_key_on_n_2r = '1' then
-                            -- in_key_on_n_2r <= '1';
+                            ten_ms_cnt   <= 0;
+                            key_in_states<= s_pulse_low;
+                        end if;
+                    else
+                        ten_ms_cnt   <= 0;
+                    end if;
+                    key_in_states<= s_pulse_high;
+                    
+                when s_pulse_high =>
+                    if in_key_off_n_2r  = '1' then
+                        key_off <= '1';
+                    end if;
+                    if in_key_off_n_2r /= '0' then
+                        key_off <= '1';
+                        if in_key_on_n_2r = '1' then
                             key_on <= '1';
-                        else
-                            -- in_key_on_n_2r <= '0';
-                            key_on <= '0';
+                        end if;
+                        if in_key_down_n_2r /= in_key_up_n_2r then
+                            if in_key_down_n_2r = '1' then
+                                key_down <= '1';
+                            end if;
+                            if in_key_up_n_2r = '1' then
+                                key_up <= '1';
+                            end if;
                         end if;
                     end if;
-                end if;
+                    key_in_states<= s_pulse_low;
 
-            -- p_key_on : process(clk, reset)
-            -- begin
-            --     if reset = '1' then
-            --         in_key_on_n_2r <= '0';
-            --     elsif rising_edge(clk) then
-            --         if in_key_off_n_2r /= '0'then
-            --             ten_ms_cnt <= ten_ms_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms
-            --             if ten_ms_cnt = ten_ms then
-            --                 ten_ms_cnt <= 0;
-            --                 in_key_on_n_2r <= '0';
-            --             elsif in_key_on_n_2r = '1' then
-            --                 -- in_key_on_n_2r <= '1';
-            --                 key_on <= '1';
-            --             else
-            --                 -- in_key_on_n_2r <= '0';
-            --                 key_on <= '0';
-            --             end if;
-            --         end if;
-            --     end if;
-            -- end process p_key_on;
-
-            when s_down =>
-
-                if reset = '1' then
-                    in_key_down_n_2r <= '0';
-                elsif rising_edge(clk) then
-                    if in_key_off_n_2r /= '0' or (in_key_down_n_2r /= '0' and in_key_up_n_2r /= '0') then
-                        ten_ms_cnt <= ten_ms_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms
-                        if ten_ms_cnt = ten_ms then
-                            ten_ms_cnt <= 0;
-                            -- in_key_on_n_2r <= '0';
-                            key_down <= '0';
-                        elsif in_key_down_n_2r = '1' then
-                            -- in_key_down_n_2r <= '1';
-                            key_down <= '1';
-                        else
-                            in_key_down_n_2r <= '0';
-                        end if;
+                when s_pulse_low =>
+                    if key_off  = '1' then
+                        key_off  <= '0';
                     end if;
-                end if;
-            -- p_key_down : process(clk, reset)
-            -- begin
-            --     if reset = '1' then
-            --         in_key_down_n_2r <= '0';
-            --     elsif rising_edge(clk) then
-            --         if in_key_off_n_2r /= '0' or (in_key_down_n_2r /= '0' and in_key_up_n_2r /= '0') then
-            --             ten_ms_cnt <= ten_ms_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms
-            --             if ten_ms_cnt = ten_ms then
-            --                 ten_ms_cnt <= 0;
-            --                 -- in_key_on_n_2r <= '0';
-            --                 key_down <= '0';
-            --             elsif in_key_down_n_2r = '1' then
-            --                 -- in_key_down_n_2r <= '1';
-            --                 key_down <= '1';
-            --             else
-            --                 in_key_down_n_2r <= '0';
-            --             end if;
-            --         end if;
-            --     end if;
-            -- end process p_key_down;
-
-            when s_up =>
-
-                if reset = '1' then
-                    in_key_up_n_2r <= '0';
-                elsif rising_edge(clk) then
-                    if in_key_off_n_2r /= '0' or (in_key_down_n_2r /= '0' and in_key_up_n_2r /= '0') then
-                        ten_ms_cnt <= ten_ms_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms
-                        if ten_ms_cnt = ten_ms then
-                            ten_ms_cnt <= 0;
-                            -- in_key_on_n_2r <= '0';
-                            key_up <= '0';
-                        elsif in_key_up_n_2r = '1' then
-                            -- in_key_up_n_2r <= '1';
-                            key_up <= '1';
-                        else
-                            -- in_key_up_n_2r <= '0';
-                            key_up <= '0';
-                        end if;
+                    if key_on   = '1' then
+                        key_on   <= '0';
                     end if;
-                end if;
-            -- p_key_up : process(clk, reset)
-            -- begin
-            --     if reset = '1' then
-            --         in_key_up_n_2r <= '0';
-            --     elsif rising_edge(clk) then
-            --         if in_key_off_n_2r /= '0' or (in_key_down_n_2r /= '0' and in_key_up_n_2r /= '0') then
-            --             ten_ms_cnt <= ten_ms_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms
-            --             if ten_ms_cnt = ten_ms then
-            --                 ten_ms_cnt <= 0;
-            --                 -- in_key_on_n_2r <= '0';
-            --                 key_up <= '0';
-            --             elsif in_key_up_n_2r = '1' then
-            --                 -- in_key_up_n_2r <= '1';
-            --                 key_up <= '1';
-            --             else
-            --                 -- in_key_up_n_2r <= '0';
-            --                 key_up <= '0';
-            --             end if;
-            --         end if;
-            --     end if;
-            -- end process p_key_up;
-
-        end case;
+                    if key_down = '1' then
+                        key_down <= '0';
+                    end if;
+                    if key_up   = '1' then
+                        key_up   <= '0';
+                    end if;
+                    key_in_states<= s_pulse_high;
+            end case;
+        end if;
     end process p_key_states;
 end architecture rtl;   
