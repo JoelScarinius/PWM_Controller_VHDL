@@ -7,73 +7,69 @@ entity pwm_module is
         g_simulation : boolean := false
     );
     port (
-        clock_50    : in std_logic;
-        key_n       : in std_logic_vector(3 downto 0);
-        fpga_in_rx  : in std_logic;
-        fpga_out_tx : out std_logic;
-        hex0_n      : out std_logic_vector(6 downto 0);
-        hex1_n      : out std_logic_vector(6 downto 0);
-        hex2_n      : out std_logic_vector(6 downto 0);
-        hex3_n      : out std_logic_vector(6 downto 0);
-        ledr        : out std_logic_vector(9 downto 0);
-        ledg        : out std_logic_vector(7 downto 0)
+        clock_50             : in std_logic;
+        key_n                : in std_logic_vector(3 downto 0);
+        fpga_in_rx           : in std_logic;
+        fpga_out_tx          : out std_logic;
+        hex0_n               : out std_logic_vector(6 downto 0);
+        hex1_n               : out std_logic_vector(6 downto 0);
+        hex2_n               : out std_logic_vector(6 downto 0);
+        hex3_n               : out std_logic_vector(6 downto 0);
+        ledr                 : out std_logic_vector(9 downto 0);
+        ledg                 : out std_logic_vector(7 downto 0)
     );
 end pwm_module;
 
 architecture rtl of pwm_module is
 
     -- (A)
-    signal key_on_n      : std_logic;
-    signal key_off_n     : std_logic;
-    signal key_up_n      : std_logic;
-    signal key_down_n    : std_logic;
+    signal key_on_n          : std_logic;
+    signal key_off_n         : std_logic;
+    signal key_up_n          : std_logic;
+    signal key_down_n        : std_logic;
 
     -- (B)
-    signal received_data       : std_logic_vector(7 downto 0);
-    signal received_valid : std_logic;
+    signal received_data     : std_logic_vector(7 downto 0);
+    signal received_valid    : std_logic;
 
     -- (C)
-    signal serial_on   : std_logic;
-    signal serial_off  : std_logic;
-    signal serial_up   : std_logic;
-    signal serial_down : std_logic;
+    signal serial_on         : std_logic;
+    signal serial_off        : std_logic;
+    signal serial_up         : std_logic;
+    signal serial_down       : std_logic;
 
     -- (D)
     signal current_dc        : std_logic_vector(7 downto 0);
     signal current_dc_update : std_logic;
 
     -- (E)
-    signal transmit_valid : std_logic;
-    signal transmit_data  : std_logic_vector(7 downto 0);
+    signal transmit_valid    : std_logic;
+    signal transmit_data     : std_logic_vector(7 downto 0);
 
     -- (F)
-    signal reset : std_logic;
+    signal reset             : std_logic;
 
-    signal seven_seg_vector    : std_logic_vector(6 downto 0);
-    signal led                 : std_logic;
-    signal received_error      : std_logic;
-    signal transmit_ready      : std_logic;
+    signal seven_seg_vector  : std_logic_vector(6 downto 0);
+    signal led               : std_logic;
+    signal received_error    : std_logic;
+    signal transmit_ready    : std_logic;
     
-    -- double synchronize
-    -- signal reset_r  : std_logic;
-    signal reset_2r : std_logic;
-
     -- bcd
-    signal bcd_0         : std_logic_vector(3 downto 0);
-    signal bcd_1         : std_logic_vector(3 downto 0);
-    signal bcd_2         : std_logic_vector(3 downto 0);
-    signal input_vector  : std_logic_vector(7 downto 0);
-    signal output_vector : std_logic_vector(7 downto 0);
+    signal bcd_0             : std_logic_vector(3 downto 0);
+    signal bcd_1             : std_logic_vector(3 downto 0);
+    signal bcd_2             : std_logic_vector(3 downto 0);
+    signal input_vector      : std_logic_vector(7 downto 0);
+    signal output_vector     : std_logic_vector(7 downto 0);
 
-    signal valid_out  : std_logic;
-    signal valid_in   : std_logic;
+    signal valid_out         : std_logic;
+    signal valid_in          : std_logic;
 
-    signal clk_50     : std_logic;
-    signal pll_locked : std_logic;
+    signal clk_50            : std_logic;
+    signal pll_locked        : std_logic;
 
-    signal hex_0_n_out : std_logic_vector(6 downto 0);
-    signal hex_1_n_out : std_logic_vector(6 downto 0);
-    signal hex_2_n_out : std_logic_vector(6 downto 0);
+    signal hex_0_n_out       : std_logic_vector(6 downto 0);
+    signal hex_1_n_out       : std_logic_vector(6 downto 0);
+    signal hex_2_n_out       : std_logic_vector(6 downto 0);
 
 begin
 
@@ -125,7 +121,7 @@ begin
     i_key_ctrl : entity work.key_ctrl
     port map (
         clk        => clock_50,
-        reset      => reset_2r,
+        reset      => reset,
 
         key_off_n  => key_off_n,
         key_on_n   => key_on_n,
@@ -141,7 +137,7 @@ begin
     i_pwm_ctrl : entity work.pwm_ctrl
     port map (
         clk               => clock_50,
-        reset             => reset_2r,
+        reset             => reset,
 
         key_off_n         => key_off_n,
         key_on_n          => key_on_n,
@@ -162,7 +158,7 @@ begin
     i_dc_disp_ctrl : entity work.dc_disp_ctrl
     port map (
         clk                 => clock_50,
-        reset               => reset_2r,
+        reset               => reset,
 
         current_dc          => current_dc,
         current_dc_update   => current_dc_update,
@@ -185,7 +181,7 @@ begin
     port map (
         -- clock and reset
         clk          => clock_50,
-        reset        => reset_2r,
+        reset        => reset,
         -- input data interface
         input_vector => input_vector,
         valid_in     => valid_in,
@@ -206,7 +202,7 @@ begin
     )
     port map (
         clk                   => clock_50,
-        reset                 => reset_2r,
+        reset                 => reset,
         rx                    => fpga_in_rx,
         tx                    => fpga_out_tx,
 
@@ -223,7 +219,7 @@ begin
     i_serial_ctrl : entity work.serial_ctrl
     port map (
         clk            => clock_50,
-        reset          => reset_2r,
+        reset          => reset,
 
         received_data  => received_data,
         received_valid => received_valid,

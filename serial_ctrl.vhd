@@ -27,13 +27,13 @@ end serial_ctrl;
 
 architecture rtl of serial_ctrl is
 
-    signal serial_off_out         : std_logic;
-    signal serial_on_out          : std_logic;
-    signal serial_down_out        : std_logic;
-    signal serial_up_out          : std_logic;
+    signal serial_off_out    : std_logic;
+    signal serial_on_out     : std_logic;
+    signal serial_down_out   : std_logic;
+    signal serial_up_out     : std_logic;
 
-    signal received_valid_in      : std_logic;
-    signal received_data_in       : std_logic_vector(7 downto 0);
+    signal received_valid_in : std_logic;
+    signal received_data_in  : std_logic_vector(7 downto 0);
 
     begin
 

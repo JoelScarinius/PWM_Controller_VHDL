@@ -1,11 +1,3 @@
--- The outputs from the compoent shall be set high one clock cycle if the inputs are detected to
--- be high. If the inputs are held high the outputs shall be pulsed low one clock cycle every 10th
--- millisecond.
-
--- Key_n input bits 3, 2 and 1 shall be ignored if key_n(0) is pushed down.
--- No pulses on key_up or key_down shall be generated if both key_n(2) and key_n(3) is pushed
--- down simultaneously.
-
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -25,7 +17,7 @@ end key_ctrl;
 
 architecture rtl of key_ctrl is
 
-    type t_key_in_state is (s_pulse_high, s_pulse_low, s_held_high);
+    type t_key_in_state is (s_pulse_high, s_pulse_low);
 
     constant ten_ms : integer := 500000; -- 10ms / 20ns = 500000
 
@@ -85,34 +77,45 @@ begin
             key_up   <= '0';
         elsif rising_edge(clk) then
             
+            if key_off_n_2r  = '0' and key_on_n_2r = '0' and key_down_n_2r = '0' and key_up_n_2r = '0' then
+                if ten_ms_cnt < ten_ms then
+                    ten_ms_cnt <= ten_ms_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms 
+                else 
+                    ten_ms_cnt <= 0;
+                end if;
+            else
+                ten_ms_cnt     <= 0;
+            end if;
+            key_in_states<= s_pulse_high;
+
             case key_in_states is
 
-                when s_held_high =>
-                    if key_off_n_2r  = '1' or key_on_n_2r = '1' or key_down_n_2r = '1' or key_up_n_2r = '1' then
-                        ten_ms_cnt <= ten_ms_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms 
-                        if ten_ms_cnt < ten_ms then
-                            ten_ms_cnt   <= 0;
-                            key_in_states<= s_pulse_low;
-                        end if;
-                    else
-                        ten_ms_cnt   <= 0;
-                    end if;
-                    key_in_states<= s_pulse_high;
+                -- when s_held_low =>
+                --     if key_off_n_2r  = '0' or key_on_n_2r = '0' or key_down_n_2r = '0' or key_up_n_2r = '0' then
+                --         ten_ms_cnt <= ten_ms_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms 
+                --         if ten_ms_cnt < ten_ms then
+                --             ten_ms_cnt   <= 0;
+                --             key_in_states<= s_pulse_high;
+                --         end if;
+                --     else
+                --         ten_ms_cnt   <= 0;
+                --     end if;
+                --     key_in_states<= s_pulse_high;
                     
                 when s_pulse_high =>
-                    if key_off_n_2r  = '1' then
+                    if key_off_n_2r  = '0' then
                         key_off <= '1';
                     end if;
                     if key_off_n_2r /= '0' then
                         key_off <= '1';
-                        if key_on_n_2r = '1' then
+                        if key_on_n_2r = '0' then
                             key_on <= '1';
                         end if;
-                        if key_down_n_2r /= key_up_n_2r then
-                            if key_down_n_2r = '1' then
+                        if (key_down_n_2r = '1' and key_up_n_2r = '1') or (key_down_n_2r = '0' and key_up_n_2r = '1') or (key_down_n_2r = '1' and key_up_n_2r = '0') then
+                            if key_down_n_2r = '0' then
                                 key_down <= '1';
                             end if;
-                            if key_up_n_2r = '1' then
+                            if key_up_n_2r = '0' then
                                 key_up <= '1';
                             end if;
                         end if;

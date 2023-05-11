@@ -71,10 +71,11 @@ begin
                 led <= '0';
             end if;
 
-            one_ms_cnt <= one_ms_cnt + 1;
             if one_ms_cnt < one_ms then -- !!har det skett någon förändring?? 
-                one_ms_cnt <= 0;
+                one_ms_cnt <= one_ms_cnt + 1;
                 update_dc_now <= '0';
+            else
+                one_ms_cnt <= 0;
                 if update_dc = '1' then
                     update_dc_now <= '1';
                     update_dc <= '0';
@@ -138,7 +139,9 @@ begin
                     if new_dc > ten_procent then
                         new_dc <=('0' & one_procent) - new_dc;
                         update_dc <= '1';
-                        dc_cnt <= dc_cnt - 500;
+                        if dc_cnt /= 0 then
+                            dc_cnt <= dc_cnt - 500;
+                        end if;
                     end if;
 
                     if key_off_n = '0' or serial_off = '1' then
