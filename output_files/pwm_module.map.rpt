@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pwm_module
-Thu May 11 11:02:27 2023
+Thu May 11 15:28:05 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -60,16 +60,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May 11 11:02:27 2023           ;
+; Analysis & Synthesis Status        ; Successful - Thu May 11 15:28:05 2023           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; pwm_module                                      ;
 ; Top-level Entity Name              ; pwm_module                                      ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 189                                             ;
-;     Total combinational functions  ; 178                                             ;
-;     Dedicated logic registers      ; 107                                             ;
-; Total registers                    ; 107                                             ;
-; Total pins                         ; 53                                              ;
+; Total logic elements               ; 328                                             ;
+;     Total combinational functions  ; 316                                             ;
+;     Dedicated logic registers      ; 203                                             ;
+; Total registers                    ; 203                                             ;
+; Total pins                         ; 46                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -200,31 +200,31 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------+
 ; Resource                                    ; Usage    ;
 +---------------------------------------------+----------+
-; Estimated Total logic elements              ; 189      ;
+; Estimated Total logic elements              ; 328      ;
 ;                                             ;          ;
-; Total combinational functions               ; 178      ;
+; Total combinational functions               ; 316      ;
 ; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 60       ;
-;     -- 3 input functions                    ; 45       ;
-;     -- <=2 input functions                  ; 73       ;
+;     -- 4 input functions                    ; 101      ;
+;     -- 3 input functions                    ; 42       ;
+;     -- <=2 input functions                  ; 173      ;
 ;                                             ;          ;
 ; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 111      ;
-;     -- arithmetic mode                      ; 67       ;
+;     -- normal mode                          ; 169      ;
+;     -- arithmetic mode                      ; 147      ;
 ;                                             ;          ;
-; Total registers                             ; 107      ;
-;     -- Dedicated logic registers            ; 107      ;
+; Total registers                             ; 203      ;
+;     -- Dedicated logic registers            ; 203      ;
 ;     -- I/O registers                        ; 0        ;
 ;                                             ;          ;
-; I/O pins                                    ; 53       ;
+; I/O pins                                    ; 46       ;
 ; Embedded Multiplier 9-bit elements          ; 0        ;
 ; Total PLLs                                  ; 1        ;
 ;     -- PLLs                                 ; 1        ;
 ;                                             ;          ;
 ; Maximum fan-out node                        ; clock_50 ;
-; Maximum fan-out                             ; 100      ;
-; Total fan-out                               ; 858      ;
-; Average fan-out                             ; 2.53     ;
+; Maximum fan-out                             ; 196      ;
+; Total fan-out                               ; 1555     ;
+; Average fan-out                             ; 2.75     ;
 +---------------------------------------------+----------+
 
 
@@ -233,14 +233,15 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node              ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                    ; Library Name ;
 +-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------+--------------+
-; |pwm_module                             ; 178 (0)           ; 107 (0)      ; 0           ; 0            ; 0       ; 0         ; 53   ; 0            ; |pwm_module                                                            ; work         ;
+; |pwm_module                             ; 316 (0)           ; 203 (0)      ; 0           ; 0            ; 0       ; 0         ; 46   ; 0            ; |pwm_module                                                            ; work         ;
 ;    |altera_pll:\b_gen_pll:i_altera_pll| ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|altera_pll:\b_gen_pll:i_altera_pll                         ; work         ;
 ;       |altpll:altpll_component|         ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|altera_pll:\b_gen_pll:i_altera_pll|altpll:altpll_component ; work         ;
-;    |key_ctrl:i_key_ctrl|                ; 7 (7)             ; 13 (13)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|key_ctrl:i_key_ctrl                                        ; work         ;
-;    |pwm_ctrl:i_pwm_ctrl|                ; 100 (100)         ; 43 (43)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|pwm_ctrl:i_pwm_ctrl                                        ; work         ;
+;    |dc_disp_ctrl:i_dc_disp_ctrl|        ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|dc_disp_ctrl:i_dc_disp_ctrl                                ; work         ;
+;    |key_ctrl:i_key_ctrl|                ; 110 (110)         ; 89 (89)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|key_ctrl:i_key_ctrl                                        ; work         ;
+;    |pwm_ctrl:i_pwm_ctrl|                ; 109 (109)         ; 43 (43)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|pwm_ctrl:i_pwm_ctrl                                        ; work         ;
 ;    |reset_ctrl:\b_gen_pll:i_reset_ctrl| ; 11 (11)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|reset_ctrl:\b_gen_pll:i_reset_ctrl                         ; work         ;
 ;    |serial_ctrl:i_serial_ctrl|          ; 9 (9)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|serial_ctrl:i_serial_ctrl                                  ; work         ;
-;    |serial_uart:i_serial_uart|          ; 51 (51)           ; 39 (39)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|serial_uart:i_serial_uart                                  ; work         ;
+;    |serial_uart:i_serial_uart|          ; 77 (77)           ; 58 (58)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|serial_uart:i_serial_uart                                  ; work         ;
 +-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -299,14 +300,14 @@ Encoding Type:  One-Hot
 Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------------+
 ; State Machine - |pwm_module|pwm_ctrl:i_pwm_ctrl|pwm_state                               ;
-+------------------+------------------+----------------+-----------------+----------------+
-; Name             ; pwm_state.s_down ; pwm_state.s_up ; pwm_state.s_off ; pwm_state.s_on ;
-+------------------+------------------+----------------+-----------------+----------------+
-; pwm_state.s_on   ; 0                ; 0              ; 0               ; 0              ;
-; pwm_state.s_off  ; 0                ; 0              ; 1               ; 1              ;
-; pwm_state.s_up   ; 0                ; 1              ; 0               ; 1              ;
-; pwm_state.s_down ; 1                ; 0              ; 0               ; 1              ;
-+------------------+------------------+----------------+-----------------+----------------+
++------------------+----------------+------------------+-----------------+----------------+
+; Name             ; pwm_state.s_up ; pwm_state.s_down ; pwm_state.s_off ; pwm_state.s_on ;
++------------------+----------------+------------------+-----------------+----------------+
+; pwm_state.s_on   ; 0              ; 0                ; 0               ; 0              ;
+; pwm_state.s_off  ; 0              ; 0                ; 1               ; 1              ;
+; pwm_state.s_down ; 0              ; 1                ; 0               ; 1              ;
+; pwm_state.s_up   ; 1              ; 0                ; 0               ; 1              ;
++------------------+----------------+------------------+-----------------+----------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -327,10 +328,8 @@ Encoding Type:  One-Hot
 ; dc_disp_ctrl:i_dc_disp_ctrl|bcd_0_in[1..3]                  ; Stuck at GND due to stuck port clock_enable            ;
 ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[0..6]         ; Stuck at VCC due to stuck port data_in                 ;
 ; dc_disp_ctrl:i_dc_disp_ctrl|byte_vector[0..5]               ; Merged with dc_disp_ctrl:i_dc_disp_ctrl|byte_vector[6] ;
-; dc_disp_ctrl:i_dc_disp_ctrl|transmit_valid_out              ; Stuck at GND due to stuck port data_in                 ;
 ; dc_disp_ctrl:i_dc_disp_ctrl|byte_vector[6]                  ; Stuck at GND due to stuck port data_in                 ;
 ; serial_uart:i_serial_uart|tx_byte_saved[0..7]               ; Stuck at GND due to stuck port data_in                 ;
-; serial_uart:i_serial_uart|tx_parity_bit                     ; Stuck at GND due to stuck port data_in                 ;
 ; pwm_ctrl:i_pwm_ctrl|update_dc_now                           ; Lost fanout                                            ;
 ; pwm_ctrl:i_pwm_ctrl|update_dc                               ; Lost fanout                                            ;
 ; dc_disp_ctrl:i_dc_disp_ctrl|send_data_state.s_idle          ; Lost fanout                                            ;
@@ -339,74 +338,55 @@ Encoding Type:  One-Hot
 ; dc_disp_ctrl:i_dc_disp_ctrl|send_data_state.s_send_ones     ; Lost fanout                                            ;
 ; dc_disp_ctrl:i_dc_disp_ctrl|send_data_state.s_send_procent  ; Lost fanout                                            ;
 ; dc_disp_ctrl:i_dc_disp_ctrl|send_data_state.s_send_cr       ; Lost fanout                                            ;
-; serial_uart:i_serial_uart|tx_state.s_start_bit              ; Stuck at GND due to stuck port data_in                 ;
 ; serial_uart:i_serial_uart|rx_state.s_parity                 ; Stuck at GND due to stuck port data_in                 ;
-; serial_uart:i_serial_uart|tx_state.s_tx_data                ; Stuck at GND due to stuck port data_in                 ;
-; serial_uart:i_serial_uart|tx_bit_no[0..2]                   ; Stuck at GND due to stuck port data_in                 ;
-; serial_uart:i_serial_uart|tx_state.s_idle                   ; Stuck at GND due to stuck port data_in                 ;
+; serial_uart:i_serial_uart|tx_parity_bit                     ; Stuck at GND due to stuck port data_in                 ;
 ; serial_uart:i_serial_uart|tx_state.s_parity                 ; Stuck at GND due to stuck port data_in                 ;
-; serial_uart:i_serial_uart|tx                                ; Stuck at VCC due to stuck port data_in                 ;
-; serial_uart:i_serial_uart|tx_state.s_stop_bit               ; Stuck at GND due to stuck port data_in                 ;
-; serial_uart:i_serial_uart|tx_bit_cnt_wrap                   ; Lost fanout                                            ;
-; serial_uart:i_serial_uart|tx_bit_cnt_en                     ; Stuck at GND due to stuck port data_in                 ;
-; serial_uart:i_serial_uart|tx_bit_cnt[0..8]                  ; Lost fanout                                            ;
-; Total Number of Removed Registers = 90                      ;                                                        ;
+; Total Number of Removed Registers = 70                      ;                                                        ;
 +-------------------------------------------------------------+--------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                      ;
-+------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; Register name                                  ; Reason for Removal        ; Registers Removed due to This Register                                              ;
-+------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; bcd_decode_rom:i_bcd_decode_rom|addr_valid     ; Stuck at GND              ; bcd_decode_rom:i_bcd_decode_rom|rom_data_valid,                                     ;
-;                                                ; due to stuck port data_in ; dc_disp_ctrl:i_dc_disp_ctrl|bcd_0_in[0],                                            ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[6],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[5],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[4],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[3],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[2],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[1],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[0],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[6],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[5],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[4],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[3],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[2],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[1],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[0],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|bcd_1_in[3], dc_disp_ctrl:i_dc_disp_ctrl|bcd_1_in[2],   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|bcd_1_in[1], dc_disp_ctrl:i_dc_disp_ctrl|bcd_1_in[0],   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|bcd_0_in[3], dc_disp_ctrl:i_dc_disp_ctrl|bcd_0_in[2],   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|bcd_0_in[1],                                            ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|transmit_valid_out,                                     ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|byte_vector[6],                                         ;
-;                                                ;                           ; serial_uart:i_serial_uart|tx_byte_saved[7],                                         ;
-;                                                ;                           ; serial_uart:i_serial_uart|tx_byte_saved[6],                                         ;
-;                                                ;                           ; serial_uart:i_serial_uart|tx_byte_saved[5],                                         ;
-;                                                ;                           ; serial_uart:i_serial_uart|tx_byte_saved[4],                                         ;
-;                                                ;                           ; serial_uart:i_serial_uart|tx_byte_saved[3],                                         ;
-;                                                ;                           ; serial_uart:i_serial_uart|tx_byte_saved[2],                                         ;
-;                                                ;                           ; serial_uart:i_serial_uart|tx_byte_saved[1],                                         ;
-;                                                ;                           ; serial_uart:i_serial_uart|tx_byte_saved[0],                                         ;
-;                                                ;                           ; serial_uart:i_serial_uart|tx_parity_bit, pwm_ctrl:i_pwm_ctrl|update_dc_now,         ;
-;                                                ;                           ; pwm_ctrl:i_pwm_ctrl|update_dc, serial_uart:i_serial_uart|tx,                        ;
-;                                                ;                           ; serial_uart:i_serial_uart|tx_bit_cnt_wrap, serial_uart:i_serial_uart|tx_bit_cnt_en, ;
-;                                                ;                           ; serial_uart:i_serial_uart|tx_bit_cnt[0], serial_uart:i_serial_uart|tx_bit_cnt[1],   ;
-;                                                ;                           ; serial_uart:i_serial_uart|tx_bit_cnt[2], serial_uart:i_serial_uart|tx_bit_cnt[3],   ;
-;                                                ;                           ; serial_uart:i_serial_uart|tx_bit_cnt[4], serial_uart:i_serial_uart|tx_bit_cnt[5],   ;
-;                                                ;                           ; serial_uart:i_serial_uart|tx_bit_cnt[6], serial_uart:i_serial_uart|tx_bit_cnt[7],   ;
-;                                                ;                           ; serial_uart:i_serial_uart|tx_bit_cnt[8]                                             ;
-; dc_disp_ctrl:i_dc_disp_ctrl|bcd_2_in[3]        ; Stuck at GND              ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[6],                                   ;
-;                                                ; due to stuck port data_in ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[5],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[4],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[3],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[2],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[1],                                   ;
-;                                                ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[0]                                    ;
-; serial_uart:i_serial_uart|tx_state.s_start_bit ; Stuck at GND              ; serial_uart:i_serial_uart|tx_state.s_stop_bit                                       ;
-;                                                ; due to stuck port data_in ;                                                                                     ;
-+------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                ;
++--------------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
+; Register name                              ; Reason for Removal        ; Registers Removed due to This Register                                            ;
++--------------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
+; bcd_decode_rom:i_bcd_decode_rom|addr_valid ; Stuck at GND              ; bcd_decode_rom:i_bcd_decode_rom|rom_data_valid,                                   ;
+;                                            ; due to stuck port data_in ; dc_disp_ctrl:i_dc_disp_ctrl|bcd_0_in[0],                                          ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[6],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[5],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[4],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[3],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[2],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[1],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[0],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[6],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[5],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[4],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[3],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[2],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[1],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[0],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|bcd_1_in[3], dc_disp_ctrl:i_dc_disp_ctrl|bcd_1_in[2], ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|bcd_1_in[1], dc_disp_ctrl:i_dc_disp_ctrl|bcd_1_in[0], ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|bcd_0_in[3], dc_disp_ctrl:i_dc_disp_ctrl|bcd_0_in[2], ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|bcd_0_in[1],                                          ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|byte_vector[6],                                       ;
+;                                            ;                           ; serial_uart:i_serial_uart|tx_byte_saved[6],                                       ;
+;                                            ;                           ; serial_uart:i_serial_uart|tx_byte_saved[5],                                       ;
+;                                            ;                           ; serial_uart:i_serial_uart|tx_byte_saved[4],                                       ;
+;                                            ;                           ; serial_uart:i_serial_uart|tx_byte_saved[3],                                       ;
+;                                            ;                           ; serial_uart:i_serial_uart|tx_byte_saved[2],                                       ;
+;                                            ;                           ; serial_uart:i_serial_uart|tx_byte_saved[1],                                       ;
+;                                            ;                           ; serial_uart:i_serial_uart|tx_byte_saved[0], pwm_ctrl:i_pwm_ctrl|update_dc_now,    ;
+;                                            ;                           ; pwm_ctrl:i_pwm_ctrl|update_dc, serial_uart:i_serial_uart|tx_parity_bit            ;
+; dc_disp_ctrl:i_dc_disp_ctrl|bcd_2_in[3]    ; Stuck at GND              ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[6],                                 ;
+;                                            ; due to stuck port data_in ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[5],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[4],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[3],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[2],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[1],                                 ;
+;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[0]                                  ;
++--------------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -414,27 +394,28 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 107   ;
-; Number of registers using Synchronous Clear  ; 26    ;
+; Total registers                              ; 203   ;
+; Number of registers using Synchronous Clear  ; 101   ;
 ; Number of registers using Synchronous Load   ; 7     ;
-; Number of registers using Asynchronous Clear ; 58    ;
+; Number of registers using Asynchronous Clear ; 59    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 39    ;
+; Number of registers using Clock Enable       ; 117   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------+
-; Inverted Register Statistics                           ;
-+----------------------------------------------+---------+
-; Inverted Register                            ; Fan out ;
-+----------------------------------------------+---------+
-; pwm_ctrl:i_pwm_ctrl|new_dc[2]                ; 4       ;
-; pwm_ctrl:i_pwm_ctrl|new_dc[6]                ; 5       ;
-; pwm_ctrl:i_pwm_ctrl|new_dc[5]                ; 5       ;
-; reset_ctrl:\b_gen_pll:i_reset_ctrl|reset_out ; 53      ;
-; Total number of inverted registers = 4       ;         ;
-+----------------------------------------------+---------+
++----------------------------------------------------------+
+; Inverted Register Statistics                             ;
++------------------------------------------------+---------+
+; Inverted Register                              ; Fan out ;
++------------------------------------------------+---------+
+; pwm_ctrl:i_pwm_ctrl|new_dc[2]                  ; 4       ;
+; pwm_ctrl:i_pwm_ctrl|new_dc[6]                  ; 5       ;
+; pwm_ctrl:i_pwm_ctrl|new_dc[5]                  ; 5       ;
+; reset_ctrl:\b_gen_pll:i_reset_ctrl|reset_out   ; 130     ;
+; dc_disp_ctrl:i_dc_disp_ctrl|transmit_valid_out ; 2       ;
+; Total number of inverted registers = 5         ;         ;
++------------------------------------------------+---------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -442,17 +423,22 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |pwm_module|serial_uart:i_serial_uart|tx_bit_cnt[0]    ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |pwm_module|serial_uart:i_serial_uart|rx_bit_cnt[6]    ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |pwm_module|serial_uart:i_serial_uart|received_data[7] ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|new_dc[7]              ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |pwm_module|serial_uart:i_serial_uart|tx_bit_cnt[3]    ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |pwm_module|serial_uart:i_serial_uart|rx_bit_cnt[0]    ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_down_cnt[15]    ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_up_cnt[9]       ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_on_cnt[18]      ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_off_cnt[17]     ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |pwm_module|serial_uart:i_serial_uart|received_data[4] ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |pwm_module|serial_uart:i_serial_uart|tx_byte_saved[4] ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|new_dc[4]              ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|new_dc[3]              ;
-; 7:1                ; 14 bits   ; 56 LEs        ; 14 LEs               ; 42 LEs                 ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|dc_cnt[7]              ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|new_dc[5]              ;
+; 7:1                ; 14 bits   ; 56 LEs        ; 14 LEs               ; 42 LEs                 ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|dc_cnt[2]              ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|new_dc[2]              ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |pwm_module|serial_uart:i_serial_uart|tx_bit_no        ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |pwm_module|serial_uart:i_serial_uart|rx_bit_no        ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |pwm_module|dc_disp_ctrl:i_dc_disp_ctrl|Selector4      ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |pwm_module|pwm_ctrl:i_pwm_ctrl|Selector8              ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |pwm_module|dc_disp_ctrl:i_dc_disp_ctrl|Selector2      ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |pwm_module|pwm_ctrl:i_pwm_ctrl|Selector11             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 
 
@@ -943,7 +929,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu May 11 11:02:26 2023
+    Info: Processing started: Thu May 11 15:28:02 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pwm_module -c pwm_module
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file serial_uart_rtl.vhd
@@ -975,8 +961,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file pwm_mod
     Info (12022): Found design unit 1: pwm_module-rtl
     Info (12023): Found entity 1: pwm_module
 Info (12127): Elaborating entity "pwm_module" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at pwm_module.vhd(61): used implicit default value for signal "input_vector" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at pwm_module.vhd(65): used implicit default value for signal "valid_in" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at pwm_module.vhd(60): used implicit default value for signal "input_vector" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at pwm_module.vhd(64): used implicit default value for signal "valid_in" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Info (12128): Elaborating entity "altera_pll" for hierarchy "altera_pll:\b_gen_pll:i_altera_pll"
 Info (12128): Elaborating entity "altpll" for hierarchy "altera_pll:\b_gen_pll:i_altera_pll|altpll:altpll_component"
 Info (12130): Elaborated megafunction instantiation "altera_pll:\b_gen_pll:i_altera_pll|altpll:altpll_component"
@@ -1057,7 +1043,6 @@ Info (12128): Elaborating entity "serial_ctrl" for hierarchy "serial_ctrl:i_seri
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "fpga_out_tx" is stuck at VCC
     Warning (13410): Pin "hex0_n[0]" is stuck at VCC
     Warning (13410): Pin "hex0_n[1]" is stuck at VCC
     Warning (13410): Pin "hex0_n[2]" is stuck at VCC
@@ -1079,13 +1064,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "hex2_n[4]" is stuck at VCC
     Warning (13410): Pin "hex2_n[5]" is stuck at VCC
     Warning (13410): Pin "hex2_n[6]" is stuck at VCC
-    Warning (13410): Pin "hex3_n[0]" is stuck at VCC
-    Warning (13410): Pin "hex3_n[1]" is stuck at VCC
-    Warning (13410): Pin "hex3_n[2]" is stuck at VCC
-    Warning (13410): Pin "hex3_n[3]" is stuck at VCC
-    Warning (13410): Pin "hex3_n[4]" is stuck at VCC
-    Warning (13410): Pin "hex3_n[5]" is stuck at VCC
-    Warning (13410): Pin "hex3_n[6]" is stuck at VCC
     Warning (13410): Pin "ledr[1]" is stuck at GND
     Warning (13410): Pin "ledr[2]" is stuck at GND
     Warning (13410): Pin "ledr[3]" is stuck at GND
@@ -1102,18 +1080,18 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "ledg[5]" is stuck at GND
     Warning (13410): Pin "ledg[6]" is stuck at GND
     Warning (13410): Pin "ledg[7]" is stuck at GND
-Info (17049): 18 registers lost all their fanouts during netlist optimizations.
+Info (17049): 8 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 243 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 376 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
-    Info (21059): Implemented 47 output pins
-    Info (21061): Implemented 189 logic cells
+    Info (21059): Implemented 40 output pins
+    Info (21061): Implemented 329 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 51 warnings
-    Info: Peak virtual memory: 4652 megabytes
-    Info: Processing ended: Thu May 11 11:02:27 2023
-    Info: Elapsed time: 00:00:01
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 43 warnings
+    Info: Peak virtual memory: 4650 megabytes
+    Info: Processing ended: Thu May 11 15:28:05 2023
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:01
 
 

@@ -8,6 +8,10 @@
 --                   First revision.
 --    2023-05-02  Kent Abrahamsson
 --                   Updated PWM check strategy.
+--    2023-05-10  Kent Abrahamsson
+--                   Updated Serial UART port mapping to updated
+--                   Serial UART interface.
+--                   Removed hex3_n in DUT port mapping.
 --
 ----=================================================================
 library ieee;
@@ -48,7 +52,7 @@ architecture bhv of testbench_top is
    signal hex0_n                 : std_logic_vector(6 downto 0);
    signal hex1_n                 : std_logic_vector(6 downto 0);
    signal hex2_n                 : std_logic_vector(6 downto 0);
-   signal hex3_n                 : std_logic_vector(6 downto 0);
+   --signal hex3_n                 : std_logic_vector(6 downto 0);
 
    -- Signals for the PWM check process
    signal dut_pwm                : std_logic;
@@ -189,22 +193,22 @@ begin -- architecture
       variable v_dc_check_ok : boolean := false;
    begin
       -- Set startup values
-      kill_clock              <= '0';
-      current_test_case_no    <= 0;
-      key_on_n                <= '1';
-      key_off_n               <= '1';
-      key_up_n                <= '1';
-      key_down_n              <= '1';
-      serial_transmit_valid   <= '0';
-      serial_transmit_data    <= (others => '0');
-      saved_detected_dc       <= 0;
+      kill_clock                 <= '0';
+      current_test_case_no       <= 0;
+      key_on_n                   <= '1';
+      key_off_n                  <= '1';
+      key_up_n                   <= '1';
+      key_down_n                 <= '1';
+      serial_transmit_valid      <= '0';
+      serial_transmit_data       <= (others => '0');
+      saved_detected_dc          <= 0;
       pr_write("Simulation starts");
       -- wait until reset is released
       wait until reset_n = '1';
       -- Wait for another us
       wait for 1 us;
-      current_test_case_no    <= 0;
-      v_test_fail             := false;
+      current_test_case_no       <= 0;
+      v_test_fail                := false;
       wait for 1 ps;
       pr_write("Test case #" & fn_str(current_test_case_no,10) & " - Check startup values - expect 0 %");
          wait for 1 ms;
@@ -356,9 +360,9 @@ begin -- architecture
       v_test_fail             := false;
       pr_write("Test case #" & fn_str(current_test_case_no,10) & " - Serial control - Up by sending U in ASCII, expecting 11 %");
          serial_transmit_data    <= c_ascii_u_uc;
-         serial_transmit_valid   <= '1';
+         serial_transmit_valid      <= '1';
          wait until serial_transmit_ready = '0';
-         serial_transmit_valid   <= '0';
+         serial_transmit_valid      <= '0';
          wait until serial_transmit_ready = '1';   -- byte sent
 
          -- Wait for 3 ms to ensure PWM Check process to get updated duty cycle.
@@ -377,9 +381,9 @@ begin -- architecture
       v_test_fail             := false;
       pr_write("Test case #" & fn_str(current_test_case_no,10) & " - Serial control - Up by sending u in ASCII, expecting 12 %");
          serial_transmit_data    <= c_ascii_u_lc;
-         serial_transmit_valid   <= '1';
+         serial_transmit_valid      <= '1';
          wait until serial_transmit_ready = '0';
-         serial_transmit_valid   <= '0';
+         serial_transmit_valid      <= '0';
          wait until serial_transmit_ready = '1';   -- byte sent
 
          -- Wait for 3 ms to ensure PWM Check process to get updated duty cycle.
@@ -398,9 +402,9 @@ begin -- architecture
       v_test_fail             := false;
       pr_write("Test case #" & fn_str(current_test_case_no,10) & " - Serial control - Off by sending 0 in ASCII, expecting 0 %");
          serial_transmit_data    <= c_ascii_0;
-         serial_transmit_valid   <= '1';
+         serial_transmit_valid      <= '1';
          wait until serial_transmit_ready = '0';
-         serial_transmit_valid   <= '0';
+         serial_transmit_valid      <= '0';
          wait until serial_transmit_ready = '1';   -- byte sent
 
          -- Wait for 3 ms to ensure PWM Check process to get updated duty cycle.
@@ -419,9 +423,9 @@ begin -- architecture
       v_test_fail             := false;
       pr_write("Test case #" & fn_str(current_test_case_no,10) & " - Serial control - ON by sending 1 in ASCII, expecting 12 % (remembered)");
          serial_transmit_data    <= c_ascii_1;
-         serial_transmit_valid   <= '1';
+         serial_transmit_valid      <= '1';
          wait until serial_transmit_ready = '0';
-         serial_transmit_valid   <= '0';
+         serial_transmit_valid      <= '0';
          wait until serial_transmit_ready = '1';   -- byte sent
 
          -- Wait for 3 ms to ensure PWM Check process to get updated duty cycle.
@@ -440,9 +444,9 @@ begin -- architecture
       v_test_fail             := false;
       pr_write("Test case #" & fn_str(current_test_case_no,10) & " - Serial control - DOWN by sending d in ASCII, expecting 11 %");
          serial_transmit_data    <= c_ascii_d_lc;
-         serial_transmit_valid   <= '1';
+         serial_transmit_valid      <= '1';
          wait until serial_transmit_ready = '0';
-         serial_transmit_valid   <= '0';
+         serial_transmit_valid      <= '0';
          wait until serial_transmit_ready = '1';   -- byte sent
 
          -- Wait for 3 ms to ensure PWM Check process to get updated duty cycle.
@@ -461,9 +465,9 @@ begin -- architecture
       v_test_fail             := false;
       pr_write("Test case #" & fn_str(current_test_case_no,10) & " - Serial control - DOWN by sending D in ASCII, expecting 10 %");
          serial_transmit_data    <= c_ascii_d_uc;
-         serial_transmit_valid   <= '1';
+         serial_transmit_valid      <= '1';
          wait until serial_transmit_ready = '0';
-         serial_transmit_valid   <= '0';
+         serial_transmit_valid      <= '0';
          wait until serial_transmit_ready = '1';   -- byte sent
 
          -- Wait for 3 ms to ensure PWM Check process to get updated duty cycle.
@@ -482,13 +486,13 @@ begin -- architecture
       v_test_fail             := false;
       pr_write("Test case #" & fn_str(current_test_case_no,10) & " - Serial control - DOWN by sending D in ASCII, expecting 10 %");
          serial_transmit_data    <= c_ascii_d_uc;
-         serial_transmit_valid   <= '1';
+         serial_transmit_valid      <= '1';
          wait until serial_transmit_ready = '0';
-         serial_transmit_valid   <= '0';
+         serial_transmit_valid      <= '0';
          wait until serial_transmit_ready = '1';   -- byte sent
-         serial_transmit_valid   <= '1';
+         serial_transmit_valid      <= '1';
          wait until serial_transmit_ready = '0';
-         serial_transmit_valid   <= '0';
+         serial_transmit_valid      <= '0';
          wait until serial_transmit_ready = '1';   -- byte sent
 
          -- Wait for 3 ms to ensure PWM Check process to get updated duty cycle.
@@ -527,13 +531,13 @@ begin -- architecture
       key_n                   => key_n,
 
       -- Switch input
-      --sw                      => sw,
+      --sw                      => sw, -- not used
 
       -- 7 Segment display output
       hex0_n                  => hex0_n,
       hex1_n                  => hex1_n,
       hex2_n                  => hex2_n,
-      hex3_n                  => hex3_n,
+      --hex3_n                  => hex3_n,   -- not used
 
       -- Green led outputs
       ledg                    => ledg,
@@ -553,12 +557,12 @@ begin -- architecture
       tx                      => fpga_in_rx,
 
       received_data           => serial_received_data,
-      received_valid          => serial_received_valid,
+      received_valid     => serial_received_valid,
       received_error          => serial_received_error,
       received_parity_error   => serial_received_parity_error,
 
       transmit_ready          => serial_transmit_ready,
-      transmit_valid          => serial_transmit_valid,
+      transmit_valid     => serial_transmit_valid,     
       transmit_data           => serial_transmit_data);
 
    dut_pwm <= ledg(0);

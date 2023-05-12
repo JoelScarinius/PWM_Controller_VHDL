@@ -38,7 +38,10 @@ architecture rtl of key_ctrl is
     signal key_down      : std_logic;
     signal key_up        : std_logic;
 
-    signal ten_ms_cnt    : integer range 0 to ten_ms;
+    signal ten_ms_off_cnt    : integer range 0 to ten_ms;
+    signal ten_ms_on_cnt     : integer range 0 to ten_ms;
+    signal ten_ms_down_cnt   : integer range 0 to ten_ms;
+    signal ten_ms_up_cnt     : integer range 0 to ten_ms;
 
     signal key_in_states : t_key_in_state := s_pulse_high;
 
@@ -77,31 +80,52 @@ begin
             key_up   <= '0';
         elsif rising_edge(clk) then
             
-            if key_off_n_2r  = '0' and key_on_n_2r = '0' and key_down_n_2r = '0' and key_up_n_2r = '0' then
-                if ten_ms_cnt < ten_ms then
-                    ten_ms_cnt <= ten_ms_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms 
-                else 
-                    ten_ms_cnt <= 0;
+            if key_off_n_2r  = '0' then
+                if ten_ms_off_cnt < ten_ms then
+                    ten_ms_off_cnt <= ten_ms_off_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms 
+                else
+                    key_off <= '1';
+                    ten_ms_off_cnt <= 0;
                 end if;
             else
-                ten_ms_cnt     <= 0;
+                ten_ms_off_cnt     <= 0;
             end if;
-            key_in_states<= s_pulse_high;
+
+            if key_on_n_2r  = '0' then
+                if ten_ms_on_cnt < ten_ms then
+                    ten_ms_on_cnt <= ten_ms_on_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms 
+                else
+                    key_on <= '1';
+                    ten_ms_on_cnt <= 0;
+                end if;
+            else
+                ten_ms_on_cnt     <= 0;
+            end if;
+
+            if key_down_n_2r  = '0' then
+                if ten_ms_down_cnt < ten_ms then
+                    ten_ms_down_cnt <= ten_ms_down_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms 
+                else
+                    key_down <= '1';
+                    ten_ms_down_cnt <= 0;
+                end if;
+            else
+                ten_ms_down_cnt     <= 0;
+            end if;
+
+            if key_up_n_2r  = '0' then
+                if ten_ms_up_cnt < ten_ms then
+                    ten_ms_up_cnt <= ten_ms_up_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms 
+                else
+                    key_up <= '1';
+                    ten_ms_up_cnt <= 0;
+                end if;
+            else
+                ten_ms_up_cnt     <= 0;
+            end if;
 
             case key_in_states is
 
-                -- when s_held_low =>
-                --     if key_off_n_2r  = '0' or key_on_n_2r = '0' or key_down_n_2r = '0' or key_up_n_2r = '0' then
-                --         ten_ms_cnt <= ten_ms_cnt + 1; -- Counts clock cycles until 500000 cycles are reached which equeals ten_ms 
-                --         if ten_ms_cnt < ten_ms then
-                --             ten_ms_cnt   <= 0;
-                --             key_in_states<= s_pulse_high;
-                --         end if;
-                --     else
-                --         ten_ms_cnt   <= 0;
-                --     end if;
-                --     key_in_states<= s_pulse_high;
-                    
                 when s_pulse_high =>
                     if key_off_n_2r  = '0' then
                         key_off <= '1';

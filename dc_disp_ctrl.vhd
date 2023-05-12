@@ -153,12 +153,13 @@ begin
     begin
         if reset = '1' then
             send_data_state    <= s_idle;
-            transmit_valid_out <= '0';
+            transmit_valid_out <= '1';
             seven_seg_vector0  <= off;
             seven_seg_vector1  <= off;
             seven_seg_vector2  <= off;
         elsif rising_edge(clk) then
-
+            transmit_valid_out <= '0';
+            
             case send_data_state is
 
             when s_idle =>

@@ -12,25 +12,25 @@ Z5 8C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/altera_
 Z6 FC:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/altera_pll_cyclone2.vhd
 l0
 L42
-VgoFkEzXlUegbo9QGz7O6o3
+VaaMSVP@egOM<`RH`aaa?G1
 Z7 OV;C;10.1d;51
-31
-Z8 !s108 1683795767.638000
-Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/altera_pll_cyclone2.vhd|
+32
+Z8 !s108 1683807279.599000
+Z9 !s90 -reportprogress|300|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/altera_pll_cyclone2.vhd|
 Z10 !s107 C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/altera_pll_cyclone2.vhd|
-Z11 o-93 -work work -O0
+Z11 o-work work -O0
 Z12 tExplicit 1
 !s100 KfUf0fhbB824<lceIQd<d0
 !i10b 1
 Asyn
 R2
 R3
-Z13 DEx4 work 10 altera_pll 0 22 goFkEzXlUegbo9QGz7O6o3
+Z13 DEx4 work 10 altera_pll 0 22 aaMSVP@egOM<`RH`aaa?G1
 l143
 L55
-VVFA1mCgDU5VD?<_b4HmNC0
+VV2@efj[_kWXCMaKFJn6Ec2
 R7
-31
+32
 R8
 R9
 R10
@@ -48,11 +48,11 @@ Z16 8C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/bcd_de
 Z17 FC:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/bcd_decode_rom_rtl.vhd
 l0
 L16
-Vl_Lc?7`_=>S8XEEiiEmNl3
+VfFTz`K3ZK0c8Xa`zUTnnJ0
 R7
-31
-Z18 !s108 1683795767.481000
-Z19 !s90 -reportprogress|300|-93|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/bcd_decode_rom_rtl.vhd|
+32
+Z18 !s108 1683807279.683000
+Z19 !s90 -reportprogress|30|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/bcd_decode_rom_rtl.vhd|
 Z20 !s107 C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/bcd_decode_rom_rtl.vhd|
 R11
 R12
@@ -62,12 +62,12 @@ Artl
 R15
 R2
 R3
-Z21 DEx4 work 14 bcd_decode_rom 0 22 l_Lc?7`_=>S8XEEiiEmNl3
+Z21 DEx4 work 14 bcd_decode_rom 0 22 fFTz`K3ZK0c8Xa`zUTnnJ0
 l84
 L33
-VL<05S`f_AE_b^Ko315KON2
+VNCIYamWj]zDP`DC?9NDLh3
 R7
-31
+32
 R18
 R19
 R20
@@ -76,7 +76,7 @@ R12
 !s100 9IX`Bk>lgBLEY8>?]UjO<0
 !i10b 1
 Edc_disp_ctrl
-Z22 w1683723695
+Z22 w1683803737
 R15
 R2
 R3
@@ -85,11 +85,11 @@ Z23 8C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/dc_dis
 Z24 FC:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/dc_disp_ctrl.vhd
 l0
 L19
-V5DUOCi2j?PTi8TWo=<dP72
+V[Dcmo0?RoIT>h9Tl_NniI0
 R7
-31
-Z25 !s108 1683795767.321000
-Z26 !s90 -reportprogress|300|-93|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/dc_disp_ctrl.vhd|
+32
+Z25 !s108 1683807279.757000
+Z26 !s90 -reportprogress|30|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/dc_disp_ctrl.vhd|
 Z27 !s107 C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/dc_disp_ctrl.vhd|
 R11
 R12
@@ -99,21 +99,21 @@ Artl
 R15
 R2
 R3
-Z28 DEx4 work 12 dc_disp_ctrl 0 22 5DUOCi2j?PTi8TWo=<dP72
+Z28 DEx4 work 12 dc_disp_ctrl 0 22 [Dcmo0?RoIT>h9Tl_NniI0
 l139
 L46
-Vf;C=k1>XO7`efLK8kYYNn1
+VeFnRm?l5UNHY[3hTkIAf^2
 R7
-31
+32
 R25
 R26
 R27
 R11
 R12
-!s100 :Cem@3VS84UljfIN2CRO91
+!s100 W[BRlX`BAUJ8@?KTH2:]R2
 !i10b 1
 Ekey_ctrl
-Z29 w1683791339
+Z29 w1683798926
 R15
 R2
 R3
@@ -122,11 +122,11 @@ Z30 8C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/key_ct
 Z31 FC:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/key_ctrl.vhd
 l0
 L5
-ViUmnFH23G9fmFE1U`U;J41
+V9n_K3P`IiE_J1RW]T>QGI3
 R7
-31
-Z32 !s108 1683795767.165000
-Z33 !s90 -reportprogress|300|-93|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/key_ctrl.vhd|
+32
+Z32 !s108 1683807279.828000
+Z33 !s90 -reportprogress|30|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/key_ctrl.vhd|
 Z34 !s107 C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/key_ctrl.vhd|
 R11
 R12
@@ -136,21 +136,21 @@ Artl
 R15
 R2
 R3
-Z35 DEx4 work 8 key_ctrl 0 22 iUmnFH23G9fmFE1U`U;J41
-l45
+Z35 DEx4 work 8 key_ctrl 0 22 9n_K3P`IiE_J1RW]T>QGI3
+l48
 L18
-VCb>Mn[TPg_SlUonOo2DzA2
+V[VC[;Kg159P^F:=le@9BV0
 R7
-31
+32
 R32
 R33
 R34
 R11
 R12
-!s100 Bfzi]jQ9GX[0JhSaHAWR^3
+!s100 hPJ673L@[OIHR;H1E26Yn1
 !i10b 1
 Epwm_ctrl
-Z36 w1683791901
+Z36 w1683897331
 R15
 R2
 R3
@@ -159,11 +159,11 @@ Z37 8C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ct
 Z38 FC:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ctrl.vhd
 l0
 L5
-V]=A0`ETeHKCbTl5SBY5cb0
+V5Xa>bT>2ic:iEm5cgS2F_3
 R7
-31
-Z39 !s108 1683795766.975000
-Z40 !s90 -reportprogress|300|-93|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ctrl.vhd|
+32
+Z39 !s108 1683897337.336000
+Z40 !s90 -reportprogress|300|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ctrl.vhd|
 Z41 !s107 C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ctrl.vhd|
 R11
 R12
@@ -173,21 +173,21 @@ Artl
 R15
 R2
 R3
-Z42 DEx4 work 8 pwm_ctrl 0 22 ]=A0`ETeHKCbTl5SBY5cb0
-l48
+Z42 DEx4 work 8 pwm_ctrl 0 22 5Xa>bT>2ic:iEm5cgS2F_3
+l49
 L27
-VHa6QJlLVeC9b0_cdE1WUe1
+VI>nU:lLhG`dc0nfgl<fYa2
 R7
-31
+32
 R39
 R40
 R41
 R11
 R12
-!s100 W]3BZA:<4WKFCnG1cJbfJ1
+!s100 XelL@c4TAIYIK<VV@f39D2
 !i10b 1
 Epwm_module
-Z43 w1683795290
+Z43 w1683802983
 R15
 R2
 R3
@@ -196,40 +196,40 @@ Z44 8C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_mo
 Z45 FC:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_module.vhd
 l0
 L5
-V8N9ZBAJBM7<DPdRP[EizG3
+V=adgIFg7U<0JF?k0D]MMj2
 R7
-31
-Z46 !s108 1683795767.795000
-Z47 !s90 -reportprogress|300|-93|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_module.vhd|
+32
+Z46 !s108 1683807282.207000
+Z47 !s90 -reportprogress|30|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_module.vhd|
 Z48 !s107 C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_module.vhd|
 R11
 R12
-!s100 o79_z^_MiCc8kQ@1jdazI1
+!s100 Ti3aZGMa@cC_@aSRG46]91
 !i10b 1
 Artl
-Z49 DEx4 work 11 serial_ctrl 0 22 2no=]Y2Z^WA_E@S:2P]h22
-Z50 DEx4 work 11 serial_uart 0 22 9UM5K=C9o>g4?YS@SLINL3
+Z49 DEx4 work 11 serial_ctrl 0 22 GFdYZ@h:@CCBf?lQ1XSnE3
+Z50 DEx4 work 11 serial_uart 0 22 jNS4lMnfmX;VHYK[G9T013
 R21
 R28
 R42
 R35
-Z51 DEx4 work 10 reset_ctrl 0 22 Q4_ISz?@[:0jjj0hcY5bK3
+Z51 DEx4 work 10 reset_ctrl 0 22 ?H^RE[4M^caX4_^OW<Veb3
 R13
 R15
 R2
 R3
-Z52 DEx4 work 10 pwm_module 0 22 8N9ZBAJBM7<DPdRP[EizG3
-l74
-L23
-VN0D4V=N47Ln@i9j?VQHk83
+Z52 DEx4 work 10 pwm_module 0 22 =adgIFg7U<0JF?k0D]MMj2
+l73
+L22
+VOP4R>5?5z5BE3o`o7??L11
 R7
-31
+32
 R46
 R47
 R48
 R11
 R12
-!s100 ;ld^GG9eZ?en]4Ai0ZBfb0
+!s100 fJGfk2AYI:ibh49VQ]`<z2
 !i10b 1
 Ereset_ctrl
 Z53 w1683557454
@@ -240,11 +240,11 @@ Z54 8C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/reset_
 Z55 FC:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/reset_ctrl_rtl.vhd
 l0
 L17
-VQ4_ISz?@[:0jjj0hcY5bK3
+V?H^RE[4M^caX4_^OW<Veb3
 R7
-31
-Z56 !s108 1683795766.854000
-Z57 !s90 -reportprogress|300|-93|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/reset_ctrl_rtl.vhd|
+32
+Z56 !s108 1683807279.999000
+Z57 !s90 -reportprogress|30|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/reset_ctrl_rtl.vhd|
 Z58 !s107 C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/reset_ctrl_rtl.vhd|
 R11
 R12
@@ -256,9 +256,9 @@ R3
 R51
 l31
 L29
-VmjGB?XRdTdB1PT=DVI8:a1
+V@7n:SOkJmF7RWDzn`2jTf3
 R7
-31
+32
 R56
 R57
 R58
@@ -276,11 +276,11 @@ Z60 8C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/serial
 Z61 FC:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/serial_ctrl.vhd
 l0
 L13
-V2no=]Y2Z^WA_E@S:2P]h22
+VGFdYZ@h:@CCBf?lQ1XSnE3
 R7
-31
-Z62 !s108 1683795766.747000
-Z63 !s90 -reportprogress|300|-93|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/serial_ctrl.vhd|
+32
+Z62 !s108 1683807280.073000
+Z63 !s90 -reportprogress|30|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/serial_ctrl.vhd|
 Z64 !s107 C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/serial_ctrl.vhd|
 R11
 R12
@@ -293,9 +293,9 @@ R3
 R49
 l38
 L28
-VPY>=L[Lf53WiozY?nBlbj0
+VioaDn9VVUV2TBV]0BFHdI1
 R7
-31
+32
 R62
 R63
 R64
@@ -312,11 +312,11 @@ Z66 8C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/serial
 Z67 FC:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/serial_uart_rtl.vhd
 l0
 L15
-V9UM5K=C9o>g4?YS@SLINL3
+VjNS4lMnfmX;VHYK[G9T013
 R7
-31
-Z68 !s108 1683795766.622000
-Z69 !s90 -reportprogress|300|-93|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/serial_uart_rtl.vhd|
+32
+Z68 !s108 1683807280.161000
+Z69 !s90 -reportprogress|30|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/serial_uart_rtl.vhd|
 Z70 !s107 C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/serial_uart_rtl.vhd|
 R11
 R12
@@ -328,9 +328,9 @@ R3
 R50
 l80
 L37
-VB>dYJm2O??Ao<V^V5Zada1
+VV5nAJPSgnn9zbhL1NbQ001
 R7
-31
+32
 R68
 R69
 R70
@@ -352,71 +352,71 @@ V_TO2hgS8cO^P2iJTQf3SL1
 R7
 32
 b1
-Z74 !s108 1683795795.287000
+Z74 !s108 1683897340.625000
 Z75 !s90 -reportprogress|300|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_pkg.vhd|
 Z76 !s107 C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_pkg.vhd|
-Z77 o-work work -O0
+R11
 R12
 !s100 llJ:WKVDQ0[d?RPk4Y?iL1
 !i10b 1
 Bbody
-Z78 DPx4 work 13 testbench_pkg 0 22 _TO2hgS8cO^P2iJTQf3SL1
+Z77 DPx4 work 13 testbench_pkg 0 22 _TO2hgS8cO^P2iJTQf3SL1
 R15
 R2
 R3
 l0
 L69
 VN3cESVYP6Wnok6Mck2<9]3
+!s100 jF]nc=z0B[iV]zWDhjgNV0
 R7
 32
 R74
 R75
 R76
-R77
+R11
 R12
 nbody
-!s100 jF]nc=z0B[iV]zWDhjgNV0
 !i10b 1
 Etestbench_top
-Z79 w1683795738
-R78
-Z80 DPx4 ieee 9 math_real 0 22 :iME`dTX54_U49lJNF5JI3
+Z78 w1683803258
+R77
+Z79 DPx4 ieee 9 math_real 0 22 :iME`dTX54_U49lJNF5JI3
 R15
 R2
 R3
 R4
-Z81 8C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_top.vhd
-Z82 FC:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_top.vhd
+Z80 8C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_top.vhd
+Z81 FC:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_top.vhd
 l0
-L22
+L26
 VB>B^P?^Km<A3i><3m[dQ72
-!s100 Gh^K:n=J_Ro]Q5_6`bXLF3
+!s100 M4E0F@:H:@zn7?zEg5b]V2
 R7
 32
 !i10b 1
-Z83 !s108 1683795797.632000
-Z84 !s90 -reportprogress|300|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_top.vhd|
-Z85 !s107 C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_top.vhd|
-R77
+Z82 !s108 1683897341.932000
+Z83 !s90 -reportprogress|300|-work|work|C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_top.vhd|
+Z84 !s107 C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_top.vhd|
+R11
 R12
 Abhv
 R50
 R52
-R78
-R80
+R77
+R79
 R15
 R2
 R3
-DEx4 work 13 testbench_top 0 22 B>B^P?^Km<A3i><3m[dQ72
-l153
-L25
-Vcm[^NY][Jc3AfF^k[X4@:3
-!s100 DH6z?PG[J]5DaPUE]9g4n1
+Z85 DEx4 work 13 testbench_top 0 22 B>B^P?^Km<A3i><3m[dQ72
+l157
+L29
+Z86 V7O9d`G7Ec9]9DG_WbYI?F3
+Z87 !s100 Sc7kHLbSN;nM_id@:C6T31
 R7
 32
 !i10b 1
+R82
 R83
 R84
-R85
-R77
+R11
 R12

@@ -14,7 +14,6 @@ entity pwm_module is
         hex0_n               : out std_logic_vector(6 downto 0);
         hex1_n               : out std_logic_vector(6 downto 0);
         hex2_n               : out std_logic_vector(6 downto 0);
-        hex3_n               : out std_logic_vector(6 downto 0);
         ledr                 : out std_logic_vector(9 downto 0);
         ledg                 : out std_logic_vector(7 downto 0)
     );
@@ -78,7 +77,6 @@ begin
     hex0_n               <= hex_0_n_out;
     hex1_n               <= hex_1_n_out;
     hex2_n               <= hex_2_n_out;
-    hex3_n               <= (others => '1');
     ledg(0)              <= led;
     ledr(0)              <= received_error;
 
