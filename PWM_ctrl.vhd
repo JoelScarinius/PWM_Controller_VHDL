@@ -47,9 +47,9 @@ architecture rtl of pwm_ctrl is
     signal led               : std_logic;
 
 begin
-    ledg <= led; --ms counter mindre än dc cnt så led = 1 annars 0
+    ledg              <= led; --ms counter mindre än dc cnt så led = 1 annars 0
 
-    current_dc <= std_logic_vector(new_dc);
+    current_dc        <= std_logic_vector(new_dc);
     current_dc_update <= update_dc_now;
 
     p_pwm_state_machine : process(clk, reset)
@@ -70,13 +70,13 @@ begin
             end if;
 
             if one_ms_cnt /= one_ms then -- !!har det skett någon förändring?? 
-                one_ms_cnt <= one_ms_cnt + 1;
+                one_ms_cnt    <= one_ms_cnt + 1;
                 update_dc_now <= '0';
             else
                 one_ms_cnt <= 0;
                 if update_dc = '1' then
                     update_dc_now <= '1';
-                    update_dc <= '0';
+                    update_dc     <= '0';
                 end if;
             end if;
 
@@ -87,75 +87,68 @@ begin
                     new_dc <= zero_procent;
                     update_dc <= '1';
                     if key_on_n = '0' or serial_on = '1' then
-                        pwm_state   <= s_on;
+                        pwm_state <= s_on;
                     elsif key_up_n = '0' or serial_up = '1' then
-                        new_dc      <= ten_procent;
-                        pwm_state   <= s_up;
-                        update_dc   <= '1';
+                        pwm_state <= s_up;
                     end if;
 
                 when s_on =>
-                    if new_dc = zero_procent then
-                        new_dc      <= ten_procent;
-                        update_dc   <= '1';
-                        previous_dc <= new_dc;
-                    else
-                        new_dc      <= previous_dc;
-                        update_dc   <= '1';
-                    end if;
-                    -- !! VEM HAR PRIORITET? ON, OFF, UP, DOWN? !!
-                    if key_off_n     = '0' or serial_off  = '1' then
+                    new_dc      <= previous_dc;
+                    update_dc   <= '1';
+                    
+                    if key_off_n  = '0' or serial_off  = '1' then
                         pwm_state <= s_off;
-                    elsif key_on_n   = '0' or serial_on   = '1' then
-                        pwm_state <= s_on;
-                    elsif key_up_n   = '0' or serial_up   = '1' then
-                        pwm_state <= s_up;
-                    elsif key_down_n = '0' or serial_down = '1' then
-                        pwm_state <= s_down;
-                    end if;
+                    else 
+                        if key_down_n = '0' or serial_down = '1' then
+                            pwm_state <= s_down;
+                        end if;    
+                        if key_up_n   = '0' or serial_up   = '1' then
+                            pwm_state <= s_up;
+                        end if;    
+                    end if;    
 
                 when s_up =>
                     -- Increase duty cycle with 1%, maximum 100%, minimum 10%. I.e. the key_up
                     -- duty cycle shall be set to 10% if current pwm_state is off pwm_state and up command is received.
-                    if new_dc < hundred_procent then
+                    if new_dc = zero_procent then
+                        new_dc      <= ten_procent;
+                        update_dc   <= '1';
+                        previous_dc <= new_dc;
+                    elsif new_dc < hundred_procent then
                         previous_dc <= new_dc;
                         new_dc      <=('0' & one_procent) + new_dc;
                         update_dc   <= '1';
                         if dc_cnt /= dc_cnt_max then
                             dc_cnt  <= dc_cnt + 500;
-                        end if;
-                    end if;
-
-                    if key_off_n     = '0' or serial_off  = '1' then
+                        end if;  
+                    end if;      
+                    
+                    if key_off_n  = '0' or serial_off  = '1' then
                         pwm_state <= s_off;
-                    elsif key_on_n   = '0' or serial_on   = '1' then
-                        pwm_state <= s_on;
-                    elsif key_up_n   = '0' or serial_up   = '1' then
-                        pwm_state <= s_up;
-                    elsif key_down_n = '0' or serial_down = '1' then
-                        pwm_state <= s_down;
+                    else 
+                        if key_down_n = '0' or serial_down = '1' then
+                            pwm_state <= s_down;
+                        end if;        
                     end if;
 
                 when s_down =>
                     -- Decrease duty cycle with 1%, maximum 100%, minimum 10%. I.e. the key_down
                     --  This input shall be ignored if PWM output is in off pwm_state (at 0%).
                     if new_dc > ten_procent then
-                        previous_dc  <= new_dc;
-                        new_dc       <=('0' & one_procent) - new_dc;
-                        update_dc    <= '1';
+                        previous_dc <= new_dc;
+                        new_dc      <=('0' & one_procent) - new_dc;
+                        update_dc   <= '1';
                         if dc_cnt /= 0 then
-                            dc_cnt   <= dc_cnt - 500;
+                            dc_cnt  <= dc_cnt - 500;
                         end if;
                     end if;
 
-                    if key_off_n     = '0' or serial_off  = '1' then
+                    if key_off_n  = '0' or serial_off  = '1' then
                         pwm_state <= s_off;
-                    elsif key_on_n   = '0' or serial_on   = '1' then
-                        pwm_state <= s_on;
-                    elsif key_up_n   = '0' or serial_up   = '1' then
-                        pwm_state <= s_up;
-                    elsif key_down_n = '0' or serial_down = '1' then
-                        pwm_state <= s_down;
+                    else     
+                        if key_up_n   = '0' or serial_up   = '1' then
+                            pwm_state <= s_up;
+                        end if;     
                     end if;
 
             end case;

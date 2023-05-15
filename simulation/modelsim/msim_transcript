@@ -5844,3 +5844,595 @@ vcom -reportprogress 300 -work work C:/Users/Joel-/Desktop/Civ_Data/Digital_Elec
 # -- Compiling architecture bhv of testbench_top
 # -- Loading entity pwm_module
 # -- Loading entity serial_uart
+
+restart -f
+# Loading work.testbench_pkg(body)
+# Loading work.testbench_top(bhv)
+# Loading work.pwm_ctrl(rtl)
+run -all
+# Simulation starts
+# Test case #0 - Check startup values - expect 0 %
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - OK!
+#       Detected 7 segment output duty cycle : 0% - OK!
+#    Test case #0 - FAIL.
+# Test case #1 - Key control - ON - expect 100 %
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 2001185 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 3001205 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 4001225 ns  Iteration: 1  Instance: /testbench_top
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 100% - OK!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #1 - FAIL.
+# Test case #2 - Key control - OFF - expect 0%
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 5001245 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 6001265 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 7001285 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 8001305 ns  Iteration: 1  Instance: /testbench_top
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 100% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - OK!
+#    Test case #2 - FAIL.
+# Test case #3 - Key control - UP - should set Duty Cycle to 10%
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 9001325 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 10001345 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 11001365 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 12001385 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 13001405 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 14001425 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 15001445 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 16001465 ns  Iteration: 1  Instance: /testbench_top
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 100% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #3 - FAIL.
+# Test case #4 - Check 1kHz PWM frequency (+/- 1 Hz)
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 17001485 ns  Iteration: 1  Instance: /testbench_top
+#       Detected PWM frequency : 1000 Hz
+#    Test case #4 - PASS.
+# Test case #5 - Key hold control - UP 50 ms to ~15 % Duty cycle
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 18001505 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 19001525 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 20001545 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 21001565 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 22001585 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 23001605 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 24001625 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 25001645 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 26001665 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 27001685 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 28001705 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 29001725 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 30001745 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 31001765 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 32001785 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 33001805 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 34001825 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 35001845 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 36001865 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 37001885 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 38001905 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 39001925 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 40001945 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 41001965 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 42001985 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 43002005 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 44002025 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 45002045 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 46002065 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 47002085 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 48002105 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 49002125 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 50002145 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 51002165 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 52002185 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 53002205 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 54002225 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 55002245 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 56002265 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 57002285 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 58002305 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 59002325 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 60002345 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 61002365 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 62002385 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 63002405 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 64002425 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 65002445 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 66002465 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 67002485 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 68002505 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 69002525 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 70002545 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 71002565 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 72002585 ns  Iteration: 1  Instance: /testbench_top
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 100% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #5 - FAIL.
+# Test case #6 - Key control - DOWN 5 ms to decrease Duty cycle with 1 %
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 73002605 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 74002625 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 75002645 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 76002665 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 77002685 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 78002705 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 79002725 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 80002745 ns  Iteration: 1  Instance: /testbench_top
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 100% - OK!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #6 - FAIL.
+# Test case #7 - Key hold control - DOWN 70 ms to decrease Duty cycle to minimum (10 %)
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 81002765 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 82002785 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 83002805 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 84002825 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 85002845 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 86002865 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 87002885 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 88002905 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 89002925 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 90002945 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 91002965 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 92002985 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 93003005 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 94003025 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 95003045 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 96003065 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 97003085 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 98003105 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 99003125 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 100003145 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 101003165 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 102003185 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 103003205 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 104003225 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 105003245 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 106003265 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 107003285 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 108003305 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 109003325 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 110003345 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 111003365 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 112003385 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 113003405 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 114003425 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 115003445 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 116003465 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 117003485 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 118003505 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 119003525 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 120003545 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 121003565 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 122003585 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 123003605 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 124003625 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 125003645 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 126003665 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 127003685 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 128003705 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 129003725 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 130003745 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 131003765 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 132003785 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 133003805 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 134003825 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 135003845 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 136003865 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 137003885 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 138003905 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 139003925 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 140003945 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 141003965 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 142003985 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 143004005 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 144004025 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 145004045 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 146004065 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 147004085 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 148004105 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 149004125 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 150004145 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 151004165 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 152004185 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 153004205 ns  Iteration: 1  Instance: /testbench_top
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 100% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #7 - FAIL.
+# Test case #8 - Serial control - Up by sending U in ASCII, expecting 11 %
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 154004225 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 155004245 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 156004265 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 157004285 ns  Iteration: 1  Instance: /testbench_top
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 100% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #8 - FAIL.
+# Test case #9 - Serial control - Up by sending u in ASCII, expecting 12 %
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 158004305 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 159004325 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 160004345 ns  Iteration: 1  Instance: /testbench_top
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 100% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #9 - FAIL.
+# Test case #10 - Serial control - Off by sending 0 in ASCII, expecting 0 %
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 161004365 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 162004385 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 163004405 ns  Iteration: 1  Instance: /testbench_top
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 100% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - OK!
+#    Test case #10 - FAIL.
+# Test case #11 - Serial control - ON by sending 1 in ASCII, expecting 12 % (remembered)
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 164004425 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 165004445 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 166004465 ns  Iteration: 1  Instance: /testbench_top
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 100% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #11 - FAIL.
+# Test case #12 - Serial control - DOWN by sending d in ASCII, expecting 11 %
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 167004485 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 168004505 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 169004525 ns  Iteration: 1  Instance: /testbench_top
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 100% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #12 - FAIL.
+# Test case #13 - Serial control - DOWN by sending D in ASCII, expecting 10 %
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 170004545 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 171004565 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 172004585 ns  Iteration: 1  Instance: /testbench_top
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 100% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #13 - FAIL.
+# Test case #14 - Serial control - DOWN by sending D in ASCII, expecting 10 %
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 173004605 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 174004625 ns  Iteration: 1  Instance: /testbench_top
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 175004645 ns  Iteration: 1  Instance: /testbench_top
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 100% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #14 - FAIL.
+# ** Error: High duty cycle detected but not constantly on, ensure no glitches on output PWM signal when output should be constant high.
+#    Time: 176004665 ns  Iteration: 1  Instance: /testbench_top
+# Simulation ends
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/clk
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/reset
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/serial_off
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/serial_on
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/serial_down
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/serial_up
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/key_off_n
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/key_on_n
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/key_down_n
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/key_up_n
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/current_dc
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/current_dc_update
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/ledg
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/new_dc
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/previous_dc
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/update_dc
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/dc_cnt
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/update_dc_now
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/pwm_state
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/one_ms_cnt
+add wave -position end  sim:/testbench_top/i_pwm_module/i_pwm_ctrl/led
+# WARNING: No extended dataflow license exists
+vcom -reportprogress 300 -work work C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ctrl.vhd
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity pwm_ctrl
+# -- Compiling architecture rtl of pwm_ctrl
+vcom -reportprogress 300 -work work C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_pkg.vhd
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package testbench_pkg
+# -- Compiling package body testbench_pkg
+# -- Loading package testbench_pkg
+vcom -reportprogress 300 -work work C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_top.vhd
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Loading package testbench_pkg
+# -- Compiling entity testbench_top
+# -- Compiling architecture bhv of testbench_top
+# -- Loading entity pwm_module
+# -- Loading entity serial_uart
+
+restart -f
+# Loading work.testbench_pkg(body)
+# Loading work.testbench_top(bhv)
+# Loading work.pwm_ctrl(rtl)
+run -all
+# Simulation starts
+# Test case #0 - Check startup values - expect 0 %
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 90% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - OK!
+#    Test case #0 - FAIL.
+# Test case #1 - Key control - ON - expect 100 %
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 90% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #1 - FAIL.
+# Test case #2 - Key control - OFF - expect 0%
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 90% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - OK!
+#    Test case #2 - FAIL.
+# Test case #3 - Key control - UP - should set Duty Cycle to 10%
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #3 - FAIL.
+# Test case #4 - Check 1kHz PWM frequency (+/- 1 Hz)
+#       Detected PWM frequency : 0 Hz
+#    Test case #4 - FAIL.
+# Test case #5 - Key hold control - UP 50 ms to ~15 % Duty cycle
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #5 - FAIL.
+# Test case #6 - Key control - DOWN 5 ms to decrease Duty cycle with 1 %
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - OK!
+#       Detected 7 segment output duty cycle : 0% - OK!
+#    Test case #6 - FAIL.
+# Test case #7 - Key hold control - DOWN 70 ms to decrease Duty cycle to minimum (10 %)
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #7 - FAIL.
+# Test case #8 - Serial control - Up by sending U in ASCII, expecting 11 %
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #8 - FAIL.
+# Test case #9 - Serial control - Up by sending u in ASCII, expecting 12 %
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #9 - FAIL.
+# Test case #10 - Serial control - Off by sending 0 in ASCII, expecting 0 %
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - OK!
+#       Detected 7 segment output duty cycle : 0% - OK!
+#    Test case #10 - FAIL.
+# Test case #11 - Serial control - ON by sending 1 in ASCII, expecting 12 % (remembered)
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #11 - FAIL.
+# Test case #12 - Serial control - DOWN by sending d in ASCII, expecting 11 %
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #12 - FAIL.
+# Test case #13 - Serial control - DOWN by sending D in ASCII, expecting 10 %
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #13 - FAIL.
+# Test case #14 - Serial control - DOWN by sending D in ASCII, expecting 10 %
+#       Serial interface DC readout fails.
+#       Detected PWM output duty cycle : 0% - Outside tolerance!
+#       Detected 7 segment output duty cycle : 0% - Outside tolerance!
+#    Test case #14 - FAIL.
+# Simulation ends
+vcom -reportprogress 300 -work work C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ctrl.vhd
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity pwm_ctrl
+# -- Compiling architecture rtl of pwm_ctrl
+vcom -reportprogress 300 -work work C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_pkg.vhd
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package testbench_pkg
+# -- Compiling package body testbench_pkg
+# -- Loading package testbench_pkg
+vcom -reportprogress 300 -work work C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/testbench_top.vhd
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package MATH_REAL
+# -- Loading package testbench_pkg
+# -- Compiling entity testbench_top
+# -- Compiling architecture bhv of testbench_top
+# -- Loading entity pwm_module
+# -- Loading entity serial_uart
