@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pwm_module
-Thu May 11 15:28:05 2023
+Mon May 15 14:21:31 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -60,15 +60,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May 11 15:28:05 2023           ;
+; Analysis & Synthesis Status        ; Successful - Mon May 15 14:21:31 2023           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; pwm_module                                      ;
 ; Top-level Entity Name              ; pwm_module                                      ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 328                                             ;
-;     Total combinational functions  ; 316                                             ;
-;     Dedicated logic registers      ; 203                                             ;
-; Total registers                    ; 203                                             ;
+; Total logic elements               ; 355                                             ;
+;     Total combinational functions  ; 339                                             ;
+;     Dedicated logic registers      ; 210                                             ;
+; Total registers                    ; 210                                             ;
 ; Total pins                         ; 46                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -200,20 +200,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------+
 ; Resource                                    ; Usage    ;
 +---------------------------------------------+----------+
-; Estimated Total logic elements              ; 328      ;
+; Estimated Total logic elements              ; 355      ;
 ;                                             ;          ;
-; Total combinational functions               ; 316      ;
+; Total combinational functions               ; 339      ;
 ; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 101      ;
-;     -- 3 input functions                    ; 42       ;
-;     -- <=2 input functions                  ; 173      ;
+;     -- 4 input functions                    ; 128      ;
+;     -- 3 input functions                    ; 49       ;
+;     -- <=2 input functions                  ; 162      ;
 ;                                             ;          ;
 ; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 169      ;
-;     -- arithmetic mode                      ; 147      ;
+;     -- normal mode                          ; 191      ;
+;     -- arithmetic mode                      ; 148      ;
 ;                                             ;          ;
-; Total registers                             ; 203      ;
-;     -- Dedicated logic registers            ; 203      ;
+; Total registers                             ; 210      ;
+;     -- Dedicated logic registers            ; 210      ;
 ;     -- I/O registers                        ; 0        ;
 ;                                             ;          ;
 ; I/O pins                                    ; 46       ;
@@ -222,9 +222,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;     -- PLLs                                 ; 1        ;
 ;                                             ;          ;
 ; Maximum fan-out node                        ; clock_50 ;
-; Maximum fan-out                             ; 196      ;
-; Total fan-out                               ; 1555     ;
-; Average fan-out                             ; 2.75     ;
+; Maximum fan-out                             ; 203      ;
+; Total fan-out                               ; 1694     ;
+; Average fan-out                             ; 2.84     ;
 +---------------------------------------------+----------+
 
 
@@ -233,14 +233,14 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node              ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                    ; Library Name ;
 +-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------+--------------+
-; |pwm_module                             ; 316 (0)           ; 203 (0)      ; 0           ; 0            ; 0       ; 0         ; 46   ; 0            ; |pwm_module                                                            ; work         ;
+; |pwm_module                             ; 339 (0)           ; 210 (0)      ; 0           ; 0            ; 0       ; 0         ; 46   ; 0            ; |pwm_module                                                            ; work         ;
 ;    |altera_pll:\b_gen_pll:i_altera_pll| ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|altera_pll:\b_gen_pll:i_altera_pll                         ; work         ;
 ;       |altpll:altpll_component|         ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|altera_pll:\b_gen_pll:i_altera_pll|altpll:altpll_component ; work         ;
 ;    |dc_disp_ctrl:i_dc_disp_ctrl|        ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|dc_disp_ctrl:i_dc_disp_ctrl                                ; work         ;
-;    |key_ctrl:i_key_ctrl|                ; 110 (110)         ; 89 (89)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|key_ctrl:i_key_ctrl                                        ; work         ;
-;    |pwm_ctrl:i_pwm_ctrl|                ; 109 (109)         ; 43 (43)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|pwm_ctrl:i_pwm_ctrl                                        ; work         ;
+;    |key_ctrl:i_key_ctrl|                ; 109 (109)         ; 89 (89)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|key_ctrl:i_key_ctrl                                        ; work         ;
+;    |pwm_ctrl:i_pwm_ctrl|                ; 135 (135)         ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|pwm_ctrl:i_pwm_ctrl                                        ; work         ;
 ;    |reset_ctrl:\b_gen_pll:i_reset_ctrl| ; 11 (11)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|reset_ctrl:\b_gen_pll:i_reset_ctrl                         ; work         ;
-;    |serial_ctrl:i_serial_ctrl|          ; 9 (9)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|serial_ctrl:i_serial_ctrl                                  ; work         ;
+;    |serial_ctrl:i_serial_ctrl|          ; 7 (7)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|serial_ctrl:i_serial_ctrl                                  ; work         ;
 ;    |serial_uart:i_serial_uart|          ; 77 (77)           ; 58 (58)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|serial_uart:i_serial_uart                                  ; work         ;
 +-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -300,14 +300,14 @@ Encoding Type:  One-Hot
 Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------------+
 ; State Machine - |pwm_module|pwm_ctrl:i_pwm_ctrl|pwm_state                               ;
-+------------------+----------------+------------------+-----------------+----------------+
-; Name             ; pwm_state.s_up ; pwm_state.s_down ; pwm_state.s_off ; pwm_state.s_on ;
-+------------------+----------------+------------------+-----------------+----------------+
-; pwm_state.s_on   ; 0              ; 0                ; 0               ; 0              ;
-; pwm_state.s_off  ; 0              ; 0                ; 1               ; 1              ;
-; pwm_state.s_down ; 0              ; 1                ; 0               ; 1              ;
-; pwm_state.s_up   ; 1              ; 0                ; 0               ; 1              ;
-+------------------+----------------+------------------+-----------------+----------------+
++------------------+----------------+------------------+----------------+-----------------+
+; Name             ; pwm_state.s_up ; pwm_state.s_down ; pwm_state.s_on ; pwm_state.s_off ;
++------------------+----------------+------------------+----------------+-----------------+
+; pwm_state.s_off  ; 0              ; 0                ; 0              ; 0               ;
+; pwm_state.s_on   ; 0              ; 0                ; 1              ; 1               ;
+; pwm_state.s_down ; 0              ; 1                ; 0              ; 1               ;
+; pwm_state.s_up   ; 1              ; 0                ; 0              ; 1               ;
++------------------+----------------+------------------+----------------+-----------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -394,12 +394,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 203   ;
-; Number of registers using Synchronous Clear  ; 101   ;
-; Number of registers using Synchronous Load   ; 7     ;
-; Number of registers using Asynchronous Clear ; 59    ;
+; Total registers                              ; 210   ;
+; Number of registers using Synchronous Clear  ; 117   ;
+; Number of registers using Synchronous Load   ; 8     ;
+; Number of registers using Asynchronous Clear ; 58    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 117   ;
+; Number of registers using Clock Enable       ; 121   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -409,11 +409,11 @@ Encoding Type:  One-Hot
 +------------------------------------------------+---------+
 ; Inverted Register                              ; Fan out ;
 +------------------------------------------------+---------+
-; pwm_ctrl:i_pwm_ctrl|new_dc[2]                  ; 4       ;
-; pwm_ctrl:i_pwm_ctrl|new_dc[6]                  ; 5       ;
-; pwm_ctrl:i_pwm_ctrl|new_dc[5]                  ; 5       ;
 ; reset_ctrl:\b_gen_pll:i_reset_ctrl|reset_out   ; 130     ;
 ; dc_disp_ctrl:i_dc_disp_ctrl|transmit_valid_out ; 2       ;
+; pwm_ctrl:i_pwm_ctrl|previous_dc[2]             ; 2       ;
+; pwm_ctrl:i_pwm_ctrl|previous_dc[6]             ; 2       ;
+; pwm_ctrl:i_pwm_ctrl|previous_dc[5]             ; 2       ;
 ; Total number of inverted registers = 5         ;         ;
 +------------------------------------------------+---------+
 
@@ -423,22 +423,22 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |pwm_module|serial_uart:i_serial_uart|tx_bit_cnt[3]    ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |pwm_module|serial_uart:i_serial_uart|rx_bit_cnt[0]    ;
-; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_down_cnt[15]    ;
-; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_up_cnt[9]       ;
-; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_on_cnt[18]      ;
-; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_off_cnt[17]     ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |pwm_module|serial_uart:i_serial_uart|received_data[4] ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |pwm_module|serial_uart:i_serial_uart|tx_byte_saved[4] ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|new_dc[4]              ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|new_dc[3]              ;
-; 7:1                ; 14 bits   ; 56 LEs        ; 14 LEs               ; 42 LEs                 ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|dc_cnt[2]              ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|new_dc[2]              ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |pwm_module|serial_uart:i_serial_uart|tx_bit_cnt[0]    ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |pwm_module|serial_uart:i_serial_uart|rx_bit_cnt[1]    ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_up_cnt[18]      ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_on_cnt[0]       ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_off_cnt[0]      ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_down_cnt[18]    ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |pwm_module|serial_uart:i_serial_uart|received_data[5] ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |pwm_module|serial_uart:i_serial_uart|tx_byte_saved[6] ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|previous_dc[0]         ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|new_dc[5]              ;
+; 8:1                ; 14 bits   ; 70 LEs        ; 14 LEs               ; 56 LEs                 ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|dc_cnt[7]              ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 0 LEs                ; 15 LEs                 ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|previous_dc[2]         ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |pwm_module|serial_uart:i_serial_uart|tx_bit_no        ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |pwm_module|serial_uart:i_serial_uart|rx_bit_no        ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |pwm_module|dc_disp_ctrl:i_dc_disp_ctrl|Selector2      ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |pwm_module|pwm_ctrl:i_pwm_ctrl|Selector11             ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |pwm_module|dc_disp_ctrl:i_dc_disp_ctrl|Selector4      ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |pwm_module|pwm_ctrl:i_pwm_ctrl|Selector18             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 
 
@@ -929,7 +929,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu May 11 15:28:02 2023
+    Info: Processing started: Mon May 15 14:21:29 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pwm_module -c pwm_module
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file serial_uart_rtl.vhd
@@ -1033,9 +1033,9 @@ Info (12133): Instantiated megafunction "altera_pll:\b_gen_pll:i_altera_pll|altp
 Info (12128): Elaborating entity "reset_ctrl" for hierarchy "reset_ctrl:\b_gen_pll:i_reset_ctrl"
 Info (12128): Elaborating entity "key_ctrl" for hierarchy "key_ctrl:i_key_ctrl"
 Info (12128): Elaborating entity "pwm_ctrl" for hierarchy "pwm_ctrl:i_pwm_ctrl"
-Warning (10631): VHDL Process Statement warning at pwm_ctrl.vhd(54): inferring latch(es) for signal or variable "dc_cnt", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "dc_cnt[0]" at pwm_ctrl.vhd(54)
-Info (10041): Inferred latch for "dc_cnt[1]" at pwm_ctrl.vhd(54)
+Warning (10631): VHDL Process Statement warning at pwm_ctrl.vhd(55): inferring latch(es) for signal or variable "dc_cnt", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "dc_cnt[0]" at pwm_ctrl.vhd(55)
+Info (10041): Inferred latch for "dc_cnt[1]" at pwm_ctrl.vhd(55)
 Info (12128): Elaborating entity "dc_disp_ctrl" for hierarchy "dc_disp_ctrl:i_dc_disp_ctrl"
 Info (12128): Elaborating entity "bcd_decode_rom" for hierarchy "bcd_decode_rom:i_bcd_decode_rom"
 Info (12128): Elaborating entity "serial_uart" for hierarchy "serial_uart:i_serial_uart"
@@ -1083,15 +1083,15 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (17049): 8 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 376 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 403 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 40 output pins
-    Info (21061): Implemented 329 logic cells
+    Info (21061): Implemented 356 logic cells
     Info (21065): Implemented 1 PLLs
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 43 warnings
-    Info: Peak virtual memory: 4650 megabytes
-    Info: Processing ended: Thu May 11 15:28:05 2023
-    Info: Elapsed time: 00:00:03
+    Info: Peak virtual memory: 4656 megabytes
+    Info: Processing ended: Mon May 15 14:21:31 2023
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 

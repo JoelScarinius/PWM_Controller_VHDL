@@ -16,7 +16,7 @@ entity serial_uart is
    generic(
       g_reset_active_state    : std_logic                      := '1';
       g_serial_speed_bps      : natural range 9600 to 115200   := 115200;
-      g_clk_period_ns         : natural range 10 to 100        := 10;      -- 100 MHz standard clock
+      g_clk_period_ns         : natural range 10 to 100        := 20;      -- 100 MHz standard clock
       g_parity                : natural range 0 to 2           := 0);      -- 0 = no, 1 = odd, 2 = even
    port(
       clk                     : in  std_logic;
@@ -30,7 +30,7 @@ entity serial_uart is
       received_parity_error   : out std_logic;  -- Parity error detected
 
       transmit_ready          : out std_logic;  -- Set high when ready for data
-      transmit_valid     : in  std_logic;  -- transmit_data is valid
+      transmit_valid          : in  std_logic;  -- transmit_data is valid
       transmit_data           : in  std_logic_vector(7 downto 0));   -- Byte to transmit
 end entity serial_uart;
 

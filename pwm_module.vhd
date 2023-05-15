@@ -22,10 +22,10 @@ end pwm_module;
 architecture rtl of pwm_module is
 
     -- (A)
-    signal key_on_n          : std_logic;
-    signal key_off_n         : std_logic;
-    signal key_up_n          : std_logic;
-    signal key_down_n        : std_logic;
+    signal key_on            : std_logic;
+    signal key_off           : std_logic;
+    signal key_up            : std_logic;
+    signal key_down          : std_logic;
 
     -- (B)
     signal received_data     : std_logic_vector(7 downto 0);
@@ -118,18 +118,18 @@ begin
 
     i_key_ctrl : entity work.key_ctrl
     port map (
-        clk        => clock_50,
-        reset      => reset,
+        clk      => clock_50,
+        reset    => reset,
 
-        key_off_n  => key_off_n,
-        key_on_n   => key_on_n,
-        key_down_n => key_down_n,
-        key_up_n   => key_up_n,
+        key_off  => key_off,
+        key_on   => key_on,
+        key_down => key_down,
+        key_up   => key_up,
 
-        key_n(0)   => key_n(0),
-        key_n(1)   => key_n(1),
-        key_n(2)   => key_n(2),
-        key_n(3)   => key_n(3)
+        key_n(0) => key_n(0),
+        key_n(1) => key_n(1),
+        key_n(2) => key_n(2),
+        key_n(3) => key_n(3)
     );
 
     i_pwm_ctrl : entity work.pwm_ctrl
@@ -137,10 +137,10 @@ begin
         clk               => clock_50,
         reset             => reset,
 
-        key_off_n         => key_off_n,
-        key_on_n          => key_on_n,
-        key_down_n        => key_down_n,
-        key_up_n          => key_up_n,
+        key_off           => key_off,
+        key_on            => key_on,
+        key_down          => key_down,
+        key_up            => key_up,
 
         serial_off        => serial_off,
         serial_on         => serial_on,
