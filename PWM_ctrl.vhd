@@ -140,7 +140,7 @@ begin
                         previous_dc <= new_dc;
                         new_dc      <=('0' & one_procent) + new_dc;
                         update_dc   <= '1';
-                        if dc_cnt < dc_cnt_max then
+                        if dc_cnt /= dc_cnt_max then
                             dc_cnt  <= dc_cnt + 500;
                         end if;  
                     end if;      
@@ -170,7 +170,7 @@ begin
                         previous_dc <= new_dc;
                         new_dc      <= new_dc - one_procent;
                         update_dc   <= '1';
-                        if dc_cnt > 0 then
+                        if dc_cnt > 0 and dc_cnt /= dc_cnt_max then
                             dc_cnt  <= dc_cnt - 500;
                         end if;
                     end if;

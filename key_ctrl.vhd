@@ -86,6 +86,7 @@ begin
                 else
                     key_off_out <= '1';
                     ten_ms_off_cnt <= 0;
+                    key_in_states <= s_pulse_high;
                 end if;
             else
                 ten_ms_off_cnt     <= 0;
@@ -97,6 +98,7 @@ begin
                 else
                     key_on_out <= '1';
                     ten_ms_on_cnt <= 0;
+                    key_in_states <= s_pulse_high;
                 end if;
             else
                 ten_ms_on_cnt     <= 0;
@@ -108,6 +110,7 @@ begin
                 else
                     key_down_out <= '1';
                     ten_ms_down_cnt <= 0;
+                    key_in_states <= s_pulse_high;
                 end if;
             else
                 ten_ms_down_cnt     <= 0;
@@ -119,6 +122,7 @@ begin
                 else
                     key_up_out <= '1';
                     ten_ms_up_cnt <= 0;
+                    key_in_states <= s_pulse_high;
                 end if;
             else
                 ten_ms_up_cnt     <= 0;
@@ -129,8 +133,7 @@ begin
                 when s_pulse_high =>
                     if key_off_2r  = '0' then
                         key_off_out <= '1';
-                    end if;
-                    if key_off_2r /= '0' then
+                    else
                         if key_on_2r = '0' then
                             key_on_out <= '1';
                         end if;

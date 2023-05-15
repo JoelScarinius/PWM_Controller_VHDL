@@ -72,13 +72,13 @@ architecture rtl of pwm_module is
 
 begin
 
-    ledr(9 downto 1)     <= (others => '0');
-    ledg(7 downto 1)     <= (others => '0');
-    hex0_n               <= hex_0_n_out;
-    hex1_n               <= hex_1_n_out;
-    hex2_n               <= hex_2_n_out;
-    ledg(0)              <= led;
-    ledr(0)              <= received_error;
+    ledr(9 downto 1) <= (others => '0');
+    ledg(7 downto 1) <= (others => '0');
+    hex0_n           <= hex_0_n_out;
+    hex1_n           <= hex_1_n_out;
+    hex2_n           <= hex_2_n_out;
+    ledg(0)          <= led;
+    ledr(0)          <= received_error;
 
     b_gen_pll : if (not g_simulation) generate
     -- Instance of PLL
