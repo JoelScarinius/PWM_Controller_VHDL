@@ -1,5 +1,5 @@
 Analysis & Synthesis report for pwm_module
-Mon May 15 15:12:51 2023
+Tue May 16 13:55:50 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -13,28 +13,31 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis IP Cores Summary
-  9. State Machine - |pwm_module|serial_uart:i_serial_uart|tx_state
- 10. State Machine - |pwm_module|serial_uart:i_serial_uart|rx_state
- 11. State Machine - |pwm_module|dc_disp_ctrl:i_dc_disp_ctrl|send_data_state
- 12. State Machine - |pwm_module|pwm_ctrl:i_pwm_ctrl|pwm_state
- 13. Registers Removed During Synthesis
- 14. Removed Registers Triggering Further Register Optimizations
- 15. General Register Statistics
- 16. Inverted Register Statistics
- 17. Multiplexer Restructuring Statistics (Restructuring Performed)
- 18. Parameter Settings for User Entity Instance: Top-level Entity: |pwm_module
- 19. Parameter Settings for User Entity Instance: altera_pll:\b_gen_pll:i_altera_pll|altpll:altpll_component
- 20. Parameter Settings for User Entity Instance: reset_ctrl:\b_gen_pll:i_reset_ctrl
- 21. Parameter Settings for User Entity Instance: serial_uart:i_serial_uart
- 22. altpll Parameter Settings by Entity Instance
- 23. Port Connectivity Checks: "serial_uart:i_serial_uart"
- 24. Port Connectivity Checks: "bcd_decode_rom:i_bcd_decode_rom"
- 25. Port Connectivity Checks: "dc_disp_ctrl:i_dc_disp_ctrl"
- 26. Port Connectivity Checks: "reset_ctrl:\b_gen_pll:i_reset_ctrl"
- 27. Port Connectivity Checks: "altera_pll:\b_gen_pll:i_altera_pll"
- 28. Elapsed Time Per Partition
- 29. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. State Machine - |pwm_module|serial_uart:i_serial_uart|tx_state
+ 11. State Machine - |pwm_module|serial_uart:i_serial_uart|rx_state
+ 12. State Machine - |pwm_module|dc_disp_ctrl:i_dc_disp_ctrl|send_data_state
+ 13. State Machine - |pwm_module|pwm_ctrl:i_pwm_ctrl|pwm_state
+ 14. Registers Removed During Synthesis
+ 15. Removed Registers Triggering Further Register Optimizations
+ 16. General Register Statistics
+ 17. Inverted Register Statistics
+ 18. Registers Packed Into Inferred Megafunctions
+ 19. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 20. Source assignments for bcd_decode_rom:i_bcd_decode_rom|altsyncram:bcd_rom_rtl_0|altsyncram_as71:auto_generated
+ 21. Parameter Settings for User Entity Instance: Top-level Entity: |pwm_module
+ 22. Parameter Settings for User Entity Instance: altera_pll:\b_gen_pll:i_altera_pll|altpll:altpll_component
+ 23. Parameter Settings for User Entity Instance: reset_ctrl:\b_gen_pll:i_reset_ctrl
+ 24. Parameter Settings for User Entity Instance: serial_uart:i_serial_uart
+ 25. Parameter Settings for Inferred Entity Instance: bcd_decode_rom:i_bcd_decode_rom|altsyncram:bcd_rom_rtl_0
+ 26. altpll Parameter Settings by Entity Instance
+ 27. altsyncram Parameter Settings by Entity Instance
+ 28. Port Connectivity Checks: "serial_uart:i_serial_uart"
+ 29. Port Connectivity Checks: "reset_ctrl:\b_gen_pll:i_reset_ctrl"
+ 30. Port Connectivity Checks: "altera_pll:\b_gen_pll:i_altera_pll"
+ 31. Elapsed Time Per Partition
+ 32. Analysis & Synthesis Messages
 
 
 
@@ -60,18 +63,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon May 15 15:12:51 2023           ;
+; Analysis & Synthesis Status        ; Successful - Tue May 16 13:55:50 2023           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; pwm_module                                      ;
 ; Top-level Entity Name              ; pwm_module                                      ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 353                                             ;
-;     Total combinational functions  ; 337                                             ;
-;     Dedicated logic registers      ; 210                                             ;
-; Total registers                    ; 210                                             ;
+; Total logic elements               ; 463                                             ;
+;     Total combinational functions  ; 418                                             ;
+;     Dedicated logic registers      ; 278                                             ;
+; Total registers                    ; 278                                             ;
 ; Total pins                         ; 46                                              ;
 ; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 0                                               ;
+; Total memory bits                  ; 2,560                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
 ; Total PLLs                         ; 1                                               ;
 +------------------------------------+-------------------------------------------------+
@@ -173,26 +176,36 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                    ;
-+----------------------------------+-----------------+-----------------------------+----------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                   ; File Name with Absolute Path                                                                 ; Library ;
-+----------------------------------+-----------------+-----------------------------+----------------------------------------------------------------------------------------------+---------+
-; serial_uart_rtl.vhd              ; yes             ; User VHDL File              ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/serial_uart_rtl.vhd     ;         ;
-; serial_ctrl.vhd                  ; yes             ; User VHDL File              ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/serial_ctrl.vhd         ;         ;
-; reset_ctrl_rtl.vhd               ; yes             ; User VHDL File              ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/reset_ctrl_rtl.vhd      ;         ;
-; pwm_ctrl.vhd                     ; yes             ; User VHDL File              ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ctrl.vhd            ;         ;
-; key_ctrl.vhd                     ; yes             ; User VHDL File              ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/key_ctrl.vhd            ;         ;
-; dc_disp_ctrl.vhd                 ; yes             ; User VHDL File              ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/dc_disp_ctrl.vhd        ;         ;
-; bcd_decode_rom_rtl.vhd           ; yes             ; User VHDL File              ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/bcd_decode_rom_rtl.vhd  ;         ;
-; altera_pll_cyclone2.vhd          ; yes             ; User Wizard-Generated File  ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/altera_pll_cyclone2.vhd ;         ;
-; pwm_module.vhd                   ; yes             ; User VHDL File              ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_module.vhd          ;         ;
-; altpll.tdf                       ; yes             ; Megafunction                ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altpll.tdf                                 ;         ;
-; aglobal130.inc                   ; yes             ; Megafunction                ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc                             ;         ;
-; stratix_pll.inc                  ; yes             ; Megafunction                ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_pll.inc                            ;         ;
-; stratixii_pll.inc                ; yes             ; Megafunction                ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratixii_pll.inc                          ;         ;
-; cycloneii_pll.inc                ; yes             ; Megafunction                ; c:/altera/13.0sp1/quartus/libraries/megafunctions/cycloneii_pll.inc                          ;         ;
-+----------------------------------+-----------------+-----------------------------+----------------------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                           ;
++----------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                   ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                                            ; Library ;
++----------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+---------+
+; serial_uart_rtl.vhd                                ; yes             ; User VHDL File                                        ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/serial_uart_rtl.vhd                                ;         ;
+; serial_ctrl.vhd                                    ; yes             ; User VHDL File                                        ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/serial_ctrl.vhd                                    ;         ;
+; reset_ctrl_rtl.vhd                                 ; yes             ; User VHDL File                                        ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/reset_ctrl_rtl.vhd                                 ;         ;
+; pwm_ctrl.vhd                                       ; yes             ; User VHDL File                                        ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_ctrl.vhd                                       ;         ;
+; key_ctrl.vhd                                       ; yes             ; User VHDL File                                        ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/key_ctrl.vhd                                       ;         ;
+; dc_disp_ctrl.vhd                                   ; yes             ; User VHDL File                                        ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/dc_disp_ctrl.vhd                                   ;         ;
+; bcd_decode_rom_rtl.vhd                             ; yes             ; User VHDL File                                        ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/bcd_decode_rom_rtl.vhd                             ;         ;
+; altera_pll_cyclone2.vhd                            ; yes             ; User Wizard-Generated File                            ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/altera_pll_cyclone2.vhd                            ;         ;
+; pwm_module.vhd                                     ; yes             ; User VHDL File                                        ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/pwm_module.vhd                                     ;         ;
+; altpll.tdf                                         ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altpll.tdf                                                            ;         ;
+; aglobal130.inc                                     ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc                                                        ;         ;
+; stratix_pll.inc                                    ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_pll.inc                                                       ;         ;
+; stratixii_pll.inc                                  ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratixii_pll.inc                                                     ;         ;
+; cycloneii_pll.inc                                  ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/cycloneii_pll.inc                                                     ;         ;
+; altsyncram.tdf                                     ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf                                                        ;         ;
+; stratix_ram_block.inc                              ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc                                                 ;         ;
+; lpm_mux.inc                                        ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc                                                           ;         ;
+; lpm_decode.inc                                     ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc                                                        ;         ;
+; a_rdenreg.inc                                      ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc                                                         ;         ;
+; altrom.inc                                         ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altrom.inc                                                            ;         ;
+; altram.inc                                         ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altram.inc                                                            ;         ;
+; altdpram.inc                                       ; yes             ; Megafunction                                          ; c:/altera/13.0sp1/quartus/libraries/megafunctions/altdpram.inc                                                          ;         ;
+; db/altsyncram_as71.tdf                             ; yes             ; Auto-Generated Megafunction                           ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/db/altsyncram_as71.tdf                             ;         ;
+; db/pwm_module.ram0_bcd_decode_rom_eb028e2c.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/Joel-/Desktop/Civ_Data/Digital_Electronics/VHDL/Labbar/Lab7/db/pwm_module.ram0_bcd_decode_rom_eb028e2c.hdl.mif ;         ;
++----------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------+
@@ -200,50 +213,63 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------+
 ; Resource                                    ; Usage    ;
 +---------------------------------------------+----------+
-; Estimated Total logic elements              ; 353      ;
+; Estimated Total logic elements              ; 463      ;
 ;                                             ;          ;
-; Total combinational functions               ; 337      ;
+; Total combinational functions               ; 418      ;
 ; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 125      ;
-;     -- 3 input functions                    ; 51       ;
-;     -- <=2 input functions                  ; 161      ;
+;     -- 4 input functions                    ; 185      ;
+;     -- 3 input functions                    ; 63       ;
+;     -- <=2 input functions                  ; 170      ;
 ;                                             ;          ;
 ; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 189      ;
+;     -- normal mode                          ; 270      ;
 ;     -- arithmetic mode                      ; 148      ;
 ;                                             ;          ;
-; Total registers                             ; 210      ;
-;     -- Dedicated logic registers            ; 210      ;
+; Total registers                             ; 278      ;
+;     -- Dedicated logic registers            ; 278      ;
 ;     -- I/O registers                        ; 0        ;
 ;                                             ;          ;
 ; I/O pins                                    ; 46       ;
+; Total memory bits                           ; 2560     ;
 ; Embedded Multiplier 9-bit elements          ; 0        ;
 ; Total PLLs                                  ; 1        ;
 ;     -- PLLs                                 ; 1        ;
 ;                                             ;          ;
 ; Maximum fan-out node                        ; clock_50 ;
-; Maximum fan-out                             ; 203      ;
-; Total fan-out                               ; 1686     ;
-; Average fan-out                             ; 2.84     ;
+; Maximum fan-out                             ; 281      ;
+; Total fan-out                               ; 2310     ;
+; Average fan-out                             ; 3.07     ;
 +---------------------------------------------+----------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                         ;
-+-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node              ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                    ; Library Name ;
-+-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------+--------------+
-; |pwm_module                             ; 337 (0)           ; 210 (0)      ; 0           ; 0            ; 0       ; 0         ; 46   ; 0            ; |pwm_module                                                            ; work         ;
-;    |altera_pll:\b_gen_pll:i_altera_pll| ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|altera_pll:\b_gen_pll:i_altera_pll                         ; work         ;
-;       |altpll:altpll_component|         ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|altera_pll:\b_gen_pll:i_altera_pll|altpll:altpll_component ; work         ;
-;    |dc_disp_ctrl:i_dc_disp_ctrl|        ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|dc_disp_ctrl:i_dc_disp_ctrl                                ; work         ;
-;    |key_ctrl:i_key_ctrl|                ; 109 (109)         ; 89 (89)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|key_ctrl:i_key_ctrl                                        ; work         ;
-;    |pwm_ctrl:i_pwm_ctrl|                ; 133 (133)         ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|pwm_ctrl:i_pwm_ctrl                                        ; work         ;
-;    |reset_ctrl:\b_gen_pll:i_reset_ctrl| ; 11 (11)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|reset_ctrl:\b_gen_pll:i_reset_ctrl                         ; work         ;
-;    |serial_ctrl:i_serial_ctrl|          ; 7 (7)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|serial_ctrl:i_serial_ctrl                                  ; work         ;
-;    |serial_uart:i_serial_uart|          ; 77 (77)           ; 58 (58)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|serial_uart:i_serial_uart                                  ; work         ;
-+-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                        ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                 ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------+--------------+
+; |pwm_module                               ; 418 (0)           ; 278 (0)      ; 2560        ; 0            ; 0       ; 0         ; 46   ; 0            ; |pwm_module                                                                                         ; work         ;
+;    |altera_pll:\b_gen_pll:i_altera_pll|   ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|altera_pll:\b_gen_pll:i_altera_pll                                                      ; work         ;
+;       |altpll:altpll_component|           ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|altera_pll:\b_gen_pll:i_altera_pll|altpll:altpll_component                              ; work         ;
+;    |bcd_decode_rom:i_bcd_decode_rom|      ; 0 (0)             ; 8 (8)        ; 2560        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|bcd_decode_rom:i_bcd_decode_rom                                                         ; work         ;
+;       |altsyncram:bcd_rom_rtl_0|          ; 0 (0)             ; 0 (0)        ; 2560        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|bcd_decode_rom:i_bcd_decode_rom|altsyncram:bcd_rom_rtl_0                                ; work         ;
+;          |altsyncram_as71:auto_generated| ; 0 (0)             ; 0 (0)        ; 2560        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|bcd_decode_rom:i_bcd_decode_rom|altsyncram:bcd_rom_rtl_0|altsyncram_as71:auto_generated ; work         ;
+;    |dc_disp_ctrl:i_dc_disp_ctrl|          ; 61 (61)           ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|dc_disp_ctrl:i_dc_disp_ctrl                                                             ; work         ;
+;    |key_ctrl:i_key_ctrl|                  ; 131 (131)         ; 89 (89)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|key_ctrl:i_key_ctrl                                                                     ; work         ;
+;    |pwm_ctrl:i_pwm_ctrl|                  ; 123 (123)         ; 54 (54)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|pwm_ctrl:i_pwm_ctrl                                                                     ; work         ;
+;    |reset_ctrl:\b_gen_pll:i_reset_ctrl|   ; 11 (11)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|reset_ctrl:\b_gen_pll:i_reset_ctrl                                                      ; work         ;
+;    |serial_ctrl:i_serial_ctrl|            ; 7 (7)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|serial_ctrl:i_serial_ctrl                                                               ; work         ;
+;    |serial_uart:i_serial_uart|            ; 85 (85)           ; 65 (65)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pwm_module|serial_uart:i_serial_uart                                                               ; work         ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                         ;
++----------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+----------------------------------------------------+
+; Name                                                                                               ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                                ;
++----------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+----------------------------------------------------+
+; bcd_decode_rom:i_bcd_decode_rom|altsyncram:bcd_rom_rtl_0|altsyncram_as71:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 256          ; 10           ; --           ; --           ; 2560 ; db/pwm_module.ram0_bcd_decode_rom_eb028e2c.hdl.mif ;
++----------------------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+----------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -298,95 +324,46 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------+
-; State Machine - |pwm_module|pwm_ctrl:i_pwm_ctrl|pwm_state                               ;
-+------------------+----------------+------------------+----------------+-----------------+
-; Name             ; pwm_state.s_up ; pwm_state.s_down ; pwm_state.s_on ; pwm_state.s_off ;
-+------------------+----------------+------------------+----------------+-----------------+
-; pwm_state.s_off  ; 0              ; 0                ; 0              ; 0               ;
-; pwm_state.s_on   ; 0              ; 0                ; 1              ; 1               ;
-; pwm_state.s_down ; 0              ; 1                ; 0              ; 1               ;
-; pwm_state.s_up   ; 1              ; 0                ; 0              ; 1               ;
-+------------------+----------------+------------------+----------------+-----------------+
++------------------------------------------------------------------------------------------------------------+
+; State Machine - |pwm_module|pwm_ctrl:i_pwm_ctrl|pwm_state                                                  ;
++------------------+----------------+------------------+----------------+------------------+-----------------+
+; Name             ; pwm_state.s_up ; pwm_state.s_down ; pwm_state.s_on ; pwm_state.s_idle ; pwm_state.s_off ;
++------------------+----------------+------------------+----------------+------------------+-----------------+
+; pwm_state.s_off  ; 0              ; 0                ; 0              ; 0                ; 0               ;
+; pwm_state.s_idle ; 0              ; 0                ; 0              ; 1                ; 1               ;
+; pwm_state.s_on   ; 0              ; 0                ; 1              ; 0                ; 1               ;
+; pwm_state.s_down ; 0              ; 1                ; 0              ; 0                ; 1               ;
+; pwm_state.s_up   ; 1              ; 0                ; 0              ; 0                ; 1               ;
++------------------+----------------+------------------+----------------+------------------+-----------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                   ;
-+-------------------------------------------------------------+--------------------------------------------------------+
-; Register name                                               ; Reason for Removal                                     ;
-+-------------------------------------------------------------+--------------------------------------------------------+
-; dc_disp_ctrl:i_dc_disp_ctrl|bcd_2_in[2,3]                   ; Stuck at GND due to stuck port data_in                 ;
-; dc_disp_ctrl:i_dc_disp_ctrl|byte_vector[7]                  ; Merged with dc_disp_ctrl:i_dc_disp_ctrl|byte_vector[6] ;
-; bcd_decode_rom:i_bcd_decode_rom|rom_addr[0..7]              ; Stuck at GND due to stuck port data_in                 ;
-; bcd_decode_rom:i_bcd_decode_rom|addr_valid                  ; Stuck at GND due to stuck port data_in                 ;
-; bcd_decode_rom:i_bcd_decode_rom|rom_data_valid              ; Stuck at GND due to stuck port data_in                 ;
-; dc_disp_ctrl:i_dc_disp_ctrl|bcd_0_in[0]                     ; Stuck at GND due to stuck port clock_enable            ;
-; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[0..6]         ; Stuck at VCC due to stuck port clock_enable            ;
-; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[0..6]         ; Stuck at VCC due to stuck port clock_enable            ;
-; dc_disp_ctrl:i_dc_disp_ctrl|bcd_2_in[0,1]                   ; Stuck at GND due to stuck port clock_enable            ;
-; dc_disp_ctrl:i_dc_disp_ctrl|bcd_1_in[0..3]                  ; Stuck at GND due to stuck port clock_enable            ;
-; dc_disp_ctrl:i_dc_disp_ctrl|bcd_0_in[1..3]                  ; Stuck at GND due to stuck port clock_enable            ;
-; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[0..6]         ; Stuck at VCC due to stuck port data_in                 ;
-; dc_disp_ctrl:i_dc_disp_ctrl|byte_vector[0..5]               ; Merged with dc_disp_ctrl:i_dc_disp_ctrl|byte_vector[6] ;
-; dc_disp_ctrl:i_dc_disp_ctrl|byte_vector[6]                  ; Stuck at GND due to stuck port data_in                 ;
-; serial_uart:i_serial_uart|tx_byte_saved[0..7]               ; Stuck at GND due to stuck port data_in                 ;
-; pwm_ctrl:i_pwm_ctrl|update_dc_now                           ; Lost fanout                                            ;
-; pwm_ctrl:i_pwm_ctrl|update_dc                               ; Lost fanout                                            ;
-; dc_disp_ctrl:i_dc_disp_ctrl|send_data_state.s_idle          ; Lost fanout                                            ;
-; dc_disp_ctrl:i_dc_disp_ctrl|send_data_state.s_send_hundreds ; Lost fanout                                            ;
-; dc_disp_ctrl:i_dc_disp_ctrl|send_data_state.s_send_tens     ; Lost fanout                                            ;
-; dc_disp_ctrl:i_dc_disp_ctrl|send_data_state.s_send_ones     ; Lost fanout                                            ;
-; dc_disp_ctrl:i_dc_disp_ctrl|send_data_state.s_send_procent  ; Lost fanout                                            ;
-; dc_disp_ctrl:i_dc_disp_ctrl|send_data_state.s_send_cr       ; Lost fanout                                            ;
-; serial_uart:i_serial_uart|rx_state.s_parity                 ; Stuck at GND due to stuck port data_in                 ;
-; serial_uart:i_serial_uart|tx_parity_bit                     ; Stuck at GND due to stuck port data_in                 ;
-; serial_uart:i_serial_uart|tx_state.s_parity                 ; Stuck at GND due to stuck port data_in                 ;
-; Total Number of Removed Registers = 70                      ;                                                        ;
-+-------------------------------------------------------------+--------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                              ;
++--------------------------------------------------+--------------------------------------------------------------+
+; Register name                                    ; Reason for Removal                                           ;
++--------------------------------------------------+--------------------------------------------------------------+
+; dc_disp_ctrl:i_dc_disp_ctrl|valid_in             ; Stuck at VCC due to stuck port data_in                       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|bcd_2_in[2,3]        ; Stuck at GND due to stuck port data_in                       ;
+; bcd_decode_rom:i_bcd_decode_rom|ready            ; Merged with serial_uart:i_serial_uart|reset_r                ;
+; dc_disp_ctrl:i_dc_disp_ctrl|byte_vector[7]       ; Merged with dc_disp_ctrl:i_dc_disp_ctrl|byte_vector[6]       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[0] ; Merged with dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[3] ;
+; serial_uart:i_serial_uart|rx_state.s_parity      ; Stuck at GND due to stuck port data_in                       ;
+; serial_uart:i_serial_uart|tx_state.s_parity      ; Stuck at GND due to stuck port data_in                       ;
+; serial_uart:i_serial_uart|tx_parity_bit          ; Lost fanout                                                  ;
+; dc_disp_ctrl:i_dc_disp_ctrl|byte_vector[6]       ; Stuck at GND due to stuck port data_in                       ;
+; serial_uart:i_serial_uart|tx_byte_saved[6,7]     ; Stuck at GND due to stuck port data_in                       ;
+; Total Number of Removed Registers = 12           ;                                                              ;
++--------------------------------------------------+--------------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                ;
-+--------------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
-; Register name                              ; Reason for Removal        ; Registers Removed due to This Register                                            ;
-+--------------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
-; bcd_decode_rom:i_bcd_decode_rom|addr_valid ; Stuck at GND              ; bcd_decode_rom:i_bcd_decode_rom|rom_data_valid,                                   ;
-;                                            ; due to stuck port data_in ; dc_disp_ctrl:i_dc_disp_ctrl|bcd_0_in[0],                                          ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[6],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[5],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[4],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[3],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[2],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[1],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[0],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[6],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[5],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[4],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[3],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[2],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[1],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[0],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|bcd_1_in[3], dc_disp_ctrl:i_dc_disp_ctrl|bcd_1_in[2], ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|bcd_1_in[1], dc_disp_ctrl:i_dc_disp_ctrl|bcd_1_in[0], ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|bcd_0_in[3], dc_disp_ctrl:i_dc_disp_ctrl|bcd_0_in[2], ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|bcd_0_in[1],                                          ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|byte_vector[6],                                       ;
-;                                            ;                           ; serial_uart:i_serial_uart|tx_byte_saved[6],                                       ;
-;                                            ;                           ; serial_uart:i_serial_uart|tx_byte_saved[5],                                       ;
-;                                            ;                           ; serial_uart:i_serial_uart|tx_byte_saved[4],                                       ;
-;                                            ;                           ; serial_uart:i_serial_uart|tx_byte_saved[3],                                       ;
-;                                            ;                           ; serial_uart:i_serial_uart|tx_byte_saved[2],                                       ;
-;                                            ;                           ; serial_uart:i_serial_uart|tx_byte_saved[1],                                       ;
-;                                            ;                           ; serial_uart:i_serial_uart|tx_byte_saved[0], pwm_ctrl:i_pwm_ctrl|update_dc_now,    ;
-;                                            ;                           ; pwm_ctrl:i_pwm_ctrl|update_dc, serial_uart:i_serial_uart|tx_parity_bit            ;
-; dc_disp_ctrl:i_dc_disp_ctrl|bcd_2_in[3]    ; Stuck at GND              ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[6],                                 ;
-;                                            ; due to stuck port data_in ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[5],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[4],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[3],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[2],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[1],                                 ;
-;                                            ;                           ; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[0]                                  ;
-+--------------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                         ;
++--------------------------------------------+---------------------------+--------------------------------------------+
+; Register name                              ; Reason for Removal        ; Registers Removed due to This Register     ;
++--------------------------------------------+---------------------------+--------------------------------------------+
+; dc_disp_ctrl:i_dc_disp_ctrl|byte_vector[6] ; Stuck at GND              ; serial_uart:i_serial_uart|tx_byte_saved[6] ;
+;                                            ; due to stuck port data_in ;                                            ;
++--------------------------------------------+---------------------------+--------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -394,52 +371,91 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 210   ;
-; Number of registers using Synchronous Clear  ; 117   ;
-; Number of registers using Synchronous Load   ; 8     ;
-; Number of registers using Asynchronous Clear ; 58    ;
+; Total registers                              ; 278   ;
+; Number of registers using Synchronous Clear  ; 118   ;
+; Number of registers using Synchronous Load   ; 9     ;
+; Number of registers using Asynchronous Clear ; 85    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 121   ;
+; Number of registers using Clock Enable       ; 172   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------+
-; Inverted Register Statistics                             ;
-+------------------------------------------------+---------+
-; Inverted Register                              ; Fan out ;
-+------------------------------------------------+---------+
-; reset_ctrl:\b_gen_pll:i_reset_ctrl|reset_out   ; 130     ;
-; dc_disp_ctrl:i_dc_disp_ctrl|transmit_valid_out ; 2       ;
-; pwm_ctrl:i_pwm_ctrl|previous_dc[2]             ; 2       ;
-; pwm_ctrl:i_pwm_ctrl|previous_dc[6]             ; 2       ;
-; pwm_ctrl:i_pwm_ctrl|previous_dc[5]             ; 2       ;
-; Total number of inverted registers = 5         ;         ;
-+------------------------------------------------+---------+
++------------------------------------------------------------+
+; Inverted Register Statistics                               ;
++--------------------------------------------------+---------+
+; Inverted Register                                ; Fan out ;
++--------------------------------------------------+---------+
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[0] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[1] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[2] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[3] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[4] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[5] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector0[6] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[0] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[1] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[2] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[3] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[4] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[5] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector1[6] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[3] ; 2       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[1] ; 2       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[2] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[4] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[5] ; 1       ;
+; dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[6] ; 1       ;
+; reset_ctrl:\b_gen_pll:i_reset_ctrl|reset_out     ; 168     ;
+; dc_disp_ctrl:i_dc_disp_ctrl|transmit_valid_out   ; 5       ;
+; pwm_ctrl:i_pwm_ctrl|previous_dc[2]               ; 2       ;
+; pwm_ctrl:i_pwm_ctrl|previous_dc[6]               ; 2       ;
+; pwm_ctrl:i_pwm_ctrl|previous_dc[5]               ; 2       ;
+; Total number of inverted registers = 25          ;         ;
++--------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |pwm_module|serial_uart:i_serial_uart|tx_bit_cnt[0]    ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |pwm_module|serial_uart:i_serial_uart|rx_bit_cnt[1]    ;
-; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_up_cnt[18]      ;
-; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_on_cnt[0]       ;
-; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_off_cnt[0]      ;
-; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_down_cnt[18]    ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |pwm_module|serial_uart:i_serial_uart|received_data[5] ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |pwm_module|serial_uart:i_serial_uart|tx_byte_saved[6] ;
-; 8:1                ; 14 bits   ; 70 LEs        ; 14 LEs               ; 56 LEs                 ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|dc_cnt[4]              ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|previous_dc[1]         ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 32 LEs               ; 8 LEs                  ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|new_dc[6]              ;
-; 8:1                ; 3 bits    ; 15 LEs        ; 0 LEs                ; 15 LEs                 ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|previous_dc[2]         ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |pwm_module|serial_uart:i_serial_uart|tx_bit_no        ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |pwm_module|serial_uart:i_serial_uart|rx_bit_no        ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; No         ; |pwm_module|dc_disp_ctrl:i_dc_disp_ctrl|Selector4      ;
-; 16:1               ; 2 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |pwm_module|pwm_ctrl:i_pwm_ctrl|Selector18             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                          ;
++------------------------------------------------+-----------------------------------------------+------+
+; Register Name                                  ; Megafunction                                  ; Type ;
++------------------------------------------------+-----------------------------------------------+------+
+; bcd_decode_rom:i_bcd_decode_rom|rom_data[0..9] ; bcd_decode_rom:i_bcd_decode_rom|bcd_rom_rtl_0 ; RAM  ;
++------------------------------------------------+-----------------------------------------------+------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |pwm_module|serial_uart:i_serial_uart|tx_bit_cnt[4]          ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |pwm_module|serial_uart:i_serial_uart|rx_bit_cnt[8]          ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_down_cnt[12]          ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_up_cnt[1]             ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_on_cnt[18]            ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 19 LEs               ; 19 LEs                 ; Yes        ; |pwm_module|key_ctrl:i_key_ctrl|ten_ms_off_cnt[14]           ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |pwm_module|serial_uart:i_serial_uart|received_data[0]       ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |pwm_module|serial_uart:i_serial_uart|tx_byte_saved[5]       ;
+; 8:1                ; 14 bits   ; 70 LEs        ; 14 LEs               ; 56 LEs                 ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|dc_cnt[5]                    ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|previous_dc[1]               ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|new_dc[0]                    ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |pwm_module|dc_disp_ctrl:i_dc_disp_ctrl|byte_vector[0]       ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; Yes        ; |pwm_module|dc_disp_ctrl:i_dc_disp_ctrl|seven_seg_vector2[2] ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 0 LEs                ; 15 LEs                 ; Yes        ; |pwm_module|pwm_ctrl:i_pwm_ctrl|previous_dc[6]               ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |pwm_module|serial_uart:i_serial_uart|tx_bit_no              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |pwm_module|serial_uart:i_serial_uart|rx_bit_no              ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |pwm_module|pwm_ctrl:i_pwm_ctrl|pwm_state                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Source assignments for bcd_decode_rom:i_bcd_decode_rom|altsyncram:bcd_rom_rtl_0|altsyncram_as71:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                               ;
++---------------------------------+--------------------+------+--------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                ;
++---------------------------------+--------------------+------+--------------------------------------------------+
 
 
 +----------------------------------------------------------------------------+
@@ -849,6 +865,67 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: bcd_decode_rom:i_bcd_decode_rom|altsyncram:bcd_rom_rtl_0 ;
++------------------------------------+----------------------------------------------------+-----------------+
+; Parameter Name                     ; Value                                              ; Type            ;
++------------------------------------+----------------------------------------------------+-----------------+
+; BYTE_SIZE_BLOCK                    ; 8                                                  ; Untyped         ;
+; AUTO_CARRY_CHAINS                  ; ON                                                 ; AUTO_CARRY      ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                                ; IGNORE_CARRY    ;
+; AUTO_CASCADE_CHAINS                ; ON                                                 ; AUTO_CASCADE    ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                                ; IGNORE_CASCADE  ;
+; WIDTH_BYTEENA                      ; 1                                                  ; Untyped         ;
+; OPERATION_MODE                     ; ROM                                                ; Untyped         ;
+; WIDTH_A                            ; 10                                                 ; Untyped         ;
+; WIDTHAD_A                          ; 8                                                  ; Untyped         ;
+; NUMWORDS_A                         ; 256                                                ; Untyped         ;
+; OUTDATA_REG_A                      ; UNREGISTERED                                       ; Untyped         ;
+; ADDRESS_ACLR_A                     ; NONE                                               ; Untyped         ;
+; OUTDATA_ACLR_A                     ; NONE                                               ; Untyped         ;
+; WRCONTROL_ACLR_A                   ; NONE                                               ; Untyped         ;
+; INDATA_ACLR_A                      ; NONE                                               ; Untyped         ;
+; BYTEENA_ACLR_A                     ; NONE                                               ; Untyped         ;
+; WIDTH_B                            ; 1                                                  ; Untyped         ;
+; WIDTHAD_B                          ; 1                                                  ; Untyped         ;
+; NUMWORDS_B                         ; 1                                                  ; Untyped         ;
+; INDATA_REG_B                       ; CLOCK1                                             ; Untyped         ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                             ; Untyped         ;
+; RDCONTROL_REG_B                    ; CLOCK1                                             ; Untyped         ;
+; ADDRESS_REG_B                      ; CLOCK1                                             ; Untyped         ;
+; OUTDATA_REG_B                      ; UNREGISTERED                                       ; Untyped         ;
+; BYTEENA_REG_B                      ; CLOCK1                                             ; Untyped         ;
+; INDATA_ACLR_B                      ; NONE                                               ; Untyped         ;
+; WRCONTROL_ACLR_B                   ; NONE                                               ; Untyped         ;
+; ADDRESS_ACLR_B                     ; NONE                                               ; Untyped         ;
+; OUTDATA_ACLR_B                     ; NONE                                               ; Untyped         ;
+; RDCONTROL_ACLR_B                   ; NONE                                               ; Untyped         ;
+; BYTEENA_ACLR_B                     ; NONE                                               ; Untyped         ;
+; WIDTH_BYTEENA_A                    ; 1                                                  ; Untyped         ;
+; WIDTH_BYTEENA_B                    ; 1                                                  ; Untyped         ;
+; RAM_BLOCK_TYPE                     ; AUTO                                               ; Untyped         ;
+; BYTE_SIZE                          ; 8                                                  ; Untyped         ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                          ; Untyped         ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                               ; Untyped         ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                               ; Untyped         ;
+; INIT_FILE                          ; db/pwm_module.ram0_bcd_decode_rom_eb028e2c.hdl.mif ; Untyped         ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                             ; Untyped         ;
+; MAXIMUM_DEPTH                      ; 0                                                  ; Untyped         ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                             ; Untyped         ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                             ; Untyped         ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                             ; Untyped         ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                             ; Untyped         ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                                    ; Untyped         ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                                    ; Untyped         ;
+; ENABLE_ECC                         ; FALSE                                              ; Untyped         ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                              ; Untyped         ;
+; WIDTH_ECCSTATUS                    ; 3                                                  ; Untyped         ;
+; DEVICE_FAMILY                      ; Cyclone II                                         ; Untyped         ;
+; CBXI_PARAMETER                     ; altsyncram_as71                                    ; Untyped         ;
++------------------------------------+----------------------------------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +--------------------------------------------------------------------------------------------+
 ; altpll Parameter Settings by Entity Instance                                               ;
 +-------------------------------+------------------------------------------------------------+
@@ -866,6 +943,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+------------------------------------------------------------+
 
 
++------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                     ;
++-------------------------------------------+----------------------------------------------------------+
+; Name                                      ; Value                                                    ;
++-------------------------------------------+----------------------------------------------------------+
+; Number of entity instances                ; 1                                                        ;
+; Entity Instance                           ; bcd_decode_rom:i_bcd_decode_rom|altsyncram:bcd_rom_rtl_0 ;
+;     -- OPERATION_MODE                     ; ROM                                                      ;
+;     -- WIDTH_A                            ; 10                                                       ;
+;     -- NUMWORDS_A                         ; 256                                                      ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                             ;
+;     -- WIDTH_B                            ; 1                                                        ;
+;     -- NUMWORDS_B                         ; 1                                                        ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                   ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                             ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                     ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                ;
++-------------------------------------------+----------------------------------------------------------+
+
+
 +---------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "serial_uart:i_serial_uart"                                                                           ;
 +-----------------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -873,24 +970,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+--------+----------+-------------------------------------------------------------------------------------+
 ; received_parity_error ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +-----------------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "bcd_decode_rom:i_bcd_decode_rom"                                                     ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; Port  ; Type   ; Severity ; Details                                                                             ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; ready ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "dc_disp_ctrl:i_dc_disp_ctrl"                                                                ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port         ; Type   ; Severity ; Details                                                                             ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
-; input_vector ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+--------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------+
@@ -919,7 +998,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -929,7 +1008,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon May 15 15:12:49 2023
+    Info: Processing started: Tue May 16 13:55:47 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off pwm_module -c pwm_module
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file serial_uart_rtl.vhd
@@ -961,8 +1040,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file pwm_mod
     Info (12022): Found design unit 1: pwm_module-rtl
     Info (12023): Found entity 1: pwm_module
 Info (12127): Elaborating entity "pwm_module" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at pwm_module.vhd(60): used implicit default value for signal "input_vector" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at pwm_module.vhd(64): used implicit default value for signal "valid_in" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Info (12128): Elaborating entity "altera_pll" for hierarchy "altera_pll:\b_gen_pll:i_altera_pll"
 Info (12128): Elaborating entity "altpll" for hierarchy "altera_pll:\b_gen_pll:i_altera_pll|altpll:altpll_component"
 Info (12130): Elaborated megafunction instantiation "altera_pll:\b_gen_pll:i_altera_pll|altpll:altpll_component"
@@ -1040,30 +1117,35 @@ Info (12128): Elaborating entity "dc_disp_ctrl" for hierarchy "dc_disp_ctrl:i_dc
 Info (12128): Elaborating entity "bcd_decode_rom" for hierarchy "bcd_decode_rom:i_bcd_decode_rom"
 Info (12128): Elaborating entity "serial_uart" for hierarchy "serial_uart:i_serial_uart"
 Info (12128): Elaborating entity "serial_ctrl" for hierarchy "serial_ctrl:i_serial_ctrl"
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "bcd_decode_rom:i_bcd_decode_rom|bcd_rom_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 10
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/pwm_module.ram0_bcd_decode_rom_eb028e2c.hdl.mif
+Info (12130): Elaborated megafunction instantiation "bcd_decode_rom:i_bcd_decode_rom|altsyncram:bcd_rom_rtl_0"
+Info (12133): Instantiated megafunction "bcd_decode_rom:i_bcd_decode_rom|altsyncram:bcd_rom_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "10"
+    Info (12134): Parameter "WIDTHAD_A" = "8"
+    Info (12134): Parameter "NUMWORDS_A" = "256"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/pwm_module.ram0_bcd_decode_rom_eb028e2c.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_as71.tdf
+    Info (12023): Found entity 1: altsyncram_as71
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "hex0_n[0]" is stuck at VCC
-    Warning (13410): Pin "hex0_n[1]" is stuck at VCC
-    Warning (13410): Pin "hex0_n[2]" is stuck at VCC
-    Warning (13410): Pin "hex0_n[3]" is stuck at VCC
-    Warning (13410): Pin "hex0_n[4]" is stuck at VCC
-    Warning (13410): Pin "hex0_n[5]" is stuck at VCC
-    Warning (13410): Pin "hex0_n[6]" is stuck at VCC
-    Warning (13410): Pin "hex1_n[0]" is stuck at VCC
-    Warning (13410): Pin "hex1_n[1]" is stuck at VCC
-    Warning (13410): Pin "hex1_n[2]" is stuck at VCC
-    Warning (13410): Pin "hex1_n[3]" is stuck at VCC
-    Warning (13410): Pin "hex1_n[4]" is stuck at VCC
-    Warning (13410): Pin "hex1_n[5]" is stuck at VCC
-    Warning (13410): Pin "hex1_n[6]" is stuck at VCC
-    Warning (13410): Pin "hex2_n[0]" is stuck at VCC
-    Warning (13410): Pin "hex2_n[1]" is stuck at VCC
-    Warning (13410): Pin "hex2_n[2]" is stuck at VCC
-    Warning (13410): Pin "hex2_n[3]" is stuck at VCC
-    Warning (13410): Pin "hex2_n[4]" is stuck at VCC
-    Warning (13410): Pin "hex2_n[5]" is stuck at VCC
-    Warning (13410): Pin "hex2_n[6]" is stuck at VCC
     Warning (13410): Pin "ledr[1]" is stuck at GND
     Warning (13410): Pin "ledr[2]" is stuck at GND
     Warning (13410): Pin "ledr[3]" is stuck at GND
@@ -1080,18 +1162,19 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "ledg[5]" is stuck at GND
     Warning (13410): Pin "ledg[6]" is stuck at GND
     Warning (13410): Pin "ledg[7]" is stuck at GND
-Info (17049): 8 registers lost all their fanouts during netlist optimizations.
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 401 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 521 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 40 output pins
-    Info (21061): Implemented 354 logic cells
+    Info (21061): Implemented 464 logic cells
+    Info (21064): Implemented 10 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 43 warnings
-    Info: Peak virtual memory: 4653 megabytes
-    Info: Processing ended: Mon May 15 15:12:51 2023
-    Info: Elapsed time: 00:00:02
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 20 warnings
+    Info: Peak virtual memory: 4657 megabytes
+    Info: Processing ended: Tue May 16 13:55:50 2023
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:01
 
 

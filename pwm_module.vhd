@@ -69,6 +69,7 @@ architecture rtl of pwm_module is
     signal hex_0_n_out       : std_logic_vector(6 downto 0);
     signal hex_1_n_out       : std_logic_vector(6 downto 0);
     signal hex_2_n_out       : std_logic_vector(6 downto 0);
+    signal ready             : std_logic;
 
 begin
 
@@ -155,24 +156,27 @@ begin
 
     i_dc_disp_ctrl : entity work.dc_disp_ctrl
     port map (
-        clk                 => clock_50,
-        reset               => reset,
+        clk               => clock_50,
+        reset             => reset,
 
-        current_dc          => current_dc,
-        current_dc_update   => current_dc_update,
+        current_dc        => current_dc,
+        current_dc_update => current_dc_update,
 
-        transmit_ready      => transmit_ready,
-        transmit_data       => transmit_data,
-        transmit_valid      => transmit_valid,
+        transmit_ready    => transmit_ready,
+        transmit_data     => transmit_data,
+        transmit_valid    => transmit_valid,
 
-        bcd_0               => bcd_0,                  
-        bcd_1               => bcd_1,                 
-        bcd_2               => bcd_2,        
-        valid_out           => valid_out,
+        bcd_0             => bcd_0,                  
+        bcd_1             => bcd_1,                 
+        bcd_2             => bcd_2,        
+        valid_out         => valid_out,
+        input_vector      => input_vector,
+        valid_in          => valid_in,
+        ready             => ready,
 
-        hex0_n              => hex_0_n_out,
-        hex1_n              => hex_1_n_out,
-        hex2_n              => hex_2_n_out
+        hex0_n            => hex_0_n_out,
+        hex1_n            => hex_1_n_out,
+        hex2_n            => hex_2_n_out
     );
 
     i_bcd_decode_rom : entity work.bcd_decode_rom
@@ -183,7 +187,7 @@ begin
         -- input data interface
         input_vector => input_vector,
         valid_in     => valid_in,
-        ready        => open,
+        ready        => ready,
         -- output result      
         bcd_0        => bcd_0,                  
         bcd_1        => bcd_1,                 
