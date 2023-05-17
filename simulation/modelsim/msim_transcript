@@ -1029,3 +1029,4 @@ run -all
 #       Detected 7 segment output duty cycle : 10% - OK!
 #    Test case #14 - FAIL.
 # Simulation ends
+# WARNING: No extended dataflow license exists

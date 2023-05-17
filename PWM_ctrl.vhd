@@ -47,7 +47,7 @@ architecture rtl of pwm_ctrl is
     signal led               : std_logic;
 
 begin
-    ledg              <= led; --ms counter mindre än dc cnt så led = 1 annars 0
+    ledg              <= led;
 
     current_dc        <= std_logic_vector(new_dc);
     current_dc_update <= update_dc_now;
@@ -63,13 +63,13 @@ begin
 
         elsif rising_edge(clk) then
 
-            if dc_cnt >= one_ms_cnt and dc_cnt != 0 then -- Linjär ökning på 1ms medan dc förändras olinjärt.
+            if dc_cnt >= one_ms_cnt and dc_cnt /= 0 then
                 led <= '1';
             else
                 led <= '0';
             end if;
 
-            if one_ms_cnt < one_ms then -- !!har det skett någon förändring?? 
+            if one_ms_cnt < one_ms then
                 one_ms_cnt    <= one_ms_cnt + 1;
                 update_dc_now <= '0';
             else
@@ -129,7 +129,7 @@ begin
                     previous_dc <= new_dc;
                 else
                     new_dc      <= previous_dc;
-                    dc_cnt      <= to_integer(unsigned(previous_dc))*500; --!! Fixa på samma sätt alla ställen där dc_cnt används !!
+                    dc_cnt      <= to_integer(unsigned(previous_dc))*500;
                 end if;
                 
                 if key_off  = '1' then
@@ -199,7 +199,7 @@ begin
                     new_dc      <= new_dc - one_procent;
                     update_dc   <= '1';
                     if dc_cnt > 0 and dc_cnt /= dc_cnt_max then
-                        dc_cnt  <= dc_cnt - 500; -- !!Ska denna inte heller kunna gå under 1000, vilket motsvarar 10%? !!
+                        dc_cnt  <= dc_cnt - 500;
                     end if;
                 end if;
 

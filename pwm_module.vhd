@@ -48,7 +48,6 @@ architecture rtl of pwm_module is
     -- (F)
     signal reset             : std_logic;
 
-    signal seven_seg_vector  : std_logic_vector(6 downto 0);
     signal led               : std_logic;
     signal received_error    : std_logic;
     signal transmit_ready    : std_logic;
@@ -58,7 +57,7 @@ architecture rtl of pwm_module is
     signal bcd_1             : std_logic_vector(3 downto 0);
     signal bcd_2             : std_logic_vector(3 downto 0);
     signal input_vector      : std_logic_vector(7 downto 0);
-    signal output_vector     : std_logic_vector(7 downto 0);
+    signal ready             : std_logic;
 
     signal valid_out         : std_logic;
     signal valid_in          : std_logic;
@@ -69,7 +68,6 @@ architecture rtl of pwm_module is
     signal hex_0_n_out       : std_logic_vector(6 downto 0);
     signal hex_1_n_out       : std_logic_vector(6 downto 0);
     signal hex_2_n_out       : std_logic_vector(6 downto 0);
-    signal ready             : std_logic;
 
 begin
 
@@ -223,8 +221,8 @@ begin
         clk            => clock_50,
         reset          => reset,
 
-        received_data  => received_data,
         received_valid => received_valid,
+        received_data  => received_data,
 
         serial_off     => serial_off,
         serial_on      => serial_on,
