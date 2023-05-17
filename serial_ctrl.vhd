@@ -32,6 +32,7 @@ architecture rtl of serial_ctrl is
     serial_up   <= serial_up_out;
 
     p_serial_ctrl : process (clk, reset)
+        variable ascii_char_as_decimal : integer range 0 to 117;
     begin
         if reset = '1' then
             serial_off_out  <= '0';
@@ -40,7 +41,6 @@ architecture rtl of serial_ctrl is
             serial_up_out   <= '0';
         elsif rising_edge(clk) then
             if received_valid = '1' then
-                variable ascii_char_as_decimal : integer range 0 to 117;
                 ascii_char_as_decimal := to_integer(unsigned(received_data));
                 case ascii_char_as_decimal is
                     when 0 =>

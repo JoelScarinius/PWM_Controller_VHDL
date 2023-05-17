@@ -10,12 +10,11 @@ entity dc_disp_ctrl is
         current_dc        : in std_logic_vector(7 downto 0);
         current_dc_update : in std_logic;
 
-        valid_out         : in std_logic;
-
         bcd_0             : in std_logic_vector(3 downto 0);
         bcd_1             : in std_logic_vector(3 downto 0);
         bcd_2             : in std_logic_vector(3 downto 0);
         ready             : in std_logic;
+        valid_out         : in std_logic;
         
         transmit_ready    : in std_logic;
         
@@ -60,6 +59,8 @@ architecture rtl of dc_disp_ctrl is
     signal seven_seg_vector0  : std_logic_vector(6 downto 0);
     signal seven_seg_vector1  : std_logic_vector(6 downto 0);
     signal seven_seg_vector2  : std_logic_vector(6 downto 0);
+
+    signal valid_in_out       : std_logic;
 
     signal send_data_state    : t_send_data_state := s_idle;
 
@@ -127,21 +128,20 @@ architecture rtl of dc_disp_ctrl is
 
 begin
 
-    -- state maskin med idle state, när uppdaterade dc kolla på valid out och 3 bcd siffror. send hundratal, tiotal, ental
-
-    hex0_n         <= seven_seg_vector0(6 downto 0);
-    hex1_n         <= seven_seg_vector1(6 downto 0);
-    hex2_n         <= seven_seg_vector2(6 downto 0);
-    transmit_data  <= byte_vector(7 downto 0);
+    hex0_n         <= seven_seg_vector0;
+    hex1_n         <= seven_seg_vector1;
+    hex2_n         <= seven_seg_vector2;
+    transmit_data  <= byte_vector;
     transmit_valid <= transmit_valid_out;
     input_vector   <= bcd_input_vector;
+    valid_in       <= valid_in_out;
     
     process(clk, reset)
     begin
         if reset = '1' then
             send_data_state    <= s_idle;
             transmit_valid_out <= '1';
-            valid_in           <= '1';
+            valid_in_out       <= '1';
             seven_seg_vector0  <= off;
             seven_seg_vector1  <= off;
             seven_seg_vector2  <= off;
@@ -156,7 +156,7 @@ begin
             when s_idle =>
                 if current_dc_update = '1' then
                     send_data_state <= s_send_hundreds;
-                    valid_in        <= '1';
+                    valid_in_out    <= '1';
                 end if;
             
             when s_send_hundreds =>
