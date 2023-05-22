@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Wed May 17 12:51:35 2023
+Analysis & Synthesis Status : Successful - Mon May 22 14:28:55 2023
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : pwm_module
 Top-level Entity Name : pwm_module
 Family : Cyclone II
-Total logic elements : 544
-    Total combinational functions : 511
+Total logic elements : 567
+    Total combinational functions : 536
     Dedicated logic registers : 269
 Total registers : 269
 Total pins : 46

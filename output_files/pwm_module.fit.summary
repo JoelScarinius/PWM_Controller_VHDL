@@ -1,12 +1,12 @@
-Fitter Status : Successful - Wed May 17 12:51:41 2023
+Fitter Status : Successful - Mon May 22 14:29:02 2023
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : pwm_module
 Top-level Entity Name : pwm_module
 Family : Cyclone II
 Device : EP2C15AF484C7
 Timing Models : Final
-Total logic elements : 533 / 14,448 ( 4 % )
-    Total combinational functions : 511 / 14,448 ( 4 % )
+Total logic elements : 558 / 14,448 ( 4 % )
+    Total combinational functions : 536 / 14,448 ( 4 % )
     Dedicated logic registers : 248 / 14,448 ( 2 % )
 Total registers : 272
 Total pins : 46 / 315 ( 15 % )

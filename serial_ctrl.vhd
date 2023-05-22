@@ -49,9 +49,9 @@ architecture rtl of serial_ctrl is
                     if received_valid = '1' then
                         ascii_char_as_decimal := to_integer(unsigned(received_data));
                         case ascii_char_as_decimal is
-                            when 0 =>
+                            when 48 =>
                                 serial_off_out  <= '1';
-                            when 1 =>
+                            when 49 =>
                                 serial_on_out   <= '1';
                             when 68 | 100 =>
                                 serial_down_out <= '1';

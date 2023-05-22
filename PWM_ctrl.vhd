@@ -115,45 +115,73 @@ begin
                 end if;
 
             when s_off =>
+                if previous_dc /= hundred_procent then
+                    previous_dc <= new_dc;
+                end if;
                 new_dc      <= zero_procent;
                 update_dc   <= '1';
                 dc_cnt      <= 0;
                 if key_on    = '1' then
+                    previous_dc <= new_dc;
                     pwm_state <= s_on;
                 elsif key_up = '1' then
+                    previous_dc <= new_dc;
                     pwm_state <= s_up;
                 end if;
+
+                if key_off = '0' and key_up = '0' and key_down = '0' and key_up = '0' then
+                    if serial_on  = '1' then
+                        previous_dc <= new_dc;
+                        pwm_state <= s_off;
+                    else 
+                        if serial_down = '1' then
+                            previous_dc <= new_dc;
+                            pwm_state <= s_down;
+                        end if;    
+                        if serial_up   = '1' then
+                            previous_dc <= new_dc;
+                            pwm_state <= s_up;
+                        end if;    
+                    end if;    
+                end if; 
                 pwm_state <= s_idle;
 
             when s_on =>
                 update_dc <= '1';
                 if  previous_dc <= ten_procent then
-                    new_dc      <= ten_procent;
                     previous_dc <= new_dc;
+                    new_dc      <= ten_procent;
                 else
+                    previous_dc <= new_dc;
                     new_dc      <= previous_dc;
                     dc_cnt      <= to_integer(unsigned(previous_dc))*500;
                 end if;
                 
                 if key_off  = '1' then
+                    previous_dc <= new_dc;
                     pwm_state <= s_off;
                 else 
                     if key_down = '1' then
+                        previous_dc <= new_dc;
                         pwm_state <= s_down;
                     end if;    
                     if key_up   = '1' then
+                        previous_dc <= new_dc;
                         pwm_state <= s_up;
                     end if;    
                 end if;    
 
                 if key_off = '0' and key_up = '0' and key_down = '0' and key_up = '0' then
                     if serial_off  = '1' then
+                        previous_dc <= new_dc;
                         pwm_state <= s_off;
                     else 
                         if serial_down = '1' then
+                            previous_dc <= new_dc;
                             pwm_state <= s_down;
                         end if;    
                         if serial_up   = '1' then
+                            previous_dc <= new_dc;
                             pwm_state <= s_up;
                         end if;    
                     end if;    
@@ -178,17 +206,21 @@ begin
                 end if;      
                 
                 if key_off  = '1' then
+                    previous_dc <= new_dc;
                     pwm_state <= s_off;
                 else 
                     if key_down = '1' then
+                        previous_dc <= new_dc;
                         pwm_state <= s_down;
                     end if;        
                 end if;
 
                 if key_off = '0' and key_up = '0' and key_down = '0' and key_up = '0' then
                     if serial_off  = '1' then
+                        previous_dc <= new_dc;
                         pwm_state <= s_off;
                     elsif serial_down = '1' then
+                        previous_dc <= new_dc;
                         pwm_state <= s_down;
                     end if;    
                 end if;
@@ -207,17 +239,21 @@ begin
                 end if;
 
                 if key_off  = '1' then
+                    previous_dc <= new_dc;
                     pwm_state <= s_off;
                 else     
                     if key_up   = '1' then
+                        previous_dc <= new_dc;
                         pwm_state <= s_up;
                     end if;     
                 end if;
 
                 if key_off = '0' and key_up = '0' and key_down = '0' and key_up = '0' then
                     if serial_off  = '1' then
+                        previous_dc <= new_dc;
                         pwm_state <= s_off;
                     elsif serial_up   = '1' then
+                        previous_dc <= new_dc;
                         pwm_state <= s_up;
                     end if;    
                 end if;
