@@ -12,10 +12,10 @@ entity pwm_ctrl is
         serial_down       : in std_logic;
         serial_up         : in std_logic;
 
-        key_off         : in std_logic;
-        key_on          : in std_logic;
-        key_down        : in std_logic;
-        key_up          : in std_logic;
+        key_off           : in std_logic;
+        key_on            : in std_logic;
+        key_down          : in std_logic;
+        key_up            : in std_logic;
 
         current_dc        : out std_logic_vector(7 downto 0);
         current_dc_update : out std_logic;
@@ -35,7 +35,7 @@ architecture rtl of pwm_ctrl is
     constant one_procent     : unsigned(6 downto 0) := "0000001"; -- 1%
     constant zero_procent    : unsigned(7 downto 0) := "00000000"; -- 0%
 
-    signal new_dc            : unsigned(7 downto 0) := "00000000"; -- 0-100%
+    signal new_dc            : unsigned(7 downto 0); -- 0-100%
     signal previous_dc       : unsigned(7 downto 0); -- 0-100%
     signal update_dc         : std_logic; 
     signal dc_cnt            : integer range 0 to dc_cnt_max; 
@@ -56,10 +56,13 @@ begin
     begin
 
         if reset = '1' then
-            pwm_state   <= s_off;
-            previous_dc <= hundred_procent;
-            one_ms_cnt  <= 0; -- 1ms counter
-            dc_cnt      <= 0;
+            pwm_state     <= s_off;
+            previous_dc   <= hundred_procent;
+            one_ms_cnt    <= 0; -- 1ms counter
+            dc_cnt        <= 0;
+            led           <= '0';
+            new_dc        <= zero_procent;
+            update_dc_now <= '1';
 
         elsif rising_edge(clk) then
 

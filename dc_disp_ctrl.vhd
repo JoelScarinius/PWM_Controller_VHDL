@@ -45,27 +45,23 @@ architecture rtl of dc_disp_ctrl is
                         s_send_cr
                         );
 
-    signal bcd_0_in           : std_logic_vector(3 downto 0);
-    signal bcd_1_in           : std_logic_vector(3 downto 0);
-    signal bcd_2_in           : std_logic_vector(3 downto 0);
     signal bcd_input_vector   : std_logic_vector(7 downto 0);
 
     -- (E)
     signal transmit_valid_out : std_logic;
     signal transmit_data_out  : std_logic_vector(7 downto 0);
 
-    -- seven segment and serial output
-    signal byte_vector        : std_logic_vector(7 downto 0);
+    -- seven segment display outputs
     signal seven_seg_vector0  : std_logic_vector(6 downto 0);
     signal seven_seg_vector1  : std_logic_vector(6 downto 0);
     signal seven_seg_vector2  : std_logic_vector(6 downto 0);
 
-    signal valid_in_out       : std_logic;
+    signal valid_in_bcd       : std_logic;
 
     signal send_data_state    : t_send_data_state := s_idle;
 
     function fn_bcd_to_seven_seg (bcd012 : std_logic_vector(3 downto 0)) return std_logic_vector is
-        variable return_vector : std_logic_vector(6 downto 0);
+        variable return_vector           : std_logic_vector(6 downto 0);
     begin
         
         case bcd012 is
@@ -90,7 +86,7 @@ architecture rtl of dc_disp_ctrl is
             when "1001" => 
                 return_vector := "0011000"; -- 9
             when others =>  
-                return_vector := "1111111"; -- off
+                return_vector := off; -- off
         end case;
         return return_vector;
     end function;
@@ -121,7 +117,7 @@ architecture rtl of dc_disp_ctrl is
             when "1001" => 
                 return_vector := "00111001"; -- 9
             when others =>  
-                return_vector := "00110000"; -- 0
+                return_vector := space; -- space
         end case;
         return return_vector;
     end function;
@@ -131,82 +127,99 @@ begin
     hex0_n         <= seven_seg_vector0;
     hex1_n         <= seven_seg_vector1;
     hex2_n         <= seven_seg_vector2;
-    transmit_data  <= byte_vector;
+    transmit_data  <= transmit_data_out;
     transmit_valid <= transmit_valid_out;
     input_vector   <= bcd_input_vector;
-    valid_in       <= valid_in_out;
+    valid_in       <= valid_in_bcd;
     
     process(clk, reset)
     begin
         if reset = '1' then
-            send_data_state    <= s_idle;
-            transmit_valid_out <= '1';
-            valid_in_out       <= '1';
+            send_data_state    <= s_send_hundreds;
+            bcd_input_vector   <= "00000000";
+            valid_in_bcd       <= '1';
             seven_seg_vector0  <= off;
             seven_seg_vector1  <= off;
             seven_seg_vector2  <= off;
+            transmit_valid_out <= '0';
+            transmit_data_out  <= space;
         elsif rising_edge(clk) then
-            
-            if ready = '1' then
-                bcd_input_vector <= current_dc;
-            end if;
-
             case send_data_state is
+                -- !! Hur ska jag göra för att skick 2 spaces !!
+                -- !! Ser i simuleringen att jag inte alltid skickar 5 värden är transmi_valid_out inte hög länge nog? !!
+                when s_idle =>
+                    transmit_valid_out <= '0';
+                    valid_in_bcd       <= '1';
+                    if ready = '1' and current_dc_update = '1' then
+                        bcd_input_vector   <= current_dc;
+                        send_data_state    <= s_send_hundreds;
+                    end if;
 
-            when s_idle =>
-                if current_dc_update = '1' then
-                    send_data_state <= s_send_hundreds;
-                    valid_in_out    <= '1';
-                end if;
-            
-            when s_send_hundreds =>
-                bcd_2_in <= bcd_2;
-                if to_integer(unsigned(current_dc)) < 100 and transmit_ready = '1' then
-                    transmit_valid_out <= '1';
-                    byte_vector        <= space ; -- space decimal 32
-                    seven_seg_vector2  <= off;
-                else
-                    transmit_valid_out <= '1';
-                    byte_vector        <= fn_bcd_to_byte(bcd_2_in(3 downto 0));
-                    seven_seg_vector2  <= fn_bcd_to_seven_seg(bcd_2_in(3 downto 0));
-                end if;
-                send_data_state        <= s_send_tens;
-            
-            when s_send_tens =>
-                bcd_1_in <= bcd_1;
-                if to_integer(unsigned(current_dc)) < 10 and transmit_ready = '1' then
-                    transmit_valid_out <= '1';
-                    byte_vector        <= space ; -- space decimal 32
-                    seven_seg_vector2  <= off;
-                else
-                    transmit_valid_out <= '1';
-                    byte_vector        <= fn_bcd_to_byte(bcd_1_in(3 downto 0));
-                    seven_seg_vector1  <= fn_bcd_to_seven_seg(bcd_1_in(3 downto 0));
-                end if;
-                send_data_state        <= s_send_ones;
-            
-            when s_send_ones =>
-                bcd_0_in <= bcd_0;
-                if transmit_ready = '1' then
-                    transmit_valid_out <= '1';
-                    byte_vector        <= fn_bcd_to_byte(bcd_0_in(3 downto 0));
-                    seven_seg_vector0  <= fn_bcd_to_seven_seg(bcd_0_in(3 downto 0));
-                end if;
-                send_data_state        <= s_send_procent;
+                when s_send_hundreds =>
+                    if valid_out = '1' then
+                        if (to_integer(unsigned(current_dc)) < 100) and transmit_ready = '1' then
+                            if transmit_valid_out = '0' then
+                                transmit_valid_out <= '1';
+                                transmit_data_out  <= space; -- space decimal 32
+                                seven_seg_vector2  <= off;
+                            else 
+                                send_data_state    <= s_send_tens;
+                            end if;
+                        elsif transmit_ready = '1' and (bcd_2 = "0001") then
+                            if transmit_valid_out = '0' then
+                                transmit_valid_out <= '1';
+                                transmit_data_out  <= fn_bcd_to_byte(bcd_2(3 downto 0));
+                                seven_seg_vector2  <= fn_bcd_to_seven_seg(bcd_2(3 downto 0));
+                            else 
+                                send_data_state    <= s_send_tens;
+                            end if;
+                        end if;
+                    end if;
 
-            when s_send_procent =>
-                if transmit_ready = '1' then
-                    transmit_valid_out <= '1';
-                    byte_vector <= procent; -- % decimal 37
-                end if;
-                send_data_state <= s_send_cr;
-            
-            when s_send_cr =>
-                if transmit_ready = '1' then
-                    transmit_valid_out <= '1';
-                    byte_vector <= cr ; -- CR decimal 13
-                end if;
-                send_data_state <= s_idle;
+                when s_send_tens =>
+                    if valid_out = '1' then
+                        if (to_integer(unsigned(current_dc)) < 10) and transmit_ready = '1' then
+                            transmit_valid_out <= '1';
+                            transmit_data_out  <= space; -- space decimal 32
+                            seven_seg_vector1  <= off;
+                            send_data_state    <= s_send_ones;
+                        elsif transmit_ready = '1' and ((to_integer(unsigned(current_dc)) /= 0) and (to_integer(unsigned(current_dc)) >= 10)) then
+                            if (bcd_1 /= "0000") or (to_integer(unsigned(current_dc)) = 100) then
+                                transmit_valid_out <= '1';
+                                transmit_data_out  <= fn_bcd_to_byte(bcd_1(3 downto 0));
+                                seven_seg_vector1  <= fn_bcd_to_seven_seg(bcd_1(3 downto 0));
+                                send_data_state    <= s_send_ones;
+                            end if;
+                        end if;
+                    end if;
+                    
+                when s_send_ones =>
+                    if valid_out = '1' then
+                        if transmit_ready = '1' then
+                            transmit_valid_out <= '1';
+                            transmit_data_out  <= fn_bcd_to_byte(bcd_0(3 downto 0));
+                            seven_seg_vector0  <= fn_bcd_to_seven_seg(bcd_0(3 downto 0));
+                            send_data_state    <= s_send_procent;
+                        end if;
+                    end if;
+
+                when s_send_procent =>
+                    if valid_out = '1' then
+                        if transmit_ready = '1' then
+                            transmit_valid_out <= '1';
+                            transmit_data_out  <= procent; -- % decimal 37
+                            send_data_state    <= s_send_cr;
+                        end if;
+                    end if;
+                    
+                when s_send_cr =>
+                    if valid_out = '1' then
+                        if transmit_ready = '1' then
+                            transmit_valid_out <= '0';
+                            transmit_data_out  <= cr ; -- CR decimal 13
+                            send_data_state    <= s_idle;
+                        end if;
+                    end if;
 
             end case;
         end if;

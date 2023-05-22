@@ -69,6 +69,8 @@ architecture rtl of pwm_module is
     signal hex_1_n_out       : std_logic_vector(6 downto 0);
     signal hex_2_n_out       : std_logic_vector(6 downto 0);
 
+    signal tx                : std_logic;
+
 begin
 
     ledr(9 downto 1) <= (others => '0');
@@ -78,6 +80,7 @@ begin
     hex2_n           <= hex_2_n_out;
     ledg(0)          <= led;
     ledr(0)          <= received_error;
+    fpga_out_tx      <= tx;
 
     b_gen_pll : if (not g_simulation) generate
     -- Instance of PLL
@@ -204,7 +207,7 @@ begin
         clk                   => clock_50,
         reset                 => reset,
         rx                    => fpga_in_rx,
-        tx                    => fpga_out_tx,
+        tx                    => tx,
 
         received_data         => received_data,
         received_valid        => received_valid,
